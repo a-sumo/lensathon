@@ -1,7 +1,6 @@
 data:
   externalSources:
     - 080b1f86-e896-4890-9e0f-e9c7f89643c1: /Users/armand/Library/Preferences/Snap/Lens Studio/LibraryComponents/SupabaseClient@0.0.10/SupabaseClient.lspkg
-    - 31cd4e80-c821-4716-85f7-a8574ba94c87: /Applications/Lens Studio.app/Contents/JsPlugins/PresetsRegistry/Assets/TypeScript/Resources/Untitled TypeScript.ts
     - 38d14cad-f2b4-4c9f-bdf9-960e3f22ff24: /Users/armand/Library/Preferences/Snap/Lens Studio/LibraryComponents/SpectaclesUIKit@0.0.8/SpectaclesUIKit.lspkg
     - 67ae799a-3e9a-4467-bacb-5871d0ce4a13: /Users/armand/Library/Preferences/Snap/Lens Studio/LibraryComponents/RemoteServiceGateway@0.1.9/RemoteServiceGateway.lspkg
     - 6f1c62e7-e1e8-4752-b7da-ccdab9bf17fc: /Applications/Lens Studio.app/Contents/JsPlugins/PresetsRegistry/Assets/TypeScript/Resources/Untitled TypeScript.ts

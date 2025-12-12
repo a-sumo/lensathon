@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 832
+    size: 830
     values:
       - DatabaseTypes.ts
       - Device Camera Texture.deviceCameraTexture
@@ -805,7 +805,6 @@ CollapsedEntities:
       - SpectaclesUIKit.lspkg/Textures/test-image.jpg
       - SpectaclesUIKit.lspkg/package.native
       - SpectaclesUIKit.lspkg/package_dependencies.json
-      - Stencil
       - Stencil/Images
       - Stencil/Images/loading-spinner.gif
       - Stencil/Materials
@@ -813,8 +812,8 @@ CollapsedEntities:
       - Stencil/Scripts
       - Stencil/Scripts/GeminiCall.ts
       - Stencil/Scripts/SnapCloudRequirements.ts
-      - Stencil/Scripts/StencilGenGeminiCall.ts
       - Stencil/Shaders
+      - Stencil/Textures
       - SupabaseClient.lspkg
       - SupabaseClient.lspkg/package.native
       - SupabaseClient.lspkg/polyfills
@@ -834,5 +833,4 @@ CollapsedEntities:
       - SupabaseClient.lspkg/supabase-snapcloud.js
       - SupabaseProject Palette.supabaseProject
       - SupabaseProject lensathon.supabaseProject
-      - Textures
   options: 4

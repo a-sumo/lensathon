@@ -564,7 +564,6 @@
     - !<own> f6e15a65-f5e5-415d-81b5-1f8767a3dd3c
     - !<own> f8e4cb34-ab57-492d-a716-3ec051694d95
   Components:
-    - !<own> b2435d80-3036-4be5-85ca-6d990e3ddd5b
     - !<own> 28b31e98-7dea-41f1-a7ec-f741c03b1cff
 - !<SceneObject/0624ddb9-4917-47be-bb60-24649b2931e5>
   PrefabRemaps:
@@ -6948,27 +6947,6 @@
   Components:
     - !<own> ab22849e-ac61-44f6-a05a-705b1b8d329f
     - !<own> 2153b6bf-a479-4099-aade-b47df58fc906
-- !<ScriptComponent/b2435d80-3036-4be5-85ca-6d990e3ddd5b>
-  PrefabRemaps:
-    []
-  Name: StencilGenGeminiCall
-  Enabled: false
-  ScriptAsset: !<reference> 313329ae-e7f3-4289-a8f5-4ddc4218abe8
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      snapCloudRequirements: !<MappingBased.AssignableType> 838daa92-7f25-4d49-8876-5541a9a524a8
-      functionName: gemini-call
-      imgObject: !<reference.SceneObject> 4bd1c9d8-7388-429c-85fc-a24c7c3ca108
-      objectTypeInput: !<MappingBased.AssignableType_1> 15257f7e-717f-4b0b-a219-5bfb9b96074f
-      basePrompt: basketball
-      generateButton: !<MappingBased.AssignableType_2> 424e1b1e-6984-48f4-bf92-b804e54b9baf
-  ScriptTypes:
-    "":
-      {}
 - !<ScriptComponent/b36c6ef2-1c44-45f9-bdbe-636820b231ce>
   PrefabRemaps:
     []

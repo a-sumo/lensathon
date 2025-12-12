@@ -7,12 +7,8 @@ dock:
               - items:
                   - persistentName: Snap.Plugin.Gui.SceneHierarchyEditor
                     Uuid: 6778142c-0629-4c2a-afc3-92a65ce29e1a
-                  - persistentName: Com.Snap.Supabase
-                    Uuid: 12918341-4f8b-4db0-97d4-a2840e5e92ea
                   - persistentName: Snap.Plugin.Gui.Graph.Editor
                     Uuid: f25a0fb1-a860-4bdc-a5c2-1970336bfea8
-                  - persistentName: Com.Snap.Supabase
-                    Uuid: 995383fc-7878-48ce-84f7-38c542d59a14
                 type: section
                 current: 0
               - items:
@@ -21,8 +17,8 @@ dock:
                 type: section
                 current: 0
             sizes:
-              - 290
-              - 377
+              - 407
+              - 260
             type: splitter
             orientation: vertical
           - items:
