@@ -1,0 +1,49 @@
+- !<AssetImportMetadata/23323125-ebdf-401f-9a83-2ec2b8d72518>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 03e7e453-63dc-4db3-b72a-866d327b0f49
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 03e7e453-63dc-4db3-b72a-866d327b0f49
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 2e5d439c-b8f4-494c-981e-b78153b5a577
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/2e5d439c-b8f4-494c-981e-b78153b5a577>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: e1bdde32-e8bc-472c-87cc-9a01e05e820f
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    debugStencilTexture: false
+    useDebugStencil: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - useDebugStencil: false
+      debugStencilTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"group_start", "label":"Debug"}'
+    - '// @input bool useDebugStencil {"hint":"Enable to use debug stencil texture instead of generated one"}'
+    - '// @input Asset.Texture debugStencilTexture {"hint":"Debug stencil texture to use when useDebugStencil is enabled"}'
+    - '// @ui {"widget":"group_end"}'

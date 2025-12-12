@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 826
+    size: 827
     values:
       - DatabaseTypes.ts
       - Device Camera Texture.deviceCameraTexture
@@ -80,6 +80,7 @@ CollapsedEntities:
       - RemoteServiceGateway.lspkg/README.md
       - RemoteServiceGateway.lspkg/RemoteServiceGatewayCredentials.ts
       - RemoteServiceGateway.lspkg/RemoteServiceGatewayExamples__PLACE_IN_SCENE.prefab
+      - RemoteServiceGateway.lspkg/Resources
       - RemoteServiceGateway.lspkg/Resources/Audio Output.audioOutput
       - RemoteServiceGateway.lspkg/Resources/Microphone Audio.micaudio
       - RemoteServiceGateway.lspkg/Resources/Visuals/LoadingSpinner

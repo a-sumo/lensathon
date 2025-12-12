@@ -55,6 +55,12 @@
     - Port_WorldTangent_N004:
         typeIdx: 4
         value: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - Port_aspectRatio_N005:
+        typeIdx: 1
+        value: 0.000000
+    - Tweak_N8:
+        typeIdx: 1
+        value: 1.000000
   DepthWrite: true
   DepthTest: true
   DepthFunction: LessEqual
@@ -72,6 +78,9 @@
     PreviewEnabled:
       typeIdx: 0
       value: 0
+    aspectRatio:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
     backgroundTex:
       typeIdx: 9
       value:
@@ -99,8 +108,8 @@
         id: f4acdebd-7de8-4876-b5b0-00853d282d10
         sampler:
           filteringMode: Trilinear
-          wrapModeU: Repeat
-          wrapModeV: Repeat
+          wrapModeU: ClampToEdge
+          wrapModeV: ClampToEdge
           wrapModeW: Repeat
           borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
           mipmaps: false

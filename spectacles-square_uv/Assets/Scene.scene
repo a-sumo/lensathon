@@ -824,6 +824,44 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
+- !<ScriptComponent/0b076a56-f125-457d-b749-567e87aef0dc>
+  PrefabRemaps:
+    []
+  Name: Interactable
+  Enabled: true
+  ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
+  ScriptInputsDefault:
+    targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    enableInstantDrag: true
+    isScrollable: true
+    allowMultipleInteractors: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      targetingMode: !<float> 3.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: false
+      isScrollable: false
+      allowMultipleInteractors: true
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/0b68b9e4-915b-4b4b-b59d-74c5d7972ca0>
   PrefabRemaps:
     []
@@ -1673,6 +1711,23 @@
     - !<own> 2b48df55-44c4-4516-b674-91f4c5d5481b
   Components:
     []
+- !<ScriptComponent/19592be6-be9f-48cc-a287-2e8b07c3b9c6>
+  PrefabRemaps:
+    []
+  Name: StencilHoverController
+  Enabled: true
+  ScriptAsset: !<reference> 03e7e453-63dc-4db3-b72a-866d327b0f49
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      useDebugStencil: true
+      debugStencilTexture: !<reference.Texture> f4acdebd-7de8-4876-b5b0-00853d282d10
+  ScriptTypes:
+    "":
+      {}
 - !<Text/1967dc7a-1d31-4e64-ae24-8036f2daa20c>
   PrefabRemaps:
     []
@@ -2368,7 +2423,7 @@
     {}
   ScriptInputs:
     "":
-      mesh: !<reference.SceneObject> 79e6c0ad-2808-4c9d-87e9-c7a5735489f4
+      mesh: !<reference.SceneObject> d2a0bb5b-6159-45ec-ab0e-2e4372731a8f
       backgroundTex: !<reference.Texture> 05577de5-507e-4490-ba2c-68447341c582
       stencilMask: !<reference.Texture> f4acdebd-7de8-4876-b5b0-00853d282d10
       tintColor: !<Vec4> {x: 1.000000, y: 0.000000, z: 0.000000, w: 1.000000}
@@ -5360,6 +5415,24 @@
     []
   Components:
     - !<own> 13babcea-912e-4e89-b60a-1b003f0c6dd8
+- !<ColliderComponent/665dc7d6-5dbe-42a6-930e-01006f1abf2f>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Box>
+    FitVisual: true
+    Size: {x: 15.000000, y: 15.000000, z: 15.000000}
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: true
 - !<Image/66a83cca-5828-43cc-8626-1011bf9a1378>
   PrefabRemaps:
     []
@@ -10046,12 +10119,15 @@
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 15.000000, z: -100.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    Scale: {x: 10.000000, y: 10.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
     []
   Components:
     - !<own> ab82649c-bffb-4d01-91a0-680b63ad0c90
+    - !<own> 19592be6-be9f-48cc-a287-2e8b07c3b9c6
+    - !<own> 0b076a56-f125-457d-b749-567e87aef0dc
+    - !<own> 665dc7d6-5dbe-42a6-930e-01006f1abf2f
 - !<SceneObject/d3340ef4-90e8-49c1-aeb6-4194ed9937f9>
   PrefabRemaps:
     []
