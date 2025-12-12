@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 665
+    size: 666
     values:
       - DatabaseTypes.ts
       - Materials/Drawing.mat
@@ -73,6 +73,7 @@ CollapsedEntities:
       - RemoteServiceGateway.lspkg/Utils/Event.ts
       - RemoteServiceGateway.lspkg/Utils/Promisfy.ts
       - RemoteServiceGateway.lspkg/package.native
+      - Scripts/GeminiCall.ts
       - Scripts/SnapCloudRequirements.ts
       - Scripts/StencilGenGeminiCall.ts
       - Shaders

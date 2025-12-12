@@ -564,6 +564,7 @@
     - !<own> f6e15a65-f5e5-415d-81b5-1f8767a3dd3c
   Components:
     - !<own> b2435d80-3036-4be5-85ca-6d990e3ddd5b
+    - !<own> 28b31e98-7dea-41f1-a7ec-f741c03b1cff
 - !<SceneObject/0624ddb9-4917-47be-bb60-24649b2931e5>
   PrefabRemaps:
     []
@@ -1298,7 +1299,7 @@
       _playAudio: false
       inputType: default
       formatType: date
-      placeholderText: Text Input
+      placeholderText: a cat
       fontFamily: !<reference.Font> 00000000-0000-0000-0000-000000000000
       useIcon: false
       icon: !<reference.Texture> 00000000-0000-0000-0000-000000000000
@@ -1979,6 +1980,26 @@
     - !<own> dc057694-04b7-4fd1-baaa-44b40d272fc9
   Components:
     []
+- !<ScriptComponent/28b31e98-7dea-41f1-a7ec-f741c03b1cff>
+  PrefabRemaps:
+    []
+  Name: GeminiCall
+  Enabled: true
+  ScriptAsset: !<reference> 1aaa0ca9-9a61-44b9-8b07-84c483bf806b
+  ScriptInputsDefault:
+    defaultSubject: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      apiKey: AIzaSyCUssal5gUeSQC1yBtxcDAm-2vSRDroip8
+      model: gemini-2.5-flash-image
+      imgObject: !<reference.SceneObject> 4bd1c9d8-7388-429c-85fc-a24c7c3ca108
+      objectTypeInput: !<MappingBased.AssignableType> 15257f7e-717f-4b0b-a219-5bfb9b96074f
+      defaultSubject: a cat
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/28cf3766-599c-4bd5-8505-2a92bf6606ed>
   PrefabRemaps:
     []
@@ -3212,8 +3233,8 @@
       _defaultToOn: false
       addCallbacks: true
       triggerUpCallbacks:
-        - scriptComponent: !<reference.ScriptComponent> b2435d80-3036-4be5-85ca-6d990e3ddd5b
-          functionName: generateImageExample
+        - scriptComponent: !<reference.ScriptComponent> 28b31e98-7dea-41f1-a7ec-f741c03b1cff
+          functionName: generateImage
       triggerDownCallbacks:
         []
       onValueChangeCallbacks:
@@ -6806,16 +6827,16 @@
   PrefabRemaps:
     []
   Name: StencilGenGeminiCall
-  Enabled: true
+  Enabled: false
   ScriptAsset: !<reference> 313329ae-e7f3-4289-a8f5-4ddc4218abe8
   ScriptInputsDefault:
-    functionName: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       snapCloudRequirements: !<MappingBased.AssignableType> 838daa92-7f25-4d49-8876-5541a9a524a8
-      functionName: generate-image
+      functionName: gemini-call
       imgObject: !<reference.SceneObject> 4bd1c9d8-7388-429c-85fc-a24c7c3ca108
       objectTypeInput: !<MappingBased.AssignableType_1> 15257f7e-717f-4b0b-a219-5bfb9b96074f
       basePrompt: basketball

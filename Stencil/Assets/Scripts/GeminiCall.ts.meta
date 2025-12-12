@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/aafbcc98-c396-485d-9a3b-cbc2a862a21a>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 1aaa0ca9-9a61-44b9-8b07-84c483bf806b
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 1aaa0ca9-9a61-44b9-8b07-84c483bf806b
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> da6aa618-1330-4d4a-9a43-4476af74d887
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/da6aa618-1330-4d4a-9a43-4476af74d887>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 4ff372b9-5e7d-4b66-b856-f6bae8863089
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    apiKey: false
+    defaultSubject: false
+    imgObject: false
+    model: false
+    objectTypeInput: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - apiKey: ""
+      model: gemini-2.0-flash-preview-image-generation
+      imgObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      objectTypeInput: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      defaultSubject: a cat
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Gemini API Config"}'
+    - '// @input string apiKey {"hint":"Your Gemini API key"}'
+    - '// @input string model = "gemini-2.5-flash-image" {"hint":"Gemini model for image generation"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Image Generation"}'
+    - // @input SceneObject imgObject
+    - '// @input AssignableType objectTypeInput {"hint":"Text input field for stencil subject"}'
+    - '// @input string defaultSubject = "a cat" {"hint":"Default subject if text input is empty"}'
+    - '// @ui {"widget":"group_end"}'

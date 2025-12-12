@@ -15,7 +15,7 @@ function checkUndefined(property, showIfData) {
 // @ui {"widget":"separator"}
 // @ui {"widget":"group_start", "label":"Edge Function Config"}
 // @input AssignableType snapCloudRequirements
-// @input string functionName = "hello-world" {"hint":"Name of the edge function"}
+// @input string functionName = "generate-image" {"hint":"Name of the edge function"}
 // @ui {"widget":"group_end"}
 // @ui {"widget":"separator"}
 // @ui {"widget":"group_start", "label":"Image Generation"}

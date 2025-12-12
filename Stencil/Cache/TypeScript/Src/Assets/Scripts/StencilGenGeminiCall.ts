@@ -10,7 +10,7 @@ export class ExampleGeminiImageGen extends BaseScriptComponent {
   private snapCloudRequirements: SnapCloudRequirements;
   @input
   @hint("Name of the edge function")
-  private functionName: string = "hello-world";
+  private functionName: string = "generate-image";
   @ui.group_end
 
   @ui.separator
@@ -34,39 +34,64 @@ export class ExampleGeminiImageGen extends BaseScriptComponent {
   private internetModule: InternetModule = require("LensStudio:InternetModule");
 
   onAwake() {
+    // this.setupButton();
+    this.testEdgeFunction();
+  }
+  onStarted(){
+    this.testEdgeFunction();
   }
 
-  /**
-   * Initialize the Edge Function service
-   */
-  private initializeService() {
-    if (!this.snapCloudRequirements || !this.snapCloudRequirements.isConfigured()) {
-      print("SnapCloudRequirements not configured");
+//   private setupButton() {
+//     if (this.generateButton) {
+//       this.generateButton.onTriggerUp.add(() => {
+//         print("Button pressed - testing with hardcoded prompt...");
+//         // Test with hardcoded prompt first
+//         this.testEdgeFunction();
+//       });
+//       print("Generate button configured");
+//     } else {
+//       print("No button assigned - call testEdgeFunction() manually");
+//     }
+//   }
+
+  // Test function with hardcoded prompt
+  testEdgeFunction(): void {
+    const testPrompt = "Generate a high quality image of a red apple";
+    print("Testing with prompt: " + testPrompt);
+    this.callEdgeFunction(testPrompt);
+  }
+
+  generateImage(): void {
+    let objectType = "";
+    if (this.objectTypeInput) {
+      objectType = this.objectTypeInput.text || "";
+    }
+
+    if (objectType.trim() === "") {
+      print("No object type specified - please enter a category");
       return;
     }
 
-    if (!this.functionName || this.functionName === "[your-function-name]") {
-      ("Function name not configured");
-      return;
-    }
-
-    const endpointUrl = `${this.snapCloudRequirements.getFunctionsApiUrl()}${this.functionName}`;
-    print("Edge Function service initialized");
-    print(`Endpoint: ${endpointUrl}`);
+    const fullPrompt = `${this.basePrompt} ${objectType}`;
+    print("Generating image with prompt: " + fullPrompt);
+    this.callEdgeFunction(fullPrompt);
   }
 
-  callEdgeFunction(): void {
-    print("Calling edge function...");
+  private callEdgeFunction(prompt: string): void {
+    print("=== CALLING EDGE FUNCTION ===");
 
     const endpoint = this.snapCloudRequirements.getFunctionsApiUrl() + this.functionName;
 
-    // Simple hello world payload
     const payload = {
-      name: "Spectacles"
+      prompt: prompt
     };
 
+    const bodyString = JSON.stringify(payload);
+
     print("Endpoint: " + endpoint);
-    print("Payload: " + JSON.stringify(payload));
+    print("Payload object: " + JSON.stringify(payload));
+    print("Body string: " + bodyString);
+    print("Body string length: " + bodyString.length);
 
     const request = RemoteServiceHttpRequest.create();
     request.url = endpoint;
@@ -76,10 +101,14 @@ export class ExampleGeminiImageGen extends BaseScriptComponent {
     const baseHeaders = this.snapCloudRequirements.getSupabaseHeaders();
     for (const key in baseHeaders) {
       headers[key] = baseHeaders[key];
+      print("Header: " + key + " = " + baseHeaders[key]);
     }
     headers["Content-Type"] = "application/json";
     request.headers = headers;
-    request.body = JSON.stringify(payload);
+
+    // Set body
+    request.body = bodyString;
+    print("Request body set to: " + request.body);
 
     this.internetModule.performHttpRequest(request, (response: RemoteServiceHttpResponse) => {
       this.handleResponse(response);
@@ -87,44 +116,51 @@ export class ExampleGeminiImageGen extends BaseScriptComponent {
   }
 
   private handleResponse(response: RemoteServiceHttpResponse): void {
+    print("=== RESPONSE ===");
     print("Response status: " + response.statusCode);
-    print("Response body: " + response.body);
 
     if (response.statusCode !== 200) {
       print("Error: HTTP " + response.statusCode);
+      print("Response body: " + response.body);
       return;
     }
 
     try {
       const result = JSON.parse(response.body);
-      print("Message from server: " + result.message);
+
+      if (result.error) {
+        print("Server error: " + result.error);
+        return;
+      }
+
+      if (result.image) {
+        print("Received image, decoding...");
+        this.decodeAndDisplayImage(result.image);
+      } else if (result.text) {
+        print("Received text response: " + result.text);
+      } else {
+        print("No image or text in response");
+      }
     } catch (e) {
       print("Failed to parse response: " + e);
     }
   }
 
-  // TODO: Uncomment when ready for image generation
-  // private generateImage() {
-  //   let objectType = "";
-  //   if (this.objectTypeInput) {
-  //     objectType = this.objectTypeInput.text || "";
-  //   }
-  //
-  //   if (objectType.trim() === "") {
-  //     print("No object type specified");
-  //     return;
-  //   }
-  //
-  //   const fullPrompt = `${this.basePrompt} ${objectType}`;
-  //   print("Generating image with prompt: " + fullPrompt);
-  //
-  //   // Call edge function with prompt, get back base64 image
-  //   // Then decode and display:
-  //   // Base64.decodeTextureAsync(base64Data, (texture) => {
-  //   //   let imgComponent = this.imgObject.getComponent("Image");
-  //   //   let imageMaterial = imgComponent.mainMaterial.clone();
-  //   //   imgComponent.mainMaterial = imageMaterial;
-  //   //   imgComponent.mainPass.baseTex = texture;
-  //   // }, () => { print("Failed to decode texture"); });
-  // }
+  private decodeAndDisplayImage(base64Data: string): void {
+    this.imgObject.enabled = true;
+
+    Base64.decodeTextureAsync(
+      base64Data,
+      (texture) => {
+        let imgComponent = this.imgObject.getComponent("Image");
+        let imageMaterial = imgComponent.mainMaterial.clone();
+        imgComponent.mainMaterial = imageMaterial;
+        imgComponent.mainPass.baseTex = texture;
+        print("Image generated and displayed successfully");
+      },
+      () => {
+        print("Failed to decode texture from base64 data.");
+      }
+    );
+  }
 }
