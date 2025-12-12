@@ -29,6 +29,14 @@ export class ExampleGeminiImageGen extends BaseScriptComponent {
   private defaultSubject: string = "a cat";
   @ui.group_end
 
+  @ui.separator
+  @ui.group_start("Stencil Material")
+  @input
+  @allowUndefined
+  @hint("Mesh to apply the stencil mask to")
+  private stencilMesh: SceneObject;
+  @ui.group_end
+
   private internetModule: InternetModule = require("LensStudio:InternetModule");
   private isGenerating: boolean = false;
 
@@ -179,6 +187,10 @@ Style requirements:
         imgComponent.mainMaterial = imageMaterial;
         imgComponent.mainPass.baseTex = texture;
         print("Stencil image generated and displayed successfully!");
+
+        // Apply the generated texture as stencil mask to the mesh
+        this.applyStencilMask(texture);
+
         this.isGenerating = false;
       },
       () => {
@@ -186,5 +198,29 @@ Style requirements:
         this.isGenerating = false;
       }
     );
+  }
+
+  private applyStencilMask(texture: Texture): void {
+    if (!this.stencilMesh) {
+      print("No stencil mesh configured, skipping stencil mask application");
+      return;
+    }
+
+    const renderMeshVisual = this.stencilMesh.getComponent("Component.RenderMeshVisual") as RenderMeshVisual;
+
+    if (!renderMeshVisual) {
+      print("ExampleGeminiImageGen: No RenderMeshVisual found on stencil mesh");
+      return;
+    }
+
+    const material = renderMeshVisual.mainMaterial;
+
+    if (!material) {
+      print("ExampleGeminiImageGen: No material found on stencil mesh");
+      return;
+    }
+
+    material.mainPass.stencilMask = texture;
+    print("Stencil mask applied to mesh successfully!");
   }
 }

@@ -32,6 +32,7 @@
     loadingTexture: false
     model: false
     objectTypeInput: false
+    stencilMesh: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -47,6 +48,7 @@
       loadingTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
       objectTypeInput: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
       defaultSubject: a cat
+      stencilMesh: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -62,4 +64,8 @@
     - '// @input Asset.Texture loadingTexture {"hint":"Loading texture/GIF to display while generating"}'
     - '// @input AssignableType objectTypeInput {"hint":"Text input field for stencil subject"}'
     - '// @input string defaultSubject = "a cat" {"hint":"Default subject if text input is empty"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Stencil Material"}'
+    - '// @input SceneObject stencilMesh {"hint":"Mesh to apply the stencil mask to"}'
     - '// @ui {"widget":"group_end"}'
