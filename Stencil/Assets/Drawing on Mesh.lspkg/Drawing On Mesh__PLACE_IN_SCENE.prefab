@@ -1,0 +1,98 @@
+- !<ObjectPrefab/1064d5bb-ed9b-42a0-8c7e-94270ecab5b4>
+  PackagePath: ""
+  objects:
+    - !<own> 1bb7867f-0620-48b1-86ef-eac80a67e411
+  LazyLoading: false
+  RetainAssets: true
+- !<ScriptComponent/0c14886e-f798-4a73-965a-95e93f28c633>
+  PrefabRemaps:
+    []
+  Name: Intro
+  Enabled: true
+  ScriptAsset: !<reference> 9f5ea850-749b-428e-886e-0c0ee6e09d53
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/1bb7867f-0620-48b1-86ef-eac80a67e411>
+  PrefabRemaps:
+    - 0c14886e-f798-4a73-965a-95e93f28c633: 0c14886e-f798-4a73-69a5-6a16c0d739cc
+    - 1bb7867f-0620-48b1-86ef-eac80a67e411: 1bb7867f-0620-48b1-7910-1537f5981bee
+    - 1fd2b0d0-9d40-47b7-ab57-8474b21a742e: 1fd2b0d0-9d40-47b7-54a8-7b8b4de58bd1
+    - 95556031-03c3-402f-b19c-c343c9cd2d1d: 95556031-03c3-402f-4e63-3cbc3632d2e2
+    - a2ebc866-ad21-4728-b049-f7b0e13ff1d0: a2ebc866-ad21-4728-4fb6-084f1ec00e2f
+  Name: Drawing On Mesh__PLACE_IN_SCENE
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> a2ebc866-ad21-4728-b049-f7b0e13ff1d0
+    - !<own> 1fd2b0d0-9d40-47b7-ab57-8474b21a742e
+  Components:
+    []
+- !<SceneObject/1fd2b0d0-9d40-47b7-ab57-8474b21a742e>
+  PrefabRemaps:
+    []
+  Name: Drawing Script
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.200000, y: 0.200000, z: 0.200000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 95556031-03c3-402f-b19c-c343c9cd2d1d
+- !<ScriptComponent/95556031-03c3-402f-b19c-c343c9cd2d1d>
+  PrefabRemaps:
+    []
+  Name: Drawing Script
+  Enabled: true
+  ScriptAsset: !<reference> 76db4c20-c686-4262-b554-dcb0d64bb42b
+  ScriptInputsDefault:
+    aspectFromCustomizeTexture: true
+    aspectFromRenderTarget: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      camera: !<reference.Camera> 00000000-0000-0065-0000-000000000065
+      cameraTex: !<reference.Texture> e16ee658-ac05-4af2-a5ca-f281ca12d2a0
+      renderTarget: !<reference.Texture> dc96ac7e-85cd-49f7-8ec7-117d27f2b676
+      meshVis: !<reference.RenderMeshVisual> c5923218-bb53-41d6-a221-6a14a1e25966
+      DrawingObjects: !<reference.SceneObject> 038d7d45-47fb-45f4-9733-b1884c7a73eb
+      drawingSize: 0.040000
+      customizeTexture: !<reference.Texture> 91561d4b-2e3d-4328-aa54-2650fbc6a9d0
+      aspectFromCustomizeTexture: true
+      aspectFromRenderTarget: false
+      debugText: !<reference.Text> 81bb0859-9a49-4d28-aa19-ef08fba0957c
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/a2ebc866-ad21-4728-b049-f7b0e13ff1d0>
+  PrefabRemaps:
+    []
+  Name: Intro
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 0c14886e-f798-4a73-965a-95e93f28c633

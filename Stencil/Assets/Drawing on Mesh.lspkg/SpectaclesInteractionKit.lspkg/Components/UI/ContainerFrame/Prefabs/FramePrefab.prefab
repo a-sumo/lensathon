@@ -1,0 +1,62 @@
+- !<ObjectPrefab/15d7eb78-b3b8-46a8-a411-23f422121ef5>
+  PackagePath: ""
+  objects:
+    - !<own> ac92d901-1a94-492a-b87e-37768dff634a
+  LazyLoading: false
+  RetainAssets: true
+- !<SceneObject/ac92d901-1a94-492a-b87e-37768dff634a>
+  PrefabRemaps:
+    - ac92d901-1a94-492a-b87e-37768dff634a: cb12d3f0-c061-401e-b66b-f54d304bb983
+    - de86d08e-9d7f-4829-9a20-05f2f0a4876b: b5d06324-5cf6-4721-b5b4-8d50b98c595e
+    - e8cbdc53-63db-45c4-97b4-d0a83731daff: 6deb5097-90cb-4105-ac70-a3ca5b09cc86
+  Name: FramePrefab
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e8cbdc53-63db-45c4-97b4-d0a83731daff
+    - !<own> de86d08e-9d7f-4829-9a20-05f2f0a4876b
+- !<RenderMeshVisual/de86d08e-9d7f-4829-9a20-05f2f0a4876b>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 62a9b6f3-f64b-4cc2-add2-2bbd8b69b825
+  Mesh: !<reference> 59b378ad-3842-442a-baeb-b09b23086c6d
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<ColliderComponent/e8cbdc53-63db-45c4-97b4-d0a83731daff>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Box>
+    FitVisual: false
+    Size: {x: 1.000000, y: 1.000000, z: 0.050000}
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false

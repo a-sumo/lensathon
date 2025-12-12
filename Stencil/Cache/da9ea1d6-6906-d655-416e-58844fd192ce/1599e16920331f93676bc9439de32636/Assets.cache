@@ -1,0 +1,150 @@
+- !<AssetCache>
+  AssetFiles:
+    9974e23d-7186-40ab-8e72-783a58d6ee84: da9ea1d6-6906-d655-416e-58844fd192ce/1599e16920331f93676bc9439de32636/Data/Rectangle_visual.ss_graph
+  Assets:
+    - !<ShaderGraphPass/9974e23d-7186-40ab-8e72-783a58d6ee84>
+      PackagePath: ""
+      DefaultDefines:
+        []
+      DefaultProperties:
+        Port_Color_N010:
+          typeIdx: 5
+          value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+        Port_Depth_N004:
+          typeIdx: 1
+          value: 1.000000
+        Port_FinalColor1_N004:
+          typeIdx: 5
+          value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+        Port_FinalColor2_N004:
+          typeIdx: 5
+          value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+        Port_FinalColor3_N004:
+          typeIdx: 5
+          value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+        Port_GSplatPointSize_N004:
+          typeIdx: 1
+          value: 0.000000
+        Port_GSplatRotation_N004:
+          typeIdx: 5
+          value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+        Port_GSplatScale_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 0.000000, z: 0.000000}
+        Port_LODValue_N000:
+          typeIdx: 1
+          value: 0.000000
+        Port_LODValue_N003:
+          typeIdx: 1
+          value: 0.000000
+        Port_LODValue_N007:
+          typeIdx: 1
+          value: 0.000000
+        Port_Mask_N010:
+          typeIdx: 1
+          value: 1.000000
+        Port_PrevWorldPosition_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 0.000000, z: 0.000000}
+        Port_RayDirection_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 1.000000, z: 0.000000}
+        Port_RayOrigin_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 0.000000, z: 0.000000}
+        Port_UVCoord_N000:
+          typeIdx: 3
+          value: {x: 0.000000, y: 0.000000}
+        Port_UVCoord_N003:
+          typeIdx: 3
+          value: {x: 0.000000, y: 0.000000}
+        Port_UVCoord_N007:
+          typeIdx: 3
+          value: {x: 0.000000, y: 0.000000}
+        Port_Value3_N005:
+          typeIdx: 1
+          value: 0.000000
+        Port_Value4_N005:
+          typeIdx: 1
+          value: 0.000000
+        Port_WorldNormal_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 1.000000, z: 0.000000}
+        Port_WorldPosition_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 0.000000, z: 0.000000}
+        Port_WorldTangent_N004:
+          typeIdx: 4
+          value: {x: 0.000000, y: 0.000000, z: 1.000000}
+      PassUiData: !<PassUiData>
+        ExtraDefines:
+          - SC_ENABLE_RT_CASTER
+        PassBindings:
+          - mLabel: Graph Parameters
+            mType: Invalid
+            mName: ""
+            mWidget: group_start
+            mHint: ""
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: ~
+            mValues:
+              []
+          - mLabel: Opacity
+            mType: Property
+            mName: Tweak_N8
+            mWidget: slider
+            mHint: "Property: Tweak_N8"
+            mMin: 0.000000
+            mMax: 1.000000
+            mStep: 0.010000
+            mDefaultVal: 1.000000
+            mValues:
+              []
+          - mLabel: OpacityTexture
+            mType: Property
+            mName: OpacityTexture
+            mWidget: texture_group
+            mHint: "Property: OpacityTexture"
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: ~
+            mValues:
+              []
+          - mLabel: ""
+            mType: GroupEnd
+            mName: ""
+            mWidget: group_end
+            mHint: ""
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: ~
+            mValues:
+              []
+          - mLabel: Alpha Test Threshold
+            mType: Property
+            mName: alphaTestThreshold
+            mWidget: slider
+            mHint: |-
+              Property: alphaTestThreshold
+              
+              When the 'Alpha Test' blend mode is enabled, pixels with alpha values lower than this disappear.
+            mMin: 0.000000
+            mMax: 1.000000
+            mStep: 0.001000
+            mDefaultVal: 0.500000
+            mValues:
+              []
+        ShaderType: Mesh3d
+      ShaderPath: da9ea1d6-6906-d655-416e-58844fd192ce/1599e16920331f93676bc9439de32636/Data/b01d0f7/Rectangle_visual.glsl
+      Defines:
+        []
+      Properties:
+        {}
+  SourceHash: 1599e16920331f93676bc9439de32636
+  FileHash: 436e61ee6a35af8b8ee2218bdf199d3c
+  NativePackageItems:
+    []

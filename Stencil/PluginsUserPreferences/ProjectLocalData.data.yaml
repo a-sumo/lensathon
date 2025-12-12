@@ -1,11 +1,16 @@
 data:
   externalSources:
+    - 053f46da-c181-c9e0-646c-acc65ebee2b3: /Users/armand/Documents/lensathon/spectacles-square_uv/Assets/Drawing on Mesh.lspkg/Scripts/Intro.js
     - 080b1f86-e896-4890-9e0f-e9c7f89643c1: /Users/armand/Library/Preferences/Snap/Lens Studio/LibraryComponents/SupabaseClient@0.0.10/SupabaseClient.lspkg
     - 31cd4e80-c821-4716-85f7-a8574ba94c87: /Applications/Lens Studio.app/Contents/JsPlugins/PresetsRegistry/Assets/TypeScript/Resources/Untitled TypeScript.ts
     - 38d14cad-f2b4-4c9f-bdf9-960e3f22ff24: /Users/armand/Library/Preferences/Snap/Lens Studio/LibraryComponents/SpectaclesUIKit@0.0.8/SpectaclesUIKit.lspkg
     - 67ae799a-3e9a-4467-bacb-5871d0ce4a13: /Users/armand/Library/Preferences/Snap/Lens Studio/LibraryComponents/RemoteServiceGateway@0.1.9/RemoteServiceGateway.lspkg
+    - 6cc69bbf-7568-45bf-1e9f-d4282b5d6e1e: /Users/armand/Documents/lensathon/spectacles-square_uv/Assets/Drawing on Mesh.lspkg/Textures/white.png
     - 6f1c62e7-e1e8-4752-b7da-ccdab9bf17fc: /Applications/Lens Studio.app/Contents/JsPlugins/PresetsRegistry/Assets/TypeScript/Resources/Untitled TypeScript.ts
+    - 6f400099-1e41-38b4-fe98-1d76e53f8106: /Users/armand/Documents/lensathon/spectacles-square_uv/Assets/Drawing on Mesh.lspkg/Scripts/Drawing Script.js
     - 82d6adaf-fe95-429c-9cc9-ba55ba3031c4: /Users/armand/Library/Preferences/Snap/Lens Studio/LibraryComponents/SpectaclesSyncKit@1.3.3850813/SpectaclesSyncKit.lspkg
     - 9b2ffd09-08f2-4ba9-b0a4-ac8c27bb553a: /Users/armand/Library/Preferences/Snap/Lens Studio/LibraryComponents/LSTween@1.1.0/LSTween.lspkg
+    - b4d1c1f5-91dd-489d-ab77-8c59a64ebe17: /Users/armand/Documents/lensathon/spectacles-square_uv/Assets/Materials/unlit.ss_graph
     - d69f20ce-a1c5-4ede-a9d5-9404461170dc: /Applications/Lens Studio.app/Contents/Plugins/Es_ShaderGraph_Presets.bundle/Assets/Empty.ss_graph
+    - da9ea1d6-6906-d655-416e-58844fd192ce: /Users/armand/Documents/lensathon/spectacles-square_uv/Assets/Materials/Rectangle_visual.ss_graph
     - fe169790-8887-4461-80b9-c4d00c3fc80a: /private/var/folders/xy/d6ndmnzs4g1f4ldf28t14s5m0000gn/T/LensStudio_sNtPXc/DatabaseTypes.ts
