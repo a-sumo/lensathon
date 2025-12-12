@@ -9,8 +9,8 @@
     - !<own> 29077b28-dae7-4ef2-87ac-78ecd12a40ba
     - !<own> 6db9aac9-60b0-43c3-99a3-4646cc7812c6
     - !<own> 6c021c8a-506d-4459-a628-35cf4b4653a6
-    - !<own> 79e6c0ad-2808-4c9d-87e9-c7a5735489f4
     - !<own> 01b46ab9-19cb-4d15-8fb6-a037182f817b
+    - !<own> 121fd439-9b3a-465c-b0ea-e84a44593bdb
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - |
@@ -1202,6 +1202,22 @@
     - !<own> 95e75362-a3b6-4e6c-ae2d-27aaed65c700
   Components:
     - !<own> d8e487e7-f06e-4df8-9d20-3d85a408de2b
+- !<SceneObject/121fd439-9b3a-465c-b0ea-e84a44593bdb>
+  PrefabRemaps:
+    []
+  Name: StencilTest
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -50.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 79e6c0ad-2808-4c9d-87e9-c7a5735489f4
+    - !<own> 5b5f6f3d-4822-4a15-a54b-c01588fd8c31
+  Components:
+    - !<own> 2cdef7a4-c5f8-413b-83d7-32c7f48dce53
 - !<SceneObject/124ebfc0-9240-4eaf-af6e-ce6ef49c1d7d>
   PrefabRemaps:
     []
@@ -2339,6 +2355,25 @@
     - !<own> 1fe1071f-e06a-40b7-aaaa-8f669d48c544
   Components:
     []
+- !<ScriptComponent/2cdef7a4-c5f8-413b-83d7-32c7f48dce53>
+  PrefabRemaps:
+    []
+  Name: StencilMaterial
+  Enabled: true
+  ScriptAsset: !<reference> 9fb93a7f-b40a-4cf5-b242-746ba3ec8694
+  ScriptInputsDefault:
+    tintColor: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      mesh: !<reference.SceneObject> 79e6c0ad-2808-4c9d-87e9-c7a5735489f4
+      backgroundTex: !<reference.Texture> 05577de5-507e-4490-ba2c-68447341c582
+      stencilMask: !<reference.Texture> f4acdebd-7de8-4876-b5b0-00853d282d10
+      tintColor: !<Vec4> {x: 1.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/2d12c6ae-ab79-41a0-a6db-6fb61f4db03b>
   PrefabRemaps:
     []
@@ -2354,6 +2389,46 @@
     []
   Components:
     - !<own> 272e7032-0a0d-4875-94aa-430714acb5d9
+- !<ScriptComponent/2d392b45-9d95-49c8-8c1a-1c73c71757c7>
+  PrefabRemaps:
+    []
+  Name: RectangleButton
+  Enabled: true
+  ScriptAsset: !<reference> 173d7099-914c-4f24-ac1c-1b67a66ae138
+  ScriptInputsDefault:
+    _renderOrder: true
+    _inactive: true
+    _playAudio: true
+    _style: true
+    _toggleable: true
+    _defaultToOn: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 0
+      _size: !<Vec3> {x: 7.000000, y: 3.000000, z: 1.000000}
+      _inactive: false
+      _playAudio: false
+      _style: PrimaryNeutral
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: true
+      triggerUpCallbacks:
+        - scriptComponent: !<reference.ScriptComponent> 2cdef7a4-c5f8-413b-83d7-32c7f48dce53
+          functionName: setStencilColor
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/2fa6895d-6663-4624-9e74-6b038b982135>
   PrefabRemaps:
     []
@@ -2719,6 +2794,21 @@
   Components:
     - !<own> 8378217b-d8be-4f5a-8382-374a0f30f301
     - !<own> d082374c-b100-424e-9e80-fde9f51d1b98
+- !<SceneObject/374635f9-ba7a-4766-9f13-f675efacfe47>
+  PrefabRemaps:
+    []
+  Name: Object 0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 97a1661b-0bdc-4668-a641-551791885cb8
 - !<SceneObject/38525cab-c9f5-4965-814b-8eb0d8b9ad55>
   PrefabRemaps:
     []
@@ -4206,6 +4296,7 @@
   Enabled: true
   ScriptAsset: !<reference> 367e89da-f5c3-4a28-8e59-c74f9b2cfa18
   ScriptInputsDefault:
+    imgObject: true
     defaultSubject: true
   ScriptTypesDefault:
     {}
@@ -4213,7 +4304,7 @@
     "":
       apiKey: AIzaSyCmfgxR2fO9eQaChxy95pLGe8KBbSkYwqY
       model: gemini-2.5-flash-image
-      imgObject: !<reference.SceneObject> 0cf1f98f-bcc7-4452-8b87-ebe49ea6a178
+      imgObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       loadingTexture: !<reference.Texture> 2063b253-98ea-4165-8ed7-1812f67facf6
       objectTypeInput: !<MappingBased.AssignableType> f2f252a8-0e87-4b9e-8e9b-93bbf841dc45
       defaultSubject: a cat
@@ -4838,6 +4929,21 @@
     - !<own> eeefed81-5683-4d40-9498-fd8984e6e8f6
   Components:
     []
+- !<SceneObject/5b5f6f3d-4822-4a15-a54b-c01588fd8c31>
+  PrefabRemaps:
+    []
+  Name: ApplyStencil
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -16.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 374635f9-ba7a-4766-9f13-f675efacfe47
+  Components:
+    - !<own> 2d392b45-9d95-49c8-8c1a-1c73c71757c7
 - !<SceneObject/5bfeb82d-38c5-41bb-be28-19244a013f51>
   PrefabRemaps:
     []
@@ -5362,7 +5468,7 @@
   PrefabRemaps:
     []
   Name: Gemini Frame
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: -150.000000}
@@ -5739,8 +5845,8 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    []
-  Mesh: !<reference> 0734656f-6ee0-45b3-811d-0012ad8a7aab
+    - !<reference> 843d0619-4445-46cc-a05e-be077a94bf56
+  Mesh: !<reference> 177459c0-51d4-4374-9e15-6cbda2f0631a
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
   BlendNormals: false
@@ -5871,13 +5977,13 @@
 - !<SceneObject/79e6c0ad-2808-4c9d-87e9-c7a5735489f4>
   PrefabRemaps:
     []
-  Name: Object 0
+  Name: Stencil Plane
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
     HasSegmentScaleCompensation: false
   Children:
     []
@@ -7130,6 +7236,87 @@
     - !<own> 3edde0ea-8cd6-43be-9a1e-265dcd328ee6
   Components:
     []
+- !<Text/97a1661b-0bdc-4668-a641-551791885cb8>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: Apply Stencil
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 30
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -7.500000
+    bottom: -2.250000
+    right: 7.500000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Overflow
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
 - !<SceneObject/97d33961-1bab-490f-bee5-7489f50bfb17>
   PrefabRemaps:
     []

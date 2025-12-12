@@ -53,7 +53,7 @@ export class ExampleGeminiImageGen extends BaseScriptComponent {
   }
 
   private buildStencilPrompt(subject: string): string {
-    return `Create a simple black and white stencil mask image. Black represents cutout areas (where paint passes through), white represents solid areas (blocking paint). 
+    return `Create a simple black and white stencil mask image. Black represents cutout areas (where paint passes through), white represents solid areas (blocking paint).
 Subject: ${subject}
 Style requirements:
 - Pure black (#000000) and pure white (#FFFFFF) only, no grayscale or gradients
@@ -61,7 +61,9 @@ Style requirements:
 - Single-layer stencil design (all black areas must connect to the edges or float independently)
 - High contrast silhouette style
 - No fine details, textures, or halftones
-- Suitable for laser cutting or hand-cutting`;
+- Suitable for laser cutting or hand-cutting
+- NO frame or border around the image - the subject should extend to the edges
+- The stencil design should fill the entire canvas without any decorative frames`;
   }
 
   private showLoadingState(): void {

@@ -2070,12 +2070,13 @@
   Enabled: true
   ScriptAsset: !<reference> 1aaa0ca9-9a61-44b9-8b07-84c483bf806b
   ScriptInputsDefault:
+    apiKey: true
     defaultSubject: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      apiKey: AIzaSyCUssal5gUeSQC1yBtxcDAm-2vSRDroip8
+      apiKey: ""
       model: gemini-2.5-flash-image
       imgObject: !<reference.SceneObject> 4bd1c9d8-7388-429c-85fc-a24c7c3ca108
       loadingTexture: !<reference.Texture> c3e9d8ed-1083-497d-bc36-39ee872bf264
