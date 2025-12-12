@@ -1,0 +1,20 @@
+- !<AssetCache>
+  AssetFiles:
+    1eea6f16-7594-4948-a925-47b17592a653: 0e9679f2-deb8-8c31-e966-12bd34bea4f6/3d219f2cb4afd85c1dc2e7a0f9a2df2a/Data/Checkmark_KEY_1.mesh
+  Assets:
+    - !<FileMesh/1eea6f16-7594-4948-a925-47b17592a653>
+      PackagePath: ""
+      Info: !<MeshInfo>
+        Triangles: 544
+        Vertices: 310
+        Blendshapes:
+          - Checkmark_KEY_2
+          - Checkmark_KEY_4
+          - Checkmark_KEY_5
+          - Checkmark_KEY_3
+        Joints: 0
+        AabbSize: {x: 0.998896, y: 1.056481, z: 1.057159}
+  SourceHash: 3d219f2cb4afd85c1dc2e7a0f9a2df2a
+  FileHash: eea0d3b703aad64bd48d08997bcd4611
+  NativePackageItems:
+    []

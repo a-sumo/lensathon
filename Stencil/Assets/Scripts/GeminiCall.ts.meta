@@ -29,6 +29,7 @@
     apiKey: false
     defaultSubject: false
     imgObject: false
+    loadingTexture: false
     model: false
     objectTypeInput: false
   ScriptTypesHidden:
@@ -43,6 +44,7 @@
     - apiKey: ""
       model: gemini-2.0-flash-preview-image-generation
       imgObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      loadingTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
       objectTypeInput: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
       defaultSubject: a cat
   ScriptTypes:
@@ -57,6 +59,7 @@
     - '// @ui {"widget":"separator"}'
     - '// @ui {"widget":"group_start", "label":"Image Generation"}'
     - // @input SceneObject imgObject
+    - '// @input Asset.Texture loadingTexture {"hint":"Loading texture/GIF to display while generating"}'
     - '// @input AssignableType objectTypeInput {"hint":"Text input field for stencil subject"}'
     - '// @input string defaultSubject = "a cat" {"hint":"Default subject if text input is empty"}'
     - '// @ui {"widget":"group_end"}'

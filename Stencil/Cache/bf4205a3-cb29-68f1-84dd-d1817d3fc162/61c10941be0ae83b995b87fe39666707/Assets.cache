@@ -1,0 +1,13 @@
+- !<AssetCache>
+  AssetFiles:
+    ff8d271b-1738-44bb-af9a-4216ab55e1d4: bf4205a3-cb29-68f1-84dd-d1817d3fc162/61c10941be0ae83b995b87fe39666707/Data/Connected Lens.png
+  Assets:
+    - !<FileTexture/ff8d271b-1738-44bb-af9a-4216ab55e1d4>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 200
+        Height: 200
+  SourceHash: 61c10941be0ae83b995b87fe39666707
+  FileHash: 912bb9abf6dbe75574ea1a7f5763bfb4
+  NativePackageItems:
+    []

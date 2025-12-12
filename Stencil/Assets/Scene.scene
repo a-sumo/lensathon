@@ -562,6 +562,7 @@
     - !<own> 105d1994-467d-448f-8c77-d7cef9c0b917
     - !<own> 778001d9-0df4-4f46-983e-baf84a87a76d
     - !<own> f6e15a65-f5e5-415d-81b5-1f8767a3dd3c
+    - !<own> f8e4cb34-ab57-492d-a716-3ec051694d95
   Components:
     - !<own> b2435d80-3036-4be5-85ca-6d990e3ddd5b
     - !<own> 28b31e98-7dea-41f1-a7ec-f741c03b1cff
@@ -927,6 +928,89 @@
   RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<Text/0ccfd8ff-a19f-4ffc-84a7-c3f89b16ff74>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 10
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: |
+    Turn on the example scene objects in the scene hierarchy one at the time.
+
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 50
+  Font: !<reference> 709203b6-8b83-40d7-8dda-e5adc4fd2875
+  LayoutRect:
+    left: -10.000000
+    bottom: -4.000000
+    right: 10.000000
+    top: 2.250000
+  OverflowVertical: Truncate
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.657115}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
 - !<SceneObject/0edb2237-5a88-4dba-bd1d-3ee344f74877>
   PrefabRemaps:
     []
@@ -1299,7 +1383,7 @@
       _playAudio: false
       inputType: default
       formatType: date
-      placeholderText: a cat
+      placeholderText: text banana
       fontFamily: !<reference.Font> 00000000-0000-0000-0000-000000000000
       useIcon: false
       icon: !<reference.Texture> 00000000-0000-0000-0000-000000000000
@@ -1995,6 +2079,7 @@
       apiKey: AIzaSyCUssal5gUeSQC1yBtxcDAm-2vSRDroip8
       model: gemini-2.5-flash-image
       imgObject: !<reference.SceneObject> 4bd1c9d8-7388-429c-85fc-a24c7c3ca108
+      loadingTexture: !<reference.Texture> c3e9d8ed-1083-497d-bc36-39ee872bf264
       objectTypeInput: !<MappingBased.AssignableType> 15257f7e-717f-4b0b-a219-5bfb9b96074f
       defaultSubject: a cat
   ScriptTypes:
@@ -2798,7 +2883,7 @@
   PrefabRemaps:
     []
   Name: ExampleGeminiLive
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: -20.000000, z: 0.000000}
@@ -9187,6 +9272,21 @@
     - !<own> 6dc5dd7a-4726-4cb6-b42f-a12f4b6416c3
   Components:
     []
+- !<SceneObject/f8e4cb34-ab57-492d-a716-3ec051694d95>
+  PrefabRemaps:
+    []
+  Name: Guide
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 20.000000, z: 0.020000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.750000, y: 0.750000, z: 0.750000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 0ccfd8ff-a19f-4ffc-84a7-c3f89b16ff74
 - !<ScriptComponent/f90596a4-19a0-49c2-bc83-fa73a68f9d28>
   PrefabRemaps:
     []
@@ -9238,7 +9338,7 @@
   MeshShadowMode: None
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
-  Text: Image
+  Text: Generate
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000

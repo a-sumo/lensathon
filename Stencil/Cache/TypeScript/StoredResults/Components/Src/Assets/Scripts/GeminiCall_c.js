@@ -20,6 +20,7 @@ function checkUndefined(property, showIfData) {
 // @ui {"widget":"separator"}
 // @ui {"widget":"group_start", "label":"Image Generation"}
 // @input SceneObject imgObject
+// @input Asset.Texture loadingTexture {"hint":"Loading texture/GIF to display while generating"}
 // @input AssignableType objectTypeInput {"hint":"Text input field for stencil subject"}
 // @input string defaultSubject = "a cat" {"hint":"Default subject if text input is empty"}
 // @ui {"widget":"group_end"}

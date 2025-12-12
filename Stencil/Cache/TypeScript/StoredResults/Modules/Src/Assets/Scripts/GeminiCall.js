@@ -62,22 +62,30 @@ let ExampleGeminiImageGen = (() => {
             this.apiKey = this.apiKey;
             this.model = this.model;
             this.imgObject = this.imgObject;
+            this.loadingTexture = this.loadingTexture;
             this.objectTypeInput = this.objectTypeInput;
             this.defaultSubject = this.defaultSubject;
             this.internetModule = require("LensStudio:InternetModule");
+            this.isGenerating = false;
         }
         __initialize() {
             super.__initialize();
             this.apiKey = this.apiKey;
             this.model = this.model;
             this.imgObject = this.imgObject;
+            this.loadingTexture = this.loadingTexture;
             this.objectTypeInput = this.objectTypeInput;
             this.defaultSubject = this.defaultSubject;
             this.internetModule = require("LensStudio:InternetModule");
+            this.isGenerating = false;
         }
         onAwake() {
         }
         generateImage() {
+            if (this.isGenerating) {
+                print("Already generating an image, please wait...");
+                return;
+            }
             let subject = this.defaultSubject;
             if (this.objectTypeInput && this.objectTypeInput.text && this.objectTypeInput.text.trim() !== "") {
                 subject = this.objectTypeInput.text.trim();
@@ -97,8 +105,20 @@ Style requirements:
 - No fine details, textures, or halftones
 - Suitable for laser cutting or hand-cutting`;
         }
+        showLoadingState() {
+            if (this.loadingTexture) {
+                this.imgObject.enabled = true;
+                let imgComponent = this.imgObject.getComponent("Image");
+                let imageMaterial = imgComponent.mainMaterial.clone();
+                imgComponent.mainMaterial = imageMaterial;
+                imgComponent.mainPass.baseTex = this.loadingTexture;
+                print("Showing loading state...");
+            }
+        }
         async callGeminiAPI(prompt) {
             print("=== CALLING GEMINI API ===");
+            this.isGenerating = true;
+            this.showLoadingState();
             const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${this.model}:generateContent?key=${this.apiKey}`;
             const requestBody = {
                 contents: [
@@ -126,6 +146,7 @@ Style requirements:
                 if (response.status !== 200) {
                     const errorText = await response.text();
                     print("Error response: " + errorText);
+                    this.isGenerating = false;
                     return;
                 }
                 const result = await response.json();
@@ -134,6 +155,7 @@ Style requirements:
             }
             catch (error) {
                 print("Fetch error: " + error);
+                this.isGenerating = false;
             }
         }
         handleGeminiResponse(result) {
@@ -142,11 +164,13 @@ Style requirements:
                 if (!candidates || candidates.length === 0) {
                     print("No candidates in response");
                     print("Full response: " + JSON.stringify(result));
+                    this.isGenerating = false;
                     return;
                 }
                 const parts = candidates[0]?.content?.parts;
                 if (!parts || parts.length === 0) {
                     print("No parts in response");
+                    this.isGenerating = false;
                     return;
                 }
                 for (const part of parts) {
@@ -163,21 +187,25 @@ Style requirements:
                     }
                 }
                 print("No image data found in response");
+                this.isGenerating = false;
             }
             catch (error) {
                 print("Error parsing response: " + error);
+                this.isGenerating = false;
             }
         }
         decodeAndDisplayImage(base64Data) {
-            this.imgObject.enabled = true;
             Base64.decodeTextureAsync(base64Data, (texture) => {
+                this.imgObject.enabled = true;
                 let imgComponent = this.imgObject.getComponent("Image");
                 let imageMaterial = imgComponent.mainMaterial.clone();
                 imgComponent.mainMaterial = imageMaterial;
                 imgComponent.mainPass.baseTex = texture;
                 print("Stencil image generated and displayed successfully!");
+                this.isGenerating = false;
             }, () => {
                 print("Failed to decode texture from base64 data.");
+                this.isGenerating = false;
             });
         }
     };

@@ -1,9 +1,10 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 666
+    size: 667
     values:
       - DatabaseTypes.ts
+      - Images/loading-spinner.gif
       - Materials/Drawing.mat
       - RemoteServiceGateway.lspkg
       - RemoteServiceGateway.lspkg/Helpers/AudioProcessor.ts
