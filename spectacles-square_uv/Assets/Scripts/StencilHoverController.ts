@@ -3,45 +3,90 @@ import { InteractorEvent } from "SpectaclesInteractionKit.lspkg/Core/Interactor/
 
 @component
 export class StencilHoverController extends BaseScriptComponent {
+  @ui.group_start("Stencil Plane")
+  @input
+  @hint("The movable stencil plane with cutout material")
+  stencilPlane: SceneObject;
+  @ui.group_end
+
+  @ui.group_start("Target Plane")
+  @input
+  @hint("The target plane with stencil compositing material")
+  targetPlane: SceneObject;
+
+  @input
+  @hint("Preview alpha during hover")
+  previewAlpha: number = 0.5;
+
+  @input
+  @hint("Full alpha when placed")
+  placedAlpha: number = 1.0;
+  @ui.group_end
+
   @ui.group_start("Debug")
   @input
-  @hint("Enable to use debug stencil texture instead of generated one")
   useDebugStencil: boolean = false;
 
   @input
   @allowUndefined
-  @hint("Debug stencil texture to use when useDebugStencil is enabled")
   debugStencilTexture: Texture;
   @ui.group_end
 
-  private material: Material | null = null;
-  private meshTransform: Transform | null = null;
-  private renderMeshVisual: RenderMeshVisual | null = null;
+  // Stencil plane (cutout material)
+  private stencilPlaneTransform: Transform | null = null;
+  private stencilPlaneMaterial: Material | null = null;
+
+  // Target plane (stencil compositing material)
+  private targetPlaneTransform: Transform | null = null;
+  private targetMaterial: Material | null = null;
+
+  // Collider plane (this object)
+  private colliderTransform: Transform | null = null;
+
   private interactable: Interactable | null = null;
+  private isHovering: boolean = false;
 
   onAwake() {
-    this.setupMaterial();
-    // Defer interactable setup to OnStartEvent (like ColorSampler does)
+    this.colliderTransform = this.sceneObject.getTransform();
+    this.setupStencilPlane();
+    this.setupTargetPlane();
     this.createEvent("OnStartEvent").bind(() => {
       this.setupInteractable();
     });
   }
 
-  private setupMaterial(): void {
-    this.renderMeshVisual = this.sceneObject.getComponent("Component.RenderMeshVisual") as RenderMeshVisual;
-    if (!this.renderMeshVisual) return;
+  private setupStencilPlane(): void {
+    if (!this.stencilPlane) return;
 
-    this.material = this.renderMeshVisual.mainMaterial;
-    if (!this.material) return;
+    this.stencilPlaneTransform = this.stencilPlane.getTransform();
 
-    this.meshTransform = this.sceneObject.getTransform();
+    const renderMesh = this.stencilPlane.getComponent("Component.RenderMeshVisual") as RenderMeshVisual;
+    if (renderMesh) {
+      this.stencilPlaneMaterial = renderMesh.mainMaterial;
+    }
 
-    // Calculate and set aspect ratio for the shader
-    this.updateAspectRatio();
+    if (this.useDebugStencil && this.debugStencilTexture && this.stencilPlaneMaterial) {
+      this.stencilPlaneMaterial.mainPass.baseTex = this.debugStencilTexture;
+    }
 
-    // Apply debug stencil if enabled
-    if (this.useDebugStencil && this.debugStencilTexture) {
-      this.material.mainPass.stencilMask = this.debugStencilTexture;
+    this.stencilPlane.enabled = false;
+  }
+
+  private setupTargetPlane(): void {
+    if (!this.targetPlane) return;
+
+    this.targetPlaneTransform = this.targetPlane.getTransform();
+
+    const renderMesh = this.targetPlane.getComponent("Component.RenderMeshVisual") as RenderMeshVisual;
+    if (renderMesh) {
+      this.targetMaterial = renderMesh.mainMaterial;
+    }
+
+    this.updateTargetAspectRatio();
+
+    // Set initial preview alpha
+    if (this.targetMaterial) {
+      this.setTargetAlpha(0);
     }
   }
 
@@ -50,54 +95,98 @@ export class StencilHoverController extends BaseScriptComponent {
     if (!this.interactable) return;
 
     this.interactable.onHoverEnter.add((event: InteractorEvent) => {
+      this.isHovering = true;
+      if (this.stencilPlane) {
+        this.stencilPlane.enabled = true;
+      }
+      this.setTargetAlpha(this.previewAlpha);
       this.onHover(event);
     });
 
     this.interactable.onHoverUpdate.add((event: InteractorEvent) => {
       this.onHover(event);
     });
+
+    this.interactable.onHoverExit.add(() => {
+      this.isHovering = false;
+      if (this.stencilPlane) {
+        this.stencilPlane.enabled = false;
+      }
+      this.setTargetAlpha(0);
+    });
+
+    this.interactable.onTriggerStart.add((event: InteractorEvent) => {
+      if (this.isHovering) {
+        this.confirmPlacement();
+      }
+    });
   }
 
-  private updateAspectRatio(): void {
-    if (!this.material || !this.meshTransform) return;
+  private updateTargetAspectRatio(): void {
+    if (!this.targetMaterial || !this.targetPlaneTransform) return;
 
-    const worldScale = this.meshTransform.getWorldScale();
+    const worldScale = this.targetPlaneTransform.getWorldScale();
     const aspectRatio = worldScale.x / worldScale.y;
-    // Material expects vec2 for aspectRatio (x = ratio, y = 1/ratio for convenience)
-    this.material.mainPass.aspectRatio = new vec2(aspectRatio, 1.0 / aspectRatio);
-
+    this.targetMaterial.mainPass.aspectRatio = new vec2(aspectRatio, 1.0 / aspectRatio);
   }
 
   private onHover(event: any): void {
-    if (!this.material || !this.meshTransform) return;
-
     const hitInfo = event.interactor.targetHitInfo;
-    if (!hitInfo) return;
+    if (!hitInfo || !hitInfo.hit) return;
 
-    const localHitPos = hitInfo.localHitPosition;
+    const worldHitPos = hitInfo.hit.position;
 
-    // Convert local position to UV coordinates (inverted)
-    const u = 0.5 - localHitPos.x;
-    const v = 0.5 - localHitPos.y;
+    // Move stencil plane to hover position
+    if (this.stencilPlaneTransform && this.colliderTransform) {
+      this.stencilPlaneTransform.setWorldPosition(worldHitPos);
+      this.stencilPlaneTransform.setWorldRotation(this.colliderTransform.getWorldRotation());
+    }
 
-    // Clamp to valid UV range
-    const clampedU = Math.max(0, Math.min(1, u));
-    const clampedV = Math.max(0, Math.min(1, v));
+    // Calculate stencil center in target plane's UV space
+    if (this.targetMaterial && this.targetPlaneTransform && this.stencilPlaneTransform) {
+      const stencilWorldPos = this.stencilPlaneTransform.getWorldPosition();
+      const targetInverse = this.targetPlaneTransform.getInvertedWorldTransform();
+      const localPosInTarget = targetInverse.multiplyPoint(stencilWorldPos);
 
-    this.material.mainPass.stencilCenter = new vec2(clampedU, clampedV);
+      // Convert to UV (inverted)
+      const u = 0.5 - localPosInTarget.x;
+      const v = 0.5 - localPosInTarget.y;
+
+      const clampedU = Math.max(0, Math.min(1, u));
+      const clampedV = Math.max(0, Math.min(1, v));
+
+      // Update target material's stencil center for preview
+      this.targetMaterial.mainPass.stencilCenter = new vec2(clampedU, clampedV);
+    }
   }
 
-  setStencilCenter(u: number, v: number): void {
-    if (!this.material) return;
-    this.material.mainPass.stencilCenter = new vec2(u, v);
+  private confirmPlacement(): void {
+    this.setTargetAlpha(this.placedAlpha);
   }
 
-  setStencilMask(texture: Texture): void {
-    if (!this.material) return;
-    this.material.mainPass.stencilMask = texture;
+  private setTargetAlpha(alpha: number): void {
+    if (!this.targetMaterial) return;
+
+    const currentColor = this.targetMaterial.mainPass.tintColor;
+    if (currentColor) {
+      this.targetMaterial.mainPass.tintColor = new vec4(currentColor.r, currentColor.g, currentColor.b, alpha);
+    }
   }
 
-  recalculateAspectRatio(): void {
-    this.updateAspectRatio();
+  // Public: Set stencil texture on stencil plane
+  setStencilTexture(texture: Texture): void {
+    if (this.stencilPlaneMaterial) {
+      this.stencilPlaneMaterial.mainPass.baseTex = texture;
+    }
+    if (this.targetMaterial) {
+      this.targetMaterial.mainPass.stencilMask = texture;
+    }
+  }
+
+  // Public: Set tint color on target
+  setTargetColor(color: vec4): void {
+    if (this.targetMaterial) {
+      this.targetMaterial.mainPass.tintColor = color;
+    }
   }
 }

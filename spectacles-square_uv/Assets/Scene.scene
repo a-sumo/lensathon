@@ -12,6 +12,8 @@
     - !<own> 01b46ab9-19cb-4d15-8fb6-a037182f817b
     - !<own> 121fd439-9b3a-465c-b0ea-e84a44593bdb
     - !<own> d2a0bb5b-6159-45ec-ab0e-2e4372731a8f
+    - !<own> bce17ddd-f3d6-4121-a01a-cbf3da0a8227
+    - !<own> 0e7d326c-69bb-4aff-8637-418e7ffdae58
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - |
@@ -367,7 +369,7 @@
     - ff4af0e4-4754-47ac-a351-37831787c748: 250745c0-e6b7-4a4c-7422-8ea0904f7918
     - ff7be027-a0c2-4986-8ce3-1d5cb98d91d2: 25317344-c07a-40b5-65e7-bb5f4b81d82a
   Name: ExampleInterface
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: -100.000000}
@@ -828,7 +830,7 @@
   PrefabRemaps:
     []
   Name: Interactable
-  Enabled: true
+  Enabled: false
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
     targetingMode: true
@@ -963,6 +965,24 @@
   RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/0e7d326c-69bb-4aff-8637-418e7ffdae58>
+  PrefabRemaps:
+    []
+  Name: Collider Plane
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 15.000000, z: -100.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 20.000000, y: 20.000000, z: 20.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> bc389d70-afd7-4773-9db2-7abebadc24cf
+    - !<own> 4a28b024-a9ae-48da-8a05-59af1a857dc5
+    - !<own> 609969b4-2699-4edc-a3a9-efa79d6ccc30
+    - !<own> 2170abc6-7bd8-4596-b132-490c8b34a83f
 - !<Image/0ec2e7f8-c755-4986-b063-8101a4b0aa3c>
   PrefabRemaps:
     []
@@ -1711,23 +1731,6 @@
     - !<own> 2b48df55-44c4-4516-b674-91f4c5d5481b
   Components:
     []
-- !<ScriptComponent/19592be6-be9f-48cc-a287-2e8b07c3b9c6>
-  PrefabRemaps:
-    []
-  Name: StencilHoverController
-  Enabled: true
-  ScriptAsset: !<reference> 03e7e453-63dc-4db3-b72a-866d327b0f49
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      useDebugStencil: true
-      debugStencilTexture: !<reference.Texture> f4acdebd-7de8-4876-b5b0-00853d282d10
-  ScriptTypes:
-    "":
-      {}
 - !<Text/1967dc7a-1d31-4e64-ae24-8036f2daa20c>
   PrefabRemaps:
     []
@@ -2001,6 +2004,28 @@
     "":
       logLevelFilter: 3
       _debugModeEnabled: false
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/2170abc6-7bd8-4596-b132-490c8b34a83f>
+  PrefabRemaps:
+    []
+  Name: StencilHoverController
+  Enabled: true
+  ScriptAsset: !<reference> 03e7e453-63dc-4db3-b72a-866d327b0f49
+  ScriptInputsDefault:
+    previewAlpha: true
+    placedAlpha: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      stencilPlane: !<reference.SceneObject> bce17ddd-f3d6-4121-a01a-cbf3da0a8227
+      targetPlane: !<reference.SceneObject> d2a0bb5b-6159-45ec-ab0e-2e4372731a8f
+      previewAlpha: 0.500000
+      placedAlpha: !<float> 1.000000
+      useDebugStencil: true
+      debugStencilTexture: !<reference.Texture> f4acdebd-7de8-4876-b5b0-00853d282d10
   ScriptTypes:
     "":
       {}
@@ -4022,6 +4047,24 @@
     - !<own> 01474d4e-bb5b-410d-9a80-e9b7f24b2928
   Components:
     - !<own> 41fbd64b-5597-429d-a563-9eeb61033ada
+- !<ColliderComponent/4a28b024-a9ae-48da-8a05-59af1a857dc5>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Box>
+    FitVisual: true
+    Size: {x: 15.000000, y: 15.000000, z: 15.000000}
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: true
 - !<Text/4a69e576-74c3-4b1a-886f-f4d0fd127b66>
   PrefabRemaps:
     []
@@ -5158,6 +5201,26 @@
   ScriptTypes:
     "":
       {}
+- !<RenderMeshVisual/609969b4-2699-4edc-a3a9-efa79d6ccc30>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: false
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> b7c48448-b23e-4c3f-b37f-5f4e03fedfd2
+  Mesh: !<reference> 177459c0-51d4-4374-9e15-6cbda2f0631a
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<SceneObject/614eab56-7433-417f-b1ae-0247b7bf2d74>
   PrefabRemaps:
     []
@@ -5419,7 +5482,7 @@
   PrefabRemaps:
     []
   Name: Physics Collider
-  Enabled: true
+  Enabled: false
   Shape: !<Box>
     FitVisual: true
     Size: {x: 15.000000, y: 15.000000, z: 15.000000}
@@ -5718,6 +5781,26 @@
   Components:
     - !<own> d66d4cfb-7dc9-40f7-86f0-6fbc847dda60
     - !<own> d28ef37a-c9b2-4358-83a3-09058a4768c5
+- !<RenderMeshVisual/7195f654-a1a3-482e-8dda-a247983c8ceb>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> d5043cba-93fe-465f-a5d9-dcb507112986
+  Mesh: !<reference> 019dc018-cc9c-41d3-81d6-ee2c333b3ed1
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<SceneObject/71dbdbcb-fedd-46c0-adcb-e1f2e8b92f5d>
   PrefabRemaps:
     []
@@ -8678,6 +8761,44 @@
     bottom: 0.000000
     right: 0.000000
     top: 0.000000
+- !<ScriptComponent/bc389d70-afd7-4773-9db2-7abebadc24cf>
+  PrefabRemaps:
+    []
+  Name: Interactable
+  Enabled: true
+  ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
+  ScriptInputsDefault:
+    targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    enableInstantDrag: true
+    isScrollable: true
+    allowMultipleInteractors: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      targetingMode: !<float> 3.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: false
+      isScrollable: false
+      allowMultipleInteractors: true
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
 - !<ScreenTransform/bc5f2def-5916-41df-921a-75b23a7e5b50>
   PrefabRemaps:
     []
@@ -8711,6 +8832,21 @@
     bottom: 0.000000
     right: 0.000000
     top: 0.000000
+- !<SceneObject/bce17ddd-f3d6-4121-a01a-cbf3da0a8227>
+  PrefabRemaps:
+    []
+  Name: Stencil Plane
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 15.000000, z: -100.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 7195f654-a1a3-482e-8dda-a247983c8ceb
 - !<ScriptComponent/bdc1be67-d63e-47bd-a28f-7c92c118339f>
   PrefabRemaps:
     []
@@ -10113,7 +10249,7 @@
 - !<SceneObject/d2a0bb5b-6159-45ec-ab0e-2e4372731a8f>
   PrefabRemaps:
     []
-  Name: Stencil Plane
+  Name: Target Plane
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
@@ -10125,7 +10261,6 @@
     []
   Components:
     - !<own> ab82649c-bffb-4d01-91a0-680b63ad0c90
-    - !<own> 19592be6-be9f-48cc-a287-2e8b07c3b9c6
     - !<own> 0b076a56-f125-457d-b749-567e87aef0dc
     - !<own> 665dc7d6-5dbe-42a6-930e-01006f1abf2f
 - !<SceneObject/d3340ef4-90e8-49c1-aeb6-4194ed9937f9>

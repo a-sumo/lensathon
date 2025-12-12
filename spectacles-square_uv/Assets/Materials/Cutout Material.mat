@@ -1,21 +1,9 @@
-- !<Material/843d0619-4445-46cc-a05e-be077a94bf56>
+- !<Material/d5043cba-93fe-465f-a5d9-dcb507112986>
   PackagePath: ""
   PassesInfo:
-    - !<own> 47b8fa9c-c7f2-4fa2-a552-bafce7c88a98
-- !<PassInfo/47b8fa9c-c7f2-4fa2-a552-bafce7c88a98>
+    - !<own> e5ded420-796b-4365-80bc-85bcf71c4205
+- !<PassInfo/e5ded420-796b-4365-80bc-85bcf71c4205>
   CachedProperties:
-    - Port_A_N001:
-        typeIdx: 5
-        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
-    - Port_B_N001:
-        typeIdx: 5
-        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
-    - Port_C_N001:
-        typeIdx: 5
-        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
-    - Port_D_N001:
-        typeIdx: 5
-        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
     - Port_Depth_N004:
         typeIdx: 1
         value: 1.000000
@@ -26,6 +14,9 @@
         typeIdx: 5
         value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     - Port_FinalColor3_N004:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_FinalColor_N004:
         typeIdx: 5
         value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     - Port_GSplatPointSize_N004:
@@ -46,6 +37,12 @@
     - Port_RayOrigin_N004:
         typeIdx: 4
         value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_Value1_N000:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Value2_N000:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
     - Port_WorldNormal_N004:
         typeIdx: 4
         value: {x: 0.000000, y: 1.000000, z: 0.000000}
@@ -55,36 +52,9 @@
     - Port_WorldTangent_N004:
         typeIdx: 4
         value: {x: 0.000000, y: 0.000000, z: 1.000000}
-    - Port_aspectRatio_N005:
-        typeIdx: 1
-        value: 0.000000
-    - Tweak_N8:
-        typeIdx: 1
-        value: 1.000000
-    - backgroundTex:
-        typeIdx: 9
-        value:
-          id: 05577de5-507e-4490-ba2c-68447341c582
-          sampler:
-            filteringMode: Trilinear
-            wrapModeU: Repeat
-            wrapModeV: Repeat
-            wrapModeW: Repeat
-            borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
-            mipmaps: false
-          type: Texture2D
-    - backgroundTexTransform:
-        typeIdx: 7
-        value:
-          0: {x: 1.000000, y: 0.000000, z: 0.000000}
-          1: {x: 0.000000, y: 1.000000, z: 0.000000}
-          2: {x: 0.000000, y: 0.000000, z: 1.000000}
-    - stencilMaskTransform:
-        typeIdx: 7
-        value:
-          0: {x: 1.000000, y: 0.000000, z: 0.000000}
-          1: {x: 0.000000, y: 1.000000, z: 0.000000}
-          2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - Port_tintColor_N000:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   DepthWrite: true
   DepthTest: true
   DepthFunction: LessEqual
@@ -102,28 +72,19 @@
     PreviewEnabled:
       typeIdx: 0
       value: 0
-    aspectRatio:
-      typeIdx: 3
-      value: {x: 1.000000, y: 1.000000}
-    stencilCenter:
-      typeIdx: 3
-      value: {x: 0.500000, y: 0.500000}
-    stencilMask:
+    stencilTex:
       typeIdx: 9
       value:
-        id: f4acdebd-7de8-4876-b5b0-00853d282d10
+        id: 00000000-0000-0000-0000-000000000000
         sampler:
           filteringMode: Trilinear
-          wrapModeU: ClampToEdge
-          wrapModeV: ClampToEdge
+          wrapModeU: Repeat
+          wrapModeV: Repeat
           wrapModeW: Repeat
           borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
           mipmaps: false
         type: Texture2D
-    stencilScale:
-      typeIdx: 3
-      value: {x: 1.000000, y: 1.000000}
     tintColor:
       typeIdx: 5
-      value: {x: 0.000000, y: 0.047562, z: 0.929320, w: 1.000000}
-  Pass: !<reference> 8a3bdd95-8b14-4552-868c-a38daa4e9f3b
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  Pass: !<reference> 63559503-7c7c-451e-889e-a907d2cb1d88

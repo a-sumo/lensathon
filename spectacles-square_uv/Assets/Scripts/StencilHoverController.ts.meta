@@ -27,6 +27,10 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     debugStencilTexture: false
+    placedAlpha: false
+    previewAlpha: false
+    stencilPlane: false
+    targetPlane: false
     useDebugStencil: false
   ScriptTypesHidden:
     {}
@@ -37,13 +41,25 @@
   Attachments:
     []
   DefaultScriptInputs:
-    - useDebugStencil: false
+    - stencilPlane: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      targetPlane: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      previewAlpha: 0.500000
+      placedAlpha: !<float> 1.000000
+      useDebugStencil: false
       debugStencilTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
+    - '// @ui {"widget":"group_start", "label":"Stencil Plane"}'
+    - '// @input SceneObject stencilPlane {"hint":"The movable stencil plane with cutout material"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Target Plane"}'
+    - '// @input SceneObject targetPlane {"hint":"The target plane with stencil compositing material"}'
+    - '// @input float previewAlpha = 0.5 {"hint":"Preview alpha during hover"}'
+    - '// @input float placedAlpha = 1 {"hint":"Full alpha when placed"}'
+    - '// @ui {"widget":"group_end"}'
     - '// @ui {"widget":"group_start", "label":"Debug"}'
-    - '// @input bool useDebugStencil {"hint":"Enable to use debug stencil texture instead of generated one"}'
-    - '// @input Asset.Texture debugStencilTexture {"hint":"Debug stencil texture to use when useDebugStencil is enabled"}'
+    - // @input bool useDebugStencil
+    - // @input Asset.Texture debugStencilTexture
     - '// @ui {"widget":"group_end"}'
