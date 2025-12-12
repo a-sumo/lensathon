@@ -4214,7 +4214,7 @@
       apiKey: AIzaSyCmfgxR2fO9eQaChxy95pLGe8KBbSkYwqY
       model: gemini-2.5-flash-image
       imgObject: !<reference.SceneObject> 0cf1f98f-bcc7-4452-8b87-ebe49ea6a178
-      loadingTexture: !<reference.Texture> 1cc2d243-f172-47dd-927e-e5ad2067e40e
+      loadingTexture: !<reference.Texture> 2063b253-98ea-4165-8ed7-1812f67facf6
       objectTypeInput: !<MappingBased.AssignableType> f2f252a8-0e87-4b9e-8e9b-93bbf841dc45
       defaultSubject: a cat
   ScriptTypes:
@@ -5726,6 +5726,26 @@
     - !<own> d05291a2-1eb5-41aa-bf4c-b06788f20705
   Components:
     - !<own> 73b26473-f8ab-40a7-a949-dfa9de9c9f40
+- !<RenderMeshVisual/75928413-60ac-4197-a3d5-17a6c4dc9a7c>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    []
+  Mesh: !<reference> 0734656f-6ee0-45b3-811d-0012ad8a7aab
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<RenderMeshVisual/75d719fb-84ac-454c-9e85-1bfaf7456e62>
   PrefabRemaps:
     []
@@ -5862,7 +5882,7 @@
   Children:
     []
   Components:
-    []
+    - !<own> 75928413-60ac-4197-a3d5-17a6c4dc9a7c
 - !<SceneObject/7b9d067f-414a-4620-a6b1-b0824953478c>
   PrefabRemaps:
     []
@@ -8463,7 +8483,7 @@
   MeshShadowMode: None
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
-  Text: ""
+  Text: Write the category of the object
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -10900,10 +10920,8 @@
     _renderOrder: true
     _size: true
     _inactive: true
-    _playAudio: true
     inputType: true
     formatType: true
-    placeholderText: true
     fontFamily: true
     useIcon: true
     icon: true
@@ -10920,10 +10938,10 @@
       _renderOrder: 0
       _size: !<Vec3> {x: 30.000000, y: 6.000000, z: 0.000000}
       _inactive: false
-      _playAudio: false
+      _playAudio: true
       inputType: default
       formatType: date
-      placeholderText: ""
+      placeholderText: a cat
       fontFamily: !<reference.Font> 00000000-0000-0000-0000-000000000000
       useIcon: false
       icon: !<reference.Texture> 00000000-0000-0000-0000-000000000000

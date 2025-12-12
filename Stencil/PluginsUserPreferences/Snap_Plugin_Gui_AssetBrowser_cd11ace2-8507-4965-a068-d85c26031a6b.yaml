@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 830
+    size: 826
     values:
       - DatabaseTypes.ts
       - Device Camera Texture.deviceCameraTexture
@@ -33,7 +33,6 @@ CollapsedEntities:
       - LSTween.lspkg/TweenJS/Version.ts
       - LSTween.lspkg/TweenJS/mainGroup.ts
       - LSTween.lspkg/package.native
-      - RemoteServiceGateway.lspkg
       - RemoteServiceGateway.lspkg/Helpers
       - RemoteServiceGateway.lspkg/Helpers/AudioProcessor.ts
       - RemoteServiceGateway.lspkg/Helpers/DynamicAudioOutput.ts
@@ -81,10 +80,8 @@ CollapsedEntities:
       - RemoteServiceGateway.lspkg/README.md
       - RemoteServiceGateway.lspkg/RemoteServiceGatewayCredentials.ts
       - RemoteServiceGateway.lspkg/RemoteServiceGatewayExamples__PLACE_IN_SCENE.prefab
-      - RemoteServiceGateway.lspkg/Resources
       - RemoteServiceGateway.lspkg/Resources/Audio Output.audioOutput
       - RemoteServiceGateway.lspkg/Resources/Microphone Audio.micaudio
-      - RemoteServiceGateway.lspkg/Resources/Visuals
       - RemoteServiceGateway.lspkg/Resources/Visuals/LoadingSpinner
       - RemoteServiceGateway.lspkg/Resources/Visuals/LoadingSpinner/LoadingSpinner
       - RemoteServiceGateway.lspkg/Resources/Visuals/LoadingSpinner/LoadingSpinner.prefab
@@ -92,7 +89,6 @@ CollapsedEntities:
       - RemoteServiceGateway.lspkg/Resources/Visuals/LoadingSpinner/LoadingSpinner/LoadingSpinner.mesh
       - RemoteServiceGateway.lspkg/Resources/Visuals/LoadingSpinner/LoadingSpinner/LoadingSpinner.ss_graph
       - RemoteServiceGateway.lspkg/Resources/Visuals/LoadingSpinner/LoadingSpinner/LoadingSpinner.ts
-      - RemoteServiceGateway.lspkg/Resources/Visuals/Materials
       - RemoteServiceGateway.lspkg/Resources/Visuals/Materials/Image.mat
       - RemoteServiceGateway.lspkg/Resources/Visuals/Materials/Image.png
       - RemoteServiceGateway.lspkg/Resources/Visuals/Materials/SnapImage3D.mat
