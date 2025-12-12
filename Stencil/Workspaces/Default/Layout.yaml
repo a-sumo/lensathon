@@ -14,15 +14,15 @@ dock:
                   - persistentName: Com.Snap.Supabase
                     Uuid: 995383fc-7878-48ce-84f7-38c542d59a14
                 type: section
-                current: 0
+                current: 2
               - items:
                   - persistentName: Snap.Plugin.Gui.AssetBrowser
                     Uuid: cd11ace2-8507-4965-a068-d85c26031a6b
                 type: section
                 current: 0
             sizes:
-              - 379
-              - 173
+              - 457
+              - 208
             type: splitter
             orientation: vertical
           - items:
@@ -42,7 +42,7 @@ dock:
                 type: section
                 current: 0
             sizes:
-              - 454
+              - 567
               - 98
             type: splitter
             orientation: vertical
@@ -54,10 +54,10 @@ dock:
             type: section
             current: 0
         sizes:
-          - 404
-          - 261
-          - 376
-          - 386
+          - 591
+          - 215
+          - 188
+          - 433
         type: splitter
         orientation: horizontal
       - items:
@@ -66,7 +66,7 @@ dock:
         type: section
         current: 0
     sizes:
-      - 555
-      - 213
+      - 668
+      - 100
     type: splitter
     orientation: vertical

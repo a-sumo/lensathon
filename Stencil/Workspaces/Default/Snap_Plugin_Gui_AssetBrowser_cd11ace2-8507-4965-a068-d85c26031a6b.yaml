@@ -1,10 +1,35 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 667
+    size: 823
     values:
       - DatabaseTypes.ts
       - Images/loading-spinner.gif
+      - LSTween.lspkg
+      - LSTween.lspkg/Examples
+      - LSTween.lspkg/Examples/Assets
+      - LSTween.lspkg/Examples/Assets/Box.mesh
+      - LSTween.lspkg/Examples/Assets/Simple Diffuse.mat
+      - LSTween.lspkg/Examples/Assets/Simple Diffuse.ss_graph
+      - LSTween.lspkg/Examples/Assets/Sphere.mesh
+      - LSTween.lspkg/Examples/Example__ADD_TO_SCENE.prefab
+      - LSTween.lspkg/Examples/Scripts
+      - LSTween.lspkg/Examples/Scripts/Example_ChainTween.ts
+      - LSTween.lspkg/Examples/Scripts/Example_RawTween.ts
+      - LSTween.lspkg/Examples/Scripts/Example_YoyoTween.ts
+      - LSTween.lspkg/LSTween.ts
+      - LSTween.lspkg/RotationInterpolationType.ts
+      - LSTween.lspkg/TweenJS
+      - LSTween.lspkg/TweenJS/Easing.ts
+      - LSTween.lspkg/TweenJS/Group.ts
+      - LSTween.lspkg/TweenJS/Index.ts
+      - LSTween.lspkg/TweenJS/Interpolation.ts
+      - LSTween.lspkg/TweenJS/Now.ts
+      - LSTween.lspkg/TweenJS/Sequence.ts
+      - LSTween.lspkg/TweenJS/Tween.ts
+      - LSTween.lspkg/TweenJS/Version.ts
+      - LSTween.lspkg/TweenJS/mainGroup.ts
+      - LSTween.lspkg/package.native
       - Materials/Drawing.mat
       - RemoteServiceGateway.lspkg
       - RemoteServiceGateway.lspkg/Helpers/AudioProcessor.ts
@@ -74,10 +99,10 @@ CollapsedEntities:
       - RemoteServiceGateway.lspkg/Utils/Event.ts
       - RemoteServiceGateway.lspkg/Utils/Promisfy.ts
       - RemoteServiceGateway.lspkg/package.native
+      - Scripts
       - Scripts/GeminiCall.ts
       - Scripts/SnapCloudRequirements.ts
       - Scripts/StencilGenGeminiCall.ts
-      - Shaders
       - Shaders/Drawing.ss_graph
       - SpectaclesInteractionKit.lspkg
       - SpectaclesInteractionKit.lspkg/Assets
@@ -501,6 +526,137 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/VersionNumber.ts
       - SpectaclesInteractionKit.lspkg/package.native
       - SpectaclesInteractionKit.lspkg/tsconfig.json
+      - SpectaclesSyncKit.lspkg
+      - SpectaclesSyncKit.lspkg/Assets
+      - SpectaclesSyncKit.lspkg/Assets/Animations
+      - SpectaclesSyncKit.lspkg/Assets/Animations/Scene.animationAsset
+      - SpectaclesSyncKit.lspkg/Assets/Materials
+      - SpectaclesSyncKit.lspkg/Assets/Materials/Arrow.mat
+      - SpectaclesSyncKit.lspkg/Assets/Materials/MappingSuccessCheckmark.mat
+      - SpectaclesSyncKit.lspkg/Assets/Meshes
+      - SpectaclesSyncKit.lspkg/Assets/Meshes/Arrow.mesh
+      - SpectaclesSyncKit.lspkg/Assets/Meshes/Checkmark_KEY_1.mesh
+      - SpectaclesSyncKit.lspkg/Assets/Prefabs
+      - SpectaclesSyncKit.lspkg/Assets/Prefabs/ColocationUI.prefab
+      - SpectaclesSyncKit.lspkg/Assets/Shaders
+      - SpectaclesSyncKit.lspkg/Assets/Shaders/Arrow.ss_graph
+      - SpectaclesSyncKit.lspkg/Assets/Shaders/Checkmark.ss_graph
+      - SpectaclesSyncKit.lspkg/Components
+      - SpectaclesSyncKit.lspkg/Components/Instantiator.ts
+      - SpectaclesSyncKit.lspkg/Components/SyncHelpers
+      - SpectaclesSyncKit.lspkg/Components/SyncHelpers/DisplayStorageProperty.ts
+      - SpectaclesSyncKit.lspkg/Components/SyncHelpers/SetEnabledIfOwner.ts
+      - SpectaclesSyncKit.lspkg/Components/SyncHelpers/SetEnabledOnReady.ts
+      - SpectaclesSyncKit.lspkg/Components/SyncHelpers/SyncEntityDebug.ts
+      - SpectaclesSyncKit.lspkg/Components/SyncMaterials.ts
+      - SpectaclesSyncKit.lspkg/Components/SyncRealtimeStore.ts
+      - SpectaclesSyncKit.lspkg/Components/SyncTransform.ts
+      - SpectaclesSyncKit.lspkg/Connected Lens Module.connectedLensModule
+      - SpectaclesSyncKit.lspkg/Core
+      - SpectaclesSyncKit.lspkg/Core/EventWrapper.ts
+      - SpectaclesSyncKit.lspkg/Core/KeyedEventWrapper.ts
+      - SpectaclesSyncKit.lspkg/Core/MockMultiplayerSession.ts
+      - SpectaclesSyncKit.lspkg/Core/MockMultiplayerSessionConfig.ts
+      - SpectaclesSyncKit.lspkg/Core/NetworkIdTools.ts
+      - SpectaclesSyncKit.lspkg/Core/NetworkIdType.ts
+      - SpectaclesSyncKit.lspkg/Core/NetworkMessage.ts
+      - SpectaclesSyncKit.lspkg/Core/NetworkMessageWrapper.ts
+      - SpectaclesSyncKit.lspkg/Core/NetworkRootInfo.ts
+      - SpectaclesSyncKit.lspkg/Core/NetworkUtils.ts
+      - SpectaclesSyncKit.lspkg/Core/NetworkedSceneObject.ts
+      - SpectaclesSyncKit.lspkg/Core/NetworkedScriptComponent.ts
+      - SpectaclesSyncKit.lspkg/Core/OwnershipType.ts
+      - SpectaclesSyncKit.lspkg/Core/PersistenceType.ts
+      - SpectaclesSyncKit.lspkg/Core/PropertyType.ts
+      - SpectaclesSyncKit.lspkg/Core/SessionController.ts
+      - SpectaclesSyncKit.lspkg/Core/SessionControllerComponent.ts
+      - SpectaclesSyncKit.lspkg/Core/StoragePropLookup.ts
+      - SpectaclesSyncKit.lspkg/Core/StorageProperty.ts
+      - SpectaclesSyncKit.lspkg/Core/StoragePropertySet.ts
+      - SpectaclesSyncKit.lspkg/Core/StorageType.ts
+      - SpectaclesSyncKit.lspkg/Core/StorageTypes.ts
+      - SpectaclesSyncKit.lspkg/Core/StoreEventWrapper.ts
+      - SpectaclesSyncKit.lspkg/Core/SyncEntity.ts
+      - SpectaclesSyncKit.lspkg/Core/SyncSnapshot.ts
+      - SpectaclesSyncKit.lspkg/CustomLandmarkGuidance
+      - SpectaclesSyncKit.lspkg/CustomLandmarkGuidance/ArrowAnimator.ts
+      - SpectaclesSyncKit.lspkg/CustomLandmarkGuidance/CustomLandmarkController.ts
+      - SpectaclesSyncKit.lspkg/CustomLandmarkGuidance/CustomLandmarkGuidanceBinding.ts
+      - SpectaclesSyncKit.lspkg/CustomLandmarkGuidance/GuidanceCopy.ts
+      - SpectaclesSyncKit.lspkg/CustomLandmarkGuidance/SimplifiedLandmarkGuidance.ts
+      - SpectaclesSyncKit.lspkg/Examples
+      - SpectaclesSyncKit.lspkg/Examples/CustomLandmarkGuidanceExample.ts
+      - SpectaclesSyncKit.lspkg/Examples/CyclingMaterialExample.ts
+      - SpectaclesSyncKit.lspkg/Examples/DisplayStorageProperty
+      - SpectaclesSyncKit.lspkg/Examples/DisplayStorageProperty/CurrentTimeObject.ts
+      - SpectaclesSyncKit.lspkg/Examples/GetSnapchatUserExample.ts
+      - SpectaclesSyncKit.lspkg/Examples/GetSnapchatUserExampleJavascript.js
+      - SpectaclesSyncKit.lspkg/Examples/InstantiateOnceExample.ts
+      - SpectaclesSyncKit.lspkg/Examples/InstantiatorExample.ts
+      - SpectaclesSyncKit.lspkg/Examples/InstantiatorExampleJavascript.js
+      - SpectaclesSyncKit.lspkg/Examples/ManipulateExamplePrefab.prefab
+      - SpectaclesSyncKit.lspkg/Examples/Materials
+      - SpectaclesSyncKit.lspkg/Examples/Materials/ExampleMaterial.mat
+      - SpectaclesSyncKit.lspkg/Examples/Materials/ExampleMaterial.ss_graph
+      - SpectaclesSyncKit.lspkg/Examples/SessionControllerExample.ts
+      - SpectaclesSyncKit.lspkg/Examples/SessionControllerExampleJavascript.js
+      - SpectaclesSyncKit.lspkg/Examples/StorageProperty
+      - SpectaclesSyncKit.lspkg/Examples/StorageProperty/AutoStoragePropertyExample.ts
+      - SpectaclesSyncKit.lspkg/Examples/StorageProperty/AutoStoragePropertyExampleJavascript.js
+      - SpectaclesSyncKit.lspkg/Examples/StorageProperty/ManualStoragePropertyExample.ts
+      - SpectaclesSyncKit.lspkg/Examples/StorageProperty/ManualStoragePropertyExampleJavascript.js
+      - SpectaclesSyncKit.lspkg/Examples/StorageProperty/PositionRotationScaleStoragePropertyExample.ts
+      - SpectaclesSyncKit.lspkg/Examples/StorageProperty/PositionRotationScaleStoragePropertyExampleJavascript.js
+      - SpectaclesSyncKit.lspkg/Examples/StorageProperty/RmvColorStoragePropertyExample.ts
+      - SpectaclesSyncKit.lspkg/Examples/StorageProperty/RmvColorStoragePropertyExampleJavascript.js
+      - SpectaclesSyncKit.lspkg/Examples/StorageProperty/RmvPropertyStoragePropertyExample.ts
+      - SpectaclesSyncKit.lspkg/Examples/StorageProperty/RmvPropertyStoragePropertyExampleJavascript.js
+      - SpectaclesSyncKit.lspkg/Examples/StorageProperty/TextStoragePropertyExample.ts
+      - SpectaclesSyncKit.lspkg/Examples/StorageProperty/TextStoragePropertyExampleJavascript.js
+      - SpectaclesSyncKit.lspkg/Examples/StorageProperty/TransformStoragePropertyExample.ts
+      - SpectaclesSyncKit.lspkg/Examples/StorageProperty/TransformStoragePropertyExampleJavascript.js
+      - SpectaclesSyncKit.lspkg/Examples/SyncEntityDebug
+      - SpectaclesSyncKit.lspkg/Examples/SyncEntityDebug/InstantiatedSyncEntityDebugExample.prefab
+      - SpectaclesSyncKit.lspkg/Examples/SyncEntityExample.ts
+      - SpectaclesSyncKit.lspkg/Examples/SyncEntityExampleJavascript.js
+      - SpectaclesSyncKit.lspkg/Location Cloud Storage Module.locationCloudStorageModule
+      - SpectaclesSyncKit.lspkg/Readme.md
+      - SpectaclesSyncKit.lspkg/SpectaclesSyncKit.prefab
+      - SpectaclesSyncKit.lspkg/StartMenu
+      - SpectaclesSyncKit.lspkg/StartMenu/Materials
+      - SpectaclesSyncKit.lspkg/StartMenu/Materials/ConnectedLensMaterial.mat
+      - SpectaclesSyncKit.lspkg/StartMenu/Materials/NoInternetMaterial.mat
+      - SpectaclesSyncKit.lspkg/StartMenu/Materials/SWWMaterial.mat
+      - SpectaclesSyncKit.lspkg/StartMenu/Materials/flat.ss_graph
+      - SpectaclesSyncKit.lspkg/StartMenu/Prefabs
+      - SpectaclesSyncKit.lspkg/StartMenu/Prefabs/NoInternetAlert.prefab
+      - SpectaclesSyncKit.lspkg/StartMenu/Prefabs/StartModeController.prefab
+      - SpectaclesSyncKit.lspkg/StartMenu/README.md
+      - SpectaclesSyncKit.lspkg/StartMenu/Scripts
+      - SpectaclesSyncKit.lspkg/StartMenu/Scripts/AutoStartController.ts
+      - SpectaclesSyncKit.lspkg/StartMenu/Scripts/ErrorMessageController.ts
+      - SpectaclesSyncKit.lspkg/StartMenu/Scripts/NoInternetAlert.ts
+      - SpectaclesSyncKit.lspkg/StartMenu/Scripts/StartMenu.ts
+      - SpectaclesSyncKit.lspkg/StartMenu/Scripts/StartModeController.ts
+      - SpectaclesSyncKit.lspkg/StartMenu/Textures
+      - SpectaclesSyncKit.lspkg/StartMenu/Textures/Connected Lens.png
+      - SpectaclesSyncKit.lspkg/StartMenu/Textures/Couldnt-Connect-Alert.png
+      - SpectaclesSyncKit.lspkg/StartMenu/Textures/No-Internet-Alert.png
+      - SpectaclesSyncKit.lspkg/StartMenu/package.native
+      - SpectaclesSyncKit.lspkg/Utils
+      - SpectaclesSyncKit.lspkg/Utils/EnableObjectsOnAwake.ts
+      - SpectaclesSyncKit.lspkg/Utils/Helpers.ts
+      - SpectaclesSyncKit.lspkg/Utils/Observable.ts
+      - SpectaclesSyncKit.lspkg/Utils/PositionInitializer.ts
+      - SpectaclesSyncKit.lspkg/Utils/SyncKitLogLevelConfiguration.ts
+      - SpectaclesSyncKit.lspkg/Utils/SyncKitLogLevelProvider.ts
+      - SpectaclesSyncKit.lspkg/Utils/SyncKitLogger.ts
+      - SpectaclesSyncKit.lspkg/Utils/Timers.ts
+      - SpectaclesSyncKit.lspkg/Utils/UUID.ts
+      - SpectaclesSyncKit.lspkg/Utils/Unsubscribe.ts
+      - SpectaclesSyncKit.lspkg/VersionNumber.ts
+      - SpectaclesSyncKit.lspkg/package.native
+      - SpectaclesSyncKit.lspkg/package_dependencies.json
       - SpectaclesUIKit.lspkg
       - SpectaclesUIKit.lspkg/Audio
       - SpectaclesUIKit.lspkg/Audio/HoverAudioTrack.wav

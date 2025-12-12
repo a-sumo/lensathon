@@ -55,7 +55,7 @@
     - !<own> 1b996c43-f899-b3d3-5008-f4d5a39c6a0e
     - !<own> 9ba98398-d25e-6e39-f4a3-393830f12dad
     - !<own> cc4cb3da-6c9a-fa1d-ea1b-d9d51da07092
-    - !<own> 441710d8-04e7-4dec-90d0-8a6357a9530a
+    - !<own> ea5004cf-4ef0-1a7a-e2ee-904b88b8749b
     - !<own> 1a75bb88-dda4-39a3-6cdf-ba5cd267b16b
     - !<own> e685cf13-3505-5891-f65b-2e977feb88f6
     - !<own> 1b05ad8d-f8fe-fe00-1a9d-5364a2188fed
@@ -2768,22 +2768,6 @@
       {}
   InputLines:
     []
-- !<AssetImportMetadata/441710d8-04e7-4dec-90d0-8a6357a9530a>
-  ImportedAssetIds:
-    JsonAsset: !<reference> 616eaa9b-1918-4ee3-9eaa-2b1ef2e6ddeb
-  ImporterName: JsonAssetImporter
-  PrimaryAsset: !<reference> 616eaa9b-1918-4ee3-9eaa-2b1ef2e6ddeb
-  PackageType: NotAPackage
-  LegacyPackagePolicy: ~
-  ExtraData:
-    {}
-  AssetDataMap:
-    {}
-  DependentFiles:
-    []
-  ImporterSettings: !<AssetImporterSettings>
-    {}
-  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/441ea914-a1b5-4080-7400-1771b2130e0f>
   PrefabRemaps:
     []
@@ -9053,6 +9037,22 @@
     {}
   AssetDataMap:
     TypeScriptAsset: !<own> 091f008e-6425-4b15-ab2e-99d3335ed485
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<AssetImportMetadata/ea5004cf-4ef0-1a7a-e2ee-904b88b8749b>
+  ImportedAssetIds:
+    JsonAsset: !<reference> 616eaa9b-1918-4ee3-9eaa-2b1ef2e6ddeb
+  ImporterName: JsonAssetImporter
+  PrimaryAsset: !<reference> 616eaa9b-1918-4ee3-9eaa-2b1ef2e6ddeb
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    {}
   DependentFiles:
     []
   ImporterSettings: !<AssetImporterSettings>

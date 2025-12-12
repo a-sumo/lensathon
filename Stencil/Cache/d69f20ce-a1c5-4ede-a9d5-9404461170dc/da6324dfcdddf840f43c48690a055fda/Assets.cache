@@ -1,6 +1,6 @@
 - !<AssetCache>
   AssetFiles:
-    7380f68b-6f88-4ca8-8e5b-e43b3da245dc: d69f20ce-a1c5-4ede-a9d5-9404461170dc/da6324dfcdddf840f43c48690a055fda/Data/Empty.ss_graph
+    7380f68b-6f88-4ca8-8e5b-e43b3da245dc: d69f20ce-a1c5-4ede-a9d5-9404461170dc/503f9f18c3822961418c368bdeea6687/Data/Empty.ss_graph
   Assets:
     - !<ShaderGraphPass/7380f68b-6f88-4ca8-8e5b-e43b3da245dc>
       PackagePath: ""
@@ -40,6 +40,12 @@
         Port_RayOrigin_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 0.000000, z: 0.000000}
+        Port_Value1_N000:
+          typeIdx: 5
+          value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+        Port_Value2_N000:
+          typeIdx: 5
+          value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
         Port_WorldNormal_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 1.000000, z: 0.000000}
@@ -68,7 +74,7 @@
             mValues:
               []
         ShaderType: Mesh3d
-      ShaderPath: d69f20ce-a1c5-4ede-a9d5-9404461170dc/da6324dfcdddf840f43c48690a055fda/Data/b01d0f7/Empty.glsl
+      ShaderPath: d69f20ce-a1c5-4ede-a9d5-9404461170dc/503f9f18c3822961418c368bdeea6687/Data/b01d0f7/Empty.glsl
       Defines:
         []
       Properties:

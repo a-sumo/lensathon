@@ -53,7 +53,7 @@
     - !<own> 7b1a66da-b5d3-c53c-b9ca-07801b51bbdb
     - !<own> 55e4c985-485f-edcb-b2de-4b3f0b09513a
     - !<own> 11ffaa55-c874-2846-92ea-26794a5581d4
-    - !<own> bf45b6b3-0cfe-403b-9dbf-829aaff9014a
+    - !<own> 0413827c-30aa-75b0-9d82-fe6860559585
     - !<own> c1b5b667-93a8-c019-35ed-df919e95be59
     - !<own> 464b7074-47e3-bf72-4052-26028714e645
     - !<own> e7d4b7b9-fb73-b430-f75a-b00748c86a6f
@@ -322,7 +322,7 @@
   ScriptInputsDefault:
     targetingMode: true
     targetingVisual: true
-    forceTargetingVisual: true
+    ignoreInteractionPlane: true
     keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
@@ -338,7 +338,7 @@
     "":
       targetingMode: !<float> 3.000000
       targetingVisual: !<float> 1.000000
-      forceTargetingVisual: false
+      ignoreInteractionPlane: false
       keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
@@ -393,6 +393,22 @@
     - !<own> e30643df-ca27-42da-46db-a952bc330f27
   Components:
     []
+- !<AssetImportMetadata/0413827c-30aa-75b0-9d82-fe6860559585>
+  ImportedAssetIds:
+    JsonAsset: !<reference> 44adc9d9-f7e3-4a3b-96ba-eb67b87210e3
+  ImporterName: JsonAssetImporter
+  PrimaryAsset: !<reference> 44adc9d9-f7e3-4a3b-96ba-eb67b87210e3
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    {}
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<TypeScriptAssetData/04a42c3f-c0e4-4162-b786-271aaa57faa2>
   SvgIcon: ""
   SetupScript:
@@ -2319,7 +2335,7 @@
   ScriptInputsDefault:
     targetingMode: true
     targetingVisual: true
-    forceTargetingVisual: true
+    ignoreInteractionPlane: true
     keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
@@ -2335,7 +2351,7 @@
     "":
       targetingMode: !<float> 3.000000
       targetingVisual: !<float> 1.000000
-      forceTargetingVisual: false
+      ignoreInteractionPlane: false
       keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
@@ -3962,7 +3978,7 @@
   ScriptInputsDefault:
     targetingMode: true
     targetingVisual: true
-    forceTargetingVisual: true
+    ignoreInteractionPlane: true
     keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
@@ -3978,7 +3994,7 @@
     "":
       targetingMode: !<float> 3.000000
       targetingVisual: !<float> 1.000000
-      forceTargetingVisual: false
+      ignoreInteractionPlane: false
       keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
@@ -5290,7 +5306,7 @@
   ScriptInputsDefault:
     targetingMode: true
     targetingVisual: true
-    forceTargetingVisual: true
+    ignoreInteractionPlane: true
     keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
@@ -5306,7 +5322,7 @@
     "":
       targetingMode: !<float> 3.000000
       targetingVisual: !<float> 1.000000
-      forceTargetingVisual: false
+      ignoreInteractionPlane: false
       keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
@@ -6577,7 +6593,7 @@
   ScriptInputsDefault:
     targetingMode: true
     targetingVisual: true
-    forceTargetingVisual: true
+    ignoreInteractionPlane: true
     keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
@@ -6593,7 +6609,7 @@
     "":
       targetingMode: !<float> 3.000000
       targetingVisual: !<float> 1.000000
-      forceTargetingVisual: false
+      ignoreInteractionPlane: false
       keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
@@ -7256,7 +7272,7 @@
   ScriptInputsDefault:
     targetingMode: true
     targetingVisual: true
-    forceTargetingVisual: true
+    ignoreInteractionPlane: true
     keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
@@ -7272,7 +7288,7 @@
     "":
       targetingMode: !<float> 3.000000
       targetingVisual: !<float> 1.000000
-      forceTargetingVisual: false
+      ignoreInteractionPlane: false
       keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
@@ -7651,7 +7667,7 @@
   ScriptInputsDefault:
     targetingMode: true
     targetingVisual: true
-    forceTargetingVisual: true
+    ignoreInteractionPlane: true
     keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
@@ -7667,7 +7683,7 @@
     "":
       targetingMode: !<float> 3.000000
       targetingVisual: !<float> 1.000000
-      forceTargetingVisual: false
+      ignoreInteractionPlane: false
       keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
@@ -8537,7 +8553,7 @@
   ScriptInputsDefault:
     targetingMode: true
     targetingVisual: true
-    forceTargetingVisual: true
+    ignoreInteractionPlane: true
     keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
@@ -8553,7 +8569,7 @@
     "":
       targetingMode: !<float> 3.000000
       targetingVisual: !<float> 1.000000
-      forceTargetingVisual: false
+      ignoreInteractionPlane: false
       keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
@@ -8991,22 +9007,6 @@
     CompressionSettings: !<TextureCompressionMipmapSettings>
       Level: Medium
       Mipmap: false
-- !<AssetImportMetadata/bf45b6b3-0cfe-403b-9dbf-829aaff9014a>
-  ImportedAssetIds:
-    JsonAsset: !<reference> 44adc9d9-f7e3-4a3b-96ba-eb67b87210e3
-  ImporterName: JsonAssetImporter
-  PrimaryAsset: !<reference> 44adc9d9-f7e3-4a3b-96ba-eb67b87210e3
-  PackageType: NotAPackage
-  LegacyPackagePolicy: ~
-  ExtraData:
-    {}
-  AssetDataMap:
-    {}
-  DependentFiles:
-    []
-  ImporterSettings: !<AssetImporterSettings>
-    {}
-  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
 - !<ColliderComponent/bf6b56fe-ad4a-408a-6830-5d1824516182>
   PrefabRemaps:
     []
@@ -9547,7 +9547,7 @@
   ScriptInputsDefault:
     targetingMode: true
     targetingVisual: true
-    forceTargetingVisual: true
+    ignoreInteractionPlane: true
     keepHoverOnTrigger: true
     enableInstantDrag: true
     isScrollable: true
@@ -9563,7 +9563,7 @@
     "":
       targetingMode: !<float> 3.000000
       targetingVisual: !<float> 1.000000
-      forceTargetingVisual: false
+      ignoreInteractionPlane: false
       keepHoverOnTrigger: false
       enableInstantDrag: false
       isScrollable: false
