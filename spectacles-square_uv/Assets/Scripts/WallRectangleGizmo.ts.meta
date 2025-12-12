@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/246a2766-9ee8-476b-9b8a-f4ef411690ce>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 3af9e3c9-fda7-492e-94c1-ae6a0def9695
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 3af9e3c9-fda7-492e-94c1-ae6a0def9695
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> bd6134f2-6740-45eb-94ce-0b0e314f1e96
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/bd6134f2-6740-45eb-94ce-0b0e314f1e96>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 2
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: a813117d-3b0e-4475-b0e6-ae718ac2eb18
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    bottomLeftCorner: false
+    bottomLeftIconPrefab: false
+    bottomRightCorner: false
+    imageAnchor: false
+    topLeftCorner: false
+    topRightCorner: false
+    topRightIconPrefab: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - imageAnchor: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      topLeftCorner: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      topRightCorner: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      bottomRightCorner: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      bottomLeftCorner: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      bottomLeftIconPrefab: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      topRightIconPrefab: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input SceneObject imageAnchor
+    - // @input SceneObject topLeftCorner
+    - // @input SceneObject topRightCorner
+    - // @input SceneObject bottomRightCorner
+    - // @input SceneObject bottomLeftCorner
+    - // @input SceneObject bottomLeftIconPrefab
+    - // @input SceneObject topRightIconPrefab
