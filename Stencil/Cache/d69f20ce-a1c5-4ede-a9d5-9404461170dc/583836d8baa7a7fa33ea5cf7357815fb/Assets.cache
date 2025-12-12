@@ -1,6 +1,6 @@
 - !<AssetCache>
   AssetFiles:
-    7380f68b-6f88-4ca8-8e5b-e43b3da245dc: d69f20ce-a1c5-4ede-a9d5-9404461170dc/583836d8baa7a7fa33ea5cf7357815fb/Data/Empty.ss_graph
+    7380f68b-6f88-4ca8-8e5b-e43b3da245dc: d69f20ce-a1c5-4ede-a9d5-9404461170dc/aa21b3fa5c356fda042dcbd340869216/Data/Empty.ss_graph
   Assets:
     - !<ShaderGraphPass/7380f68b-6f88-4ca8-8e5b-e43b3da245dc>
       PackagePath: ""
@@ -17,9 +17,6 @@
           typeIdx: 5
           value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
         Port_FinalColor3_N004:
-          typeIdx: 5
-          value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-        Port_FinalColor_N004:
           typeIdx: 5
           value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
         Port_GSplatPointSize_N004:
@@ -40,12 +37,9 @@
         Port_RayOrigin_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 0.000000, z: 0.000000}
-        Port_Value1_N000:
-          typeIdx: 5
-          value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
-        Port_Value2_N000:
-          typeIdx: 5
-          value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+        Port_Value_N001:
+          typeIdx: 1
+          value: 1.000000
         Port_WorldNormal_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 1.000000, z: 0.000000}
@@ -55,10 +49,57 @@
         Port_WorldTangent_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 0.000000, z: 1.000000}
+        Port_uvPosition_N000:
+          typeIdx: 3
+          value: {x: 0.500000, y: 0.500000}
       PassUiData: !<PassUiData>
         ExtraDefines:
           - SC_ENABLE_RT_CASTER
         PassBindings:
+          - mLabel: Graph Parameters
+            mType: Invalid
+            mName: ""
+            mWidget: group_start
+            mHint: ""
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: ~
+            mValues:
+              []
+          - mLabel: Custom Color
+            mType: Property
+            mName: Tweak_N3
+            mWidget: color
+            mHint: "Property: Tweak_N3"
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: 1.000000
+            mValues:
+              []
+          - mLabel: Custom Float
+            mType: Property
+            mName: surfaceUVCoords
+            mWidget: spinbox
+            mHint: "Property: surfaceUVCoords"
+            mMin: ~
+            mMax: ~
+            mStep: 0.010000
+            mDefaultVal: 1.000000
+            mValues:
+              []
+          - mLabel: ""
+            mType: GroupEnd
+            mName: ""
+            mWidget: group_end
+            mHint: ""
+            mMin: ~
+            mMax: ~
+            mStep: ~
+            mDefaultVal: ~
+            mValues:
+              []
           - mLabel: Alpha Test Threshold
             mType: Property
             mName: alphaTestThreshold
@@ -74,7 +115,7 @@
             mValues:
               []
         ShaderType: Mesh3d
-      ShaderPath: d69f20ce-a1c5-4ede-a9d5-9404461170dc/583836d8baa7a7fa33ea5cf7357815fb/Data/b01d0f7/Empty.glsl
+      ShaderPath: d69f20ce-a1c5-4ede-a9d5-9404461170dc/aa21b3fa5c356fda042dcbd340869216/Data/b01d0f7/Empty.glsl
       Defines:
         []
       Properties:

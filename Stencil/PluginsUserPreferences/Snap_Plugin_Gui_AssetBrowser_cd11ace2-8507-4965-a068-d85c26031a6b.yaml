@@ -1,9 +1,10 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 823
+    size: 825
     values:
       - DatabaseTypes.ts
+      - Images
       - Images/loading-spinner.gif
       - LSTween.lspkg
       - LSTween.lspkg/Examples
@@ -103,6 +104,7 @@ CollapsedEntities:
       - Scripts/GeminiCall.ts
       - Scripts/SnapCloudRequirements.ts
       - Scripts/StencilGenGeminiCall.ts
+      - Shaders
       - Shaders/Drawing.ss_graph
       - SpectaclesInteractionKit.lspkg
       - SpectaclesInteractionKit.lspkg/Assets
