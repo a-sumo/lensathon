@@ -1,0 +1,223 @@
+"use strict";
+var __esDecorate = (this && this.__esDecorate) || function (ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
+    function accept(f) { if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected"); return f; }
+    var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
+    var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
+    var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
+    var _, done = false;
+    for (var i = decorators.length - 1; i >= 0; i--) {
+        var context = {};
+        for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
+        for (var p in contextIn.access) context.access[p] = contextIn.access[p];
+        context.addInitializer = function (f) { if (done) throw new TypeError("Cannot add initializers after decoration has completed"); extraInitializers.push(accept(f || null)); };
+        var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
+        if (kind === "accessor") {
+            if (result === void 0) continue;
+            if (result === null || typeof result !== "object") throw new TypeError("Object expected");
+            if (_ = accept(result.get)) descriptor.get = _;
+            if (_ = accept(result.set)) descriptor.set = _;
+            if (_ = accept(result.init)) initializers.unshift(_);
+        }
+        else if (_ = accept(result)) {
+            if (kind === "field") initializers.unshift(_);
+            else descriptor[key] = _;
+        }
+    }
+    if (target) Object.defineProperty(target, contextIn.name, descriptor);
+    done = true;
+};
+var __runInitializers = (this && this.__runInitializers) || function (thisArg, initializers, value) {
+    var useValue = arguments.length > 2;
+    for (var i = 0; i < initializers.length; i++) {
+        value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+    }
+    return useValue ? value : void 0;
+};
+var __setFunctionName = (this && this.__setFunctionName) || function (f, name, prefix) {
+    if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
+    return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ExampleGeminiImageGen = void 0;
+var __selfType = requireType("./GeminiCall");
+function component(target) {
+    target.getTypeName = function () { return __selfType; };
+    if (target.prototype.hasOwnProperty("getTypeName"))
+        return;
+    Object.defineProperty(target.prototype, "getTypeName", {
+        value: function () { return __selfType; },
+        configurable: true,
+        writable: true
+    });
+}
+let ExampleGeminiImageGen = (() => {
+    let _classDecorators = [component];
+    let _classDescriptor;
+    let _classExtraInitializers = [];
+    let _classThis;
+    let _classSuper = BaseScriptComponent;
+    var ExampleGeminiImageGen = _classThis = class extends _classSuper {
+        constructor() {
+            super();
+            this.apiKey = this.apiKey;
+            this.model = this.model;
+            this.imgObject = this.imgObject;
+            this.loadingTexture = this.loadingTexture;
+            this.objectTypeInput = this.objectTypeInput;
+            this.defaultSubject = this.defaultSubject;
+            this.internetModule = require("LensStudio:InternetModule");
+            this.isGenerating = false;
+        }
+        __initialize() {
+            super.__initialize();
+            this.apiKey = this.apiKey;
+            this.model = this.model;
+            this.imgObject = this.imgObject;
+            this.loadingTexture = this.loadingTexture;
+            this.objectTypeInput = this.objectTypeInput;
+            this.defaultSubject = this.defaultSubject;
+            this.internetModule = require("LensStudio:InternetModule");
+            this.isGenerating = false;
+        }
+        onAwake() {
+        }
+        generateImage() {
+            if (this.isGenerating) {
+                print("Already generating an image, please wait...");
+                return;
+            }
+            let subject = this.defaultSubject;
+            if (this.objectTypeInput && this.objectTypeInput.text && this.objectTypeInput.text.trim() !== "") {
+                subject = this.objectTypeInput.text.trim();
+            }
+            const fullPrompt = this.buildStencilPrompt(subject);
+            print("Generating stencil image with subject: " + subject);
+            this.callGeminiAPI(fullPrompt);
+        }
+        buildStencilPrompt(subject) {
+            return `Create a simple black and white stencil mask image. Black represents cutout areas (where paint passes through), white represents solid areas (blocking paint). 
+Subject: ${subject}
+Style requirements:
+- Pure black (#000000) and pure white (#FFFFFF) only, no grayscale or gradients
+- Bold, simplified shapes with clean edges
+- Single-layer stencil design (all black areas must connect to the edges or float independently)
+- High contrast silhouette style
+- No fine details, textures, or halftones
+- Suitable for laser cutting or hand-cutting`;
+        }
+        showLoadingState() {
+            if (this.loadingTexture) {
+                this.imgObject.enabled = true;
+                let imgComponent = this.imgObject.getComponent("Image");
+                let imageMaterial = imgComponent.mainMaterial.clone();
+                imgComponent.mainMaterial = imageMaterial;
+                imgComponent.mainPass.baseTex = this.loadingTexture;
+                print("Showing loading state...");
+            }
+        }
+        async callGeminiAPI(prompt) {
+            print("=== CALLING GEMINI API ===");
+            this.isGenerating = true;
+            this.showLoadingState();
+            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${this.model}:generateContent?key=${this.apiKey}`;
+            const requestBody = {
+                contents: [
+                    {
+                        parts: [
+                            {
+                                text: prompt
+                            }
+                        ]
+                    }
+                ]
+            };
+            print("Endpoint: " + endpoint);
+            print("Prompt: " + prompt);
+            try {
+                const request = new Request(endpoint, {
+                    method: "POST",
+                    body: JSON.stringify(requestBody),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+                const response = await this.internetModule.fetch(request);
+                print("Response status: " + response.status);
+                if (response.status !== 200) {
+                    const errorText = await response.text();
+                    print("Error response: " + errorText);
+                    this.isGenerating = false;
+                    return;
+                }
+                const result = await response.json();
+                print("Response received, parsing...");
+                this.handleGeminiResponse(result);
+            }
+            catch (error) {
+                print("Fetch error: " + error);
+                this.isGenerating = false;
+            }
+        }
+        handleGeminiResponse(result) {
+            try {
+                const candidates = result.candidates;
+                if (!candidates || candidates.length === 0) {
+                    print("No candidates in response");
+                    print("Full response: " + JSON.stringify(result));
+                    this.isGenerating = false;
+                    return;
+                }
+                const parts = candidates[0]?.content?.parts;
+                if (!parts || parts.length === 0) {
+                    print("No parts in response");
+                    this.isGenerating = false;
+                    return;
+                }
+                for (const part of parts) {
+                    if (part.inlineData) {
+                        print("Found image data, decoding...");
+                        const base64Data = part.inlineData.data;
+                        const mimeType = part.inlineData.mimeType;
+                        print("MimeType: " + mimeType);
+                        this.decodeAndDisplayImage(base64Data);
+                        return;
+                    }
+                    else if (part.text) {
+                        print("Text response: " + part.text);
+                    }
+                }
+                print("No image data found in response");
+                this.isGenerating = false;
+            }
+            catch (error) {
+                print("Error parsing response: " + error);
+                this.isGenerating = false;
+            }
+        }
+        decodeAndDisplayImage(base64Data) {
+            Base64.decodeTextureAsync(base64Data, (texture) => {
+                this.imgObject.enabled = true;
+                let imgComponent = this.imgObject.getComponent("Image");
+                let imageMaterial = imgComponent.mainMaterial.clone();
+                imgComponent.mainMaterial = imageMaterial;
+                imgComponent.mainPass.baseTex = texture;
+                print("Stencil image generated and displayed successfully!");
+                this.isGenerating = false;
+            }, () => {
+                print("Failed to decode texture from base64 data.");
+                this.isGenerating = false;
+            });
+        }
+    };
+    __setFunctionName(_classThis, "ExampleGeminiImageGen");
+    (() => {
+        const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
+        __esDecorate(null, _classDescriptor = { value: _classThis }, _classDecorators, { kind: "class", name: _classThis.name, metadata: _metadata }, null, _classExtraInitializers);
+        ExampleGeminiImageGen = _classThis = _classDescriptor.value;
+        if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, { enumerable: true, configurable: true, writable: true, value: _metadata });
+        __runInitializers(_classThis, _classExtraInitializers);
+    })();
+    return ExampleGeminiImageGen = _classThis;
+})();
+exports.ExampleGeminiImageGen = ExampleGeminiImageGen;
+//# sourceMappingURL=GeminiCall.js.map

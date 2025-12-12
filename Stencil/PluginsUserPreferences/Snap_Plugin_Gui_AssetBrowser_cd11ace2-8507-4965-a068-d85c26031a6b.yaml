@@ -1,11 +1,13 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 825
+    size: 832
     values:
       - DatabaseTypes.ts
-      - Images
-      - Images/loading-spinner.gif
+      - Device Camera Texture.deviceCameraTexture
+      - Echopark.hdr
+      - Echopark.hdr/Diffuse
+      - Echopark.hdr/Specular
       - LSTween.lspkg
       - LSTween.lspkg/Examples
       - LSTween.lspkg/Examples/Assets
@@ -31,13 +33,14 @@ CollapsedEntities:
       - LSTween.lspkg/TweenJS/Version.ts
       - LSTween.lspkg/TweenJS/mainGroup.ts
       - LSTween.lspkg/package.native
-      - Materials/Drawing.mat
       - RemoteServiceGateway.lspkg
+      - RemoteServiceGateway.lspkg/Helpers
       - RemoteServiceGateway.lspkg/Helpers/AudioProcessor.ts
       - RemoteServiceGateway.lspkg/Helpers/DynamicAudioOutput.ts
       - RemoteServiceGateway.lspkg/Helpers/MicrophoneRecorder.ts
       - RemoteServiceGateway.lspkg/Helpers/VideoController.ts
       - RemoteServiceGateway.lspkg/HostedExternal
+      - RemoteServiceGateway.lspkg/HostedExternal/Examples
       - RemoteServiceGateway.lspkg/HostedExternal/Examples/ExampleGeminiCalls.ts
       - RemoteServiceGateway.lspkg/HostedExternal/Examples/ExampleGeminiLive.ts
       - RemoteServiceGateway.lspkg/HostedExternal/Examples/ExampleImagenCalls.ts
@@ -100,26 +103,19 @@ CollapsedEntities:
       - RemoteServiceGateway.lspkg/Utils/Event.ts
       - RemoteServiceGateway.lspkg/Utils/Promisfy.ts
       - RemoteServiceGateway.lspkg/package.native
-      - Scripts
-      - Scripts/GeminiCall.ts
-      - Scripts/SnapCloudRequirements.ts
-      - Scripts/StencilGenGeminiCall.ts
-      - Shaders
-      - Shaders/Drawing.ss_graph
+      - Render Target.renderTarget
+      - Scene.scene
       - SpectaclesInteractionKit.lspkg
       - SpectaclesInteractionKit.lspkg/Assets
       - SpectaclesInteractionKit.lspkg/Assets/Audio
       - SpectaclesInteractionKit.lspkg/Assets/Audio/HoverAudioTrack.wav
       - SpectaclesInteractionKit.lspkg/Assets/Audio/TriggerEndAudioTrack.wav
       - SpectaclesInteractionKit.lspkg/Assets/Audio/TriggerStartAudioTrack.wav
-      - SpectaclesInteractionKit.lspkg/Assets/Materials
-      - SpectaclesInteractionKit.lspkg/Assets/Materials/BaseHandVisualsMaterials
       - SpectaclesInteractionKit.lspkg/Assets/Materials/BaseHandVisualsMaterials/FingerHighlightLeft.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/BaseHandVisualsMaterials/FingerHighlightRight.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/BaseHandVisualsMaterials/FingerTipGlow.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/BaseHandVisualsMaterials/HandOccluderLeft.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/BaseHandVisualsMaterials/HandOccluderRight.mat
-      - SpectaclesInteractionKit.lspkg/Assets/Materials/BaseHandVisualsMaterials/NoDraw.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/BitmojiMaterial.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/ContainerImageMaterial.mat
       - SpectaclesInteractionKit.lspkg/Assets/Materials/LogoMaterial.mat
@@ -194,13 +190,10 @@ CollapsedEntities:
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/SnapGhost_Mesh.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/SphereMesh.mesh
       - SpectaclesInteractionKit.lspkg/Assets/Meshes/Uncheck.mesh
-      - SpectaclesInteractionKit.lspkg/Assets/Shaders
-      - SpectaclesInteractionKit.lspkg/Assets/Shaders/BaseHandVisualsShaders
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/BaseHandVisualsShaders/FingerHighlightAdd.ss_graph
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/BaseHandVisualsShaders/FingerHighlightOpaque.ss_graph
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/BaseHandVisualsShaders/FingerTipGlow.ss_graph
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/BaseHandVisualsShaders/HandOccluder.ss_graph
-      - SpectaclesInteractionKit.lspkg/Assets/Shaders/BaseHandVisualsShaders/NoDraw.ss_graph
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/NormalBasedTargetOutline.ss_graph
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/PinchButton-ActiveOrInActive.ss_graph
       - SpectaclesInteractionKit.lspkg/Assets/Shaders/PinchDarkRadial.ss_graph
@@ -708,6 +701,7 @@ CollapsedEntities:
       - SpectaclesUIKit.lspkg/Meshes/DefaultSwitchKnob.mesh
       - SpectaclesUIKit.lspkg/Meshes/StretchableCircle.mesh
       - SpectaclesUIKit.lspkg/Meshes/Unit Plane.mesh
+      - SpectaclesUIKit.lspkg/Prefabs
       - SpectaclesUIKit.lspkg/Prefabs/DropShadow.prefab
       - SpectaclesUIKit.lspkg/Prefabs/ExampleInterface.prefab
       - SpectaclesUIKit.lspkg/Prefabs/FrameButton.prefab
@@ -715,6 +709,7 @@ CollapsedEntities:
       - SpectaclesUIKit.lspkg/Prefabs/LabelledButton.prefab
       - SpectaclesUIKit.lspkg/Prefabs/LabelledToggle.prefab
       - SpectaclesUIKit.lspkg/README.md
+      - SpectaclesUIKit.lspkg/Scripts
       - SpectaclesUIKit.lspkg/Scripts/BackPlate.ts
       - SpectaclesUIKit.lspkg/Scripts/Components
       - SpectaclesUIKit.lspkg/Scripts/Components/Button
@@ -752,6 +747,7 @@ CollapsedEntities:
       - SpectaclesUIKit.lspkg/Scripts/Components/Toggle/Toggleable.ts
       - SpectaclesUIKit.lspkg/Scripts/Components/VisualElement.ts
       - SpectaclesUIKit.lspkg/Scripts/DropShadow.ts
+      - SpectaclesUIKit.lspkg/Scripts/Example
       - SpectaclesUIKit.lspkg/Scripts/Example/Capsule3D
       - SpectaclesUIKit.lspkg/Scripts/Example/Capsule3D/Capsule3DButton.ts
       - SpectaclesUIKit.lspkg/Scripts/Example/Capsule3D/Visual
@@ -809,6 +805,16 @@ CollapsedEntities:
       - SpectaclesUIKit.lspkg/Textures/test-image.jpg
       - SpectaclesUIKit.lspkg/package.native
       - SpectaclesUIKit.lspkg/package_dependencies.json
+      - Stencil
+      - Stencil/Images
+      - Stencil/Images/loading-spinner.gif
+      - Stencil/Materials
+      - Stencil/Rendering
+      - Stencil/Scripts
+      - Stencil/Scripts/GeminiCall.ts
+      - Stencil/Scripts/SnapCloudRequirements.ts
+      - Stencil/Scripts/StencilGenGeminiCall.ts
+      - Stencil/Shaders
       - SupabaseClient.lspkg
       - SupabaseClient.lspkg/package.native
       - SupabaseClient.lspkg/polyfills
@@ -828,4 +834,5 @@ CollapsedEntities:
       - SupabaseClient.lspkg/supabase-snapcloud.js
       - SupabaseProject Palette.supabaseProject
       - SupabaseProject lensathon.supabaseProject
+      - Textures
   options: 4
