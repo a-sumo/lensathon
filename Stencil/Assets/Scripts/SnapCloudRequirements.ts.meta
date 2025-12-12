@@ -1,0 +1,56 @@
+- !<AssetImportMetadata/6f1c62e7-e1e8-4752-b7da-ccdab9bf17fc>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 5e8021b3-d038-4fbc-a7f3-01dd5a53140c
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 5e8021b3-d038-4fbc-a7f3-01dd5a53140c
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> a2def00e-2ade-4714-a90a-a8180d90aac7
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/a2def00e-2ade-4714-a90a-a8180d90aac7>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: a63e1e62-ac86-442d-b815-f85ee59f7786
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    disableWarningsWhenConfigured: false
+    enableDebugLogs: false
+    showSetupInstructions: false
+    supabaseProject: false
+    text: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - supabaseProject: !<reference.SupabaseProject> f1fb6ead-fb40-4c40-9013-e5d388254519
+      text: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      disableWarningsWhenConfigured: true
+      showSetupInstructions: true
+      enableDebugLogs: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Asset.SupabaseProject supabaseProject {"hint":"SupabaseProject asset from Asset Browser (created via Supabase Plugin)"}'
+    - '// @input Component.Text text {"hint":"Text component to display warning messages (optional)"}'
+    - '// @input bool disableWarningsWhenConfigured = true {"hint":"Disable warnings when requirements are properly set (auto-detected)"}'
+    - '// @input bool showSetupInstructions = true {"hint":"Show detailed setup instructions in console"}'
+    - '// @input bool enableDebugLogs = true {"hint":"Enable debug logging"}'

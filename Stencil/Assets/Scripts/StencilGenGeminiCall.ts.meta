@@ -1,0 +1,65 @@
+- !<AssetImportMetadata/31cd4e80-c821-4716-85f7-a8574ba94c87>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 313329ae-e7f3-4289-a8f5-4ddc4218abe8
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 313329ae-e7f3-4289-a8f5-4ddc4218abe8
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> c0d1e337-abe6-40a9-9991-59b2c7963d26
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/c0d1e337-abe6-40a9-9991-59b2c7963d26>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: b089ec9b-7858-4dec-ba94-9ed38d8db5fc
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    basePrompt: false
+    functionName: false
+    generateButton: false
+    imgObject: false
+    objectTypeInput: false
+    snapCloudRequirements: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - snapCloudRequirements: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      functionName: generate-image
+      imgObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      objectTypeInput: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      basePrompt: Generate a high quality image of a
+      generateButton: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Edge Function Config"}'
+    - // @input AssignableType snapCloudRequirements
+    - '// @input string functionName = "hello-world" {"hint":"Name of the edge function"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Image Generation"}'
+    - // @input SceneObject imgObject
+    - '// @input AssignableType_1 objectTypeInput {"hint":"Text input field for object category/type"}'
+    - '// @input string basePrompt = "Generate a high quality image of a" {"hint":"Base prompt - object type will be appended", "widget":"text_area"}'
+    - '// @input AssignableType_2 generateButton {"hint":"RectangleButton to trigger image generation"}'
+    - '// @ui {"widget":"group_end"}'
