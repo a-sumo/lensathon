@@ -10,15 +10,15 @@ dock:
                   - persistentName: Snap.Plugin.Gui.Graph.Editor
                     Uuid: f25a0fb1-a860-4bdc-a5c2-1970336bfea8
                 type: section
-                current: 0
+                current: 1
               - items:
                   - persistentName: Snap.Plugin.Gui.AssetBrowser
                     Uuid: cd11ace2-8507-4965-a068-d85c26031a6b
                 type: section
                 current: 0
             sizes:
-              - 407
-              - 260
+              - 296
+              - 189
             type: splitter
             orientation: vertical
           - items:
@@ -38,7 +38,7 @@ dock:
                 type: section
                 current: 0
             sizes:
-              - 569
+              - 387
               - 98
             type: splitter
             orientation: vertical
@@ -62,7 +62,7 @@ dock:
         type: section
         current: 0
     sizes:
-      - 670
-      - 98
+      - 488
+      - 280
     type: splitter
     orientation: vertical

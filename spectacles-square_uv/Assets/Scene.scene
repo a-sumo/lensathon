@@ -11,7 +11,6 @@
     - !<own> 6c021c8a-506d-4459-a628-35cf4b4653a6
     - !<own> 01b46ab9-19cb-4d15-8fb6-a037182f817b
     - !<own> 121fd439-9b3a-465c-b0ea-e84a44593bdb
-    - !<own> 0e7d326c-69bb-4aff-8637-418e7ffdae58
     - !<own> d2a0bb5b-6159-45ec-ab0e-2e4372731a8f
     - !<own> bce17ddd-f3d6-4121-a01a-cbf3da0a8227
     - !<own> 2b7e891e-d737-422d-bef2-3392c5504169
@@ -988,9 +987,9 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 15.000000, z: -100.000000}
+    Position: {x: 0.000000, y: -0.000000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 20.000000, y: 20.000000, z: 20.000000}
+    Scale: {x: 2.000000, y: 2.000000, z: 20.000000}
     HasSegmentScaleCompensation: false
   Children:
     []
@@ -2458,7 +2457,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: -100.000000}
+    Position: {x: 0.000000, y: -5.000000, z: -148.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
@@ -5785,7 +5784,7 @@
   PrefabRemaps:
     []
   Name: Gemini Frame
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: -150.000000}
@@ -10592,10 +10591,10 @@
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 15.000000, z: -100.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 10.000000, y: 10.000000, z: 1.000000}
+    Scale: {x: 15.000000, y: 10.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    []
+    - !<own> 0e7d326c-69bb-4aff-8637-418e7ffdae58
   Components:
     - !<own> ab82649c-bffb-4d01-91a0-680b63ad0c90
     - !<own> 0b076a56-f125-457d-b749-567e87aef0dc
