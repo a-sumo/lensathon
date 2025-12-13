@@ -1,0 +1,56 @@
+- !<AssetImportMetadata/57a5706a-6aad-4a17-88b7-b7ce76ce30eb>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> f26f4246-998a-4db5-a1e3-add4f12ca01a
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> f26f4246-998a-4db5-a1e3-add4f12ca01a
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 33420e7f-fd35-4b05-8a76-ef4d7efbf4ee
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/33420e7f-fd35-4b05-8a76-ef4d7efbf4ee>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 18a004d8-1bdc-424c-9412-94eec2a07ba1
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    handType: false
+    particleMaterial: false
+    positionOffset: false
+    rotationOffset: false
+    sprayCan: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - sprayCan: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      handType: right
+      positionOffset: !<Vec3> {x: 0.000000, y: 0.050000, z: 0.030000}
+      rotationOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      particleMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input SceneObject sprayCan {"hint":"The 3D spray can object to show in hand"}'
+    - "// @input string handType = \"right\" {\"hint\":\"Which hand to use: 'right' or 'left'\"}"
+    - '// @input vec3 positionOffset = {0,0.05,0.03} {"hint":"Offset from wrist position (local space)"}'
+    - '// @input vec3 rotationOffset = {0,0,0} {"hint":"Rotation offset in degrees"}'
+    - '// @input Asset.Material particleMaterial {"hint":"Optional: GPU particle material (e.g. SprayPaint.lspkg/GPU Particles.mat). Its mainPass.colorStart/colorEnd will be set to black when not spraying."}'

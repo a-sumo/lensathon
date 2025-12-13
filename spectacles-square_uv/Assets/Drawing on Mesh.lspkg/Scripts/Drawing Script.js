@@ -26,6 +26,8 @@
 
 //@input Component.Text debugText
 
+//@input bool debugLogs = false
+
 // SIK import
 var Interactable = require("SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable").Interactable;
 
@@ -40,9 +42,21 @@ var brushSize;
 var visible = false;
 var planeInteractable = null;
 
+function log(msg) {
+    if (script.debugLogs) {
+        print(msg);
+    }
+}
+
 // Initialize on start
 function onStart(eventData) {
     brushSize = script.drawingSize;
+
+    // Default: not actively spraying
+    global.sprayActive = false;
+    if (typeof global.setSprayActive === "function") {
+        global.setSprayActive(false);
+    }
     
     // Get aspect ratio from texture
     var aspectTex = null;
@@ -100,7 +114,7 @@ function onStart(eventData) {
         script.debugText.text = "v5.3.0 Ready\nAny orientation OK!";
     }
     
-    print("Drawing Script v5.3.0 initialized. Using vector projection (any orientation).");
+    log("Drawing Script v5.3.0 initialized. Using vector projection (any orientation)." );
 }
 
 // Convert world hit position to UV coordinates [0,1]
@@ -136,14 +150,11 @@ function worldToUV(worldPos) {
 // Draw brush strokes in ortho camera
 function drawBrushStrokes() {
     var distance = prevPointCoord.distance(pointCoordThe);
-    print("drawBrushStrokes: distance = " + distance.toFixed(3) + ", pointCoordThe = " + pointCoordThe.toString());
     
     if (distance < 0.4) {
         // Calculate half brush size for centering
         var halfBrushW = (brushSize * aspectRatio) * 0.5;
         var halfBrushH = brushSize * 0.5;
-        
-        print("drawBrushStrokes: drawing " + drawingObjects.length + " objects, brushSize=" + brushSize);
         
         for (var t = 0; t < 30 && t < drawingObjects.length; t++) {
             var lerpValue = vec2.lerp(prevPointCoord, pointCoordThe, t / 29);
@@ -161,12 +172,10 @@ function drawBrushStrokes() {
 
         prevPointCoord = new vec2(pointCoordX * 2 - 1, pointCoordY * 2 - 1);
     } else {
-        print("drawBrushStrokes: distance too large, resetting prevPointCoord");
         prevPointCoord = new vec2(pointCoordX * 2 - 1, pointCoordY * 2 - 1);
     }
     
     if (!visible) {
-        print("drawBrushStrokes: enabling DrawingObjects");
         script.DrawingObjects.enabled = true;
         visible = true;
     }
@@ -206,22 +215,21 @@ function processHitPosition(interactor) {
 function canDraw() {
     // global.isDrawingMode is set by AppStateController
     if (typeof global.isDrawingMode === "function") {
-        var result = global.isDrawingMode();
-        print("canDraw: global.isDrawingMode() = " + result);
-        return result;
+        return global.isDrawingMode();
     }
     // If AppStateController not found, allow drawing (fallback)
-    print("canDraw: no global.isDrawingMode, returning true");
     return true;
 }
 
 // Called when user starts pinching on the plane
 function onTriggerStart(eventArgs) {
-    print("onTriggerStart called!");
-    
     // Only draw if in Drawing mode
     if (!canDraw()) {
-        print("onTriggerStart: canDraw() returned false, skipping");
+        // Ensure spray is disabled in non-drawing mode
+        global.sprayActive = false;
+        if (typeof global.setSprayActive === "function") {
+            global.setSprayActive(false);
+        }
         if (script.debugText) {
             script.debugText.text = "Mode: Creating Rectangle\n(not drawing)";
         }
@@ -229,24 +237,33 @@ function onTriggerStart(eventArgs) {
     }
     
     isDrawing = true;
-    print("onTriggerStart: isDrawing = true");
+    
+    // Activate spray particle effect (only while actively drawing)
+    global.sprayActive = true;
+    if (typeof global.setSprayActive === "function") {
+        global.setSprayActive(true);
+    }
     
     if (processHitPosition(eventArgs.interactor)) {
         // Reset previous point on new stroke
         prevPointCoord = new vec2(pointCoordX * 2 - 1, pointCoordY * 2 - 1);
-        print("onTriggerStart: processHitPosition success, UV: " + pointCoordX.toFixed(2) + ", " + pointCoordY.toFixed(2));
-    } else {
-        print("onTriggerStart: processHitPosition FAILED");
     }
     
     if (script.debugText) {
-        script.debugText.text = "DRAWING STARTED\nUV: " + pointCoordX.toFixed(2) + ", " + pointCoordY.toFixed(2);
+        script.debugText.text = "DRAWING\nUV: " + pointCoordX.toFixed(2) + ", " + pointCoordY.toFixed(2);
     }
 }
 
 // Called every frame while pinching on the plane
 function onTriggerUpdate(eventArgs) {
-    if (!isDrawing || !canDraw()) return;
+    if (!isDrawing) return;
+    if (!canDraw()) {
+        global.sprayActive = false;
+        if (typeof global.setSprayActive === "function") {
+            global.setSprayActive(false);
+        }
+        return;
+    }
     
     if (processHitPosition(eventArgs.interactor)) {
         drawBrushStrokes();
@@ -263,6 +280,12 @@ function onTriggerUpdate(eventArgs) {
 // Called when user stops pinching
 function onTriggerEnd(eventArgs) {
     isDrawing = false;
+    
+    // Deactivate spray particle effect
+    global.sprayActive = false;
+    if (typeof global.setSprayActive === "function") {
+        global.setSprayActive(false);
+    }
     
     if (script.debugText) {
         script.debugText.text = "DRAWING STOPPED\nPinch to draw!";

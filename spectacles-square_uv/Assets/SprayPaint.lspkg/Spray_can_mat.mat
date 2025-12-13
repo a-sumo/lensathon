@@ -1,15 +1,9 @@
-- !<Material/811264af-aa18-46f4-b25d-0756359ebd10>
+- !<Material/30be5a0c-6aae-42c0-9606-61d64ff96496>
   PackagePath: ""
   PassesInfo:
-    - !<own> 05284449-0bd6-4a00-b9a6-1e2ff35b925f
-- !<PassInfo/05284449-0bd6-4a00-b9a6-1e2ff35b925f>
+    - !<own> 4c58c50f-8c07-41ad-809d-70d4523a228b
+- !<PassInfo/4c58c50f-8c07-41ad-809d-70d4523a228b>
   CachedProperties:
-    - Port_Default_N204:
-        typeIdx: 1
-        value: 1.000000
-    - Port_Default_N369:
-        typeIdx: 5
-        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     - Port_Depth_N004:
         typeIdx: 1
         value: 1.000000
@@ -31,10 +25,13 @@
     - Port_GSplatScale_N004:
         typeIdx: 4
         value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_LODValue_N001:
+        typeIdx: 1
+        value: 0.000000
     - Port_LODValue_N002:
         typeIdx: 1
         value: 0.000000
-    - Port_LODValue_N003:
+    - Port_LODValue_N009:
         typeIdx: 1
         value: 0.000000
     - Port_PrevWorldPosition_N004:
@@ -46,18 +43,6 @@
     - Port_RayOrigin_N004:
         typeIdx: 4
         value: {x: 0.000000, y: 0.000000, z: 0.000000}
-    - Port_Speed_N022:
-        typeIdx: 1
-        value: 1.000000
-    - Port_Speed_N063:
-        typeIdx: 1
-        value: 1.000000
-    - Port_Value3_N001:
-        typeIdx: 1
-        value: 0.000000
-    - Port_Value4_N001:
-        typeIdx: 1
-        value: 0.000000
     - Port_WorldNormal_N004:
         typeIdx: 4
         value: {x: 0.000000, y: 1.000000, z: 0.000000}
@@ -67,11 +52,8 @@
     - Port_WorldTangent_N004:
         typeIdx: 4
         value: {x: 0.000000, y: 0.000000, z: 1.000000}
-    - mainColor:
-        typeIdx: 5
-        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  DepthWrite: false
-  DepthTest: false
+  DepthWrite: true
+  DepthTest: true
   DepthFunction: LessEqual
   TwoSided: false
   ColorMask: {x: true, y: true, z: true, w: true}
@@ -82,29 +64,32 @@
   InstanceCount: 1
   Defines:
     - ENABLE_BASE_TEX
-    - NODE_13_DROPLIST_ITEM 0
-    - NODE_27_DROPLIST_ITEM 0
-    - NODE_49_DROPLIST_ITEM 0
-    - NODE_69_DROPLIST_ITEM 0
-    - ENABLE_OPACITY_TEX
-  BlendMode: PremultipliedAlphaAuto
+    - ENABLE_NORMALMAP
+    - ENABLE_LIGHTING
+  BlendMode: Disabled
   Properties:
+    Port_Center_N016:
+      typeIdx: 3
+      value: {x: 0.000000, y: 0.000000}
+    Port_Emissive_N006:
+      typeIdx: 4
+      value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Port_SpecularAO_N006:
+      typeIdx: 4
+      value: {x: 1.000000, y: 1.000000, z: 1.000000}
     PreviewEnabled:
       typeIdx: 0
       value: 0
-    baseColor:
-      typeIdx: 5
-      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     baseTex:
       typeIdx: 9
       value:
-        id: a1121c86-8384-49a8-90b7-ee603e9c33aa
+        id: b318674c-9e55-469d-a4e4-96d03dca887e
         sampler:
-          filteringMode: Bilinear
-          wrapModeU: ClampToEdge
-          wrapModeV: ClampToEdge
+          filteringMode: Trilinear
+          wrapModeU: Repeat
+          wrapModeV: Repeat
           wrapModeW: Repeat
-          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
           mipmaps: false
         type: Texture2D
     baseTexTransform:
@@ -113,25 +98,43 @@
         0: {x: 1.000000, y: 0.000000, z: 0.000000}
         1: {x: 0.000000, y: 1.000000, z: 0.000000}
         2: {x: 0.000000, y: 0.000000, z: 1.000000}
-    opacityMul:
-      typeIdx: 1
-      value: 0.200000
-    opacityTex:
+    materialParamsTex:
       typeIdx: 9
       value:
-        id: 84c4340e-d9d5-4aba-94a5-28075b117f47
+        id: 7c0992c3-8257-42d2-a96f-ddc0721f94df
         sampler:
           filteringMode: Trilinear
           wrapModeU: Repeat
           wrapModeV: Repeat
           wrapModeW: Repeat
-          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
           mipmaps: false
         type: Texture2D
-    opacityTexTransform:
+    materialParamsTexTransform:
       typeIdx: 7
       value:
         0: {x: 1.000000, y: 0.000000, z: 0.000000}
         1: {x: 0.000000, y: 1.000000, z: 0.000000}
         2: {x: 0.000000, y: 0.000000, z: 1.000000}
-  Pass: !<reference> 2a2b35a2-2d23-4447-8e9f-f24aa06b5df2
+    normalTex:
+      typeIdx: 9
+      value:
+        id: def4d243-6fbf-416a-bf0f-022754e2c03c
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: Repeat
+          wrapModeV: Repeat
+          wrapModeW: Repeat
+          borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+          mipmaps: false
+        type: Texture2D
+    normalTexTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    uvScale:
+      typeIdx: 1
+      value: 1.000000
+  Pass: !<reference> a92c6aee-1130-4543-9347-ad8dfc76f6a4

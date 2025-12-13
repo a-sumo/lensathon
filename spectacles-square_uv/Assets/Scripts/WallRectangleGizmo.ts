@@ -196,7 +196,7 @@ export class WallRectangleGizmo extends BaseScriptComponent {
           appState.switchToDrawingMode();
           print("Rectangle completed! Switched to Drawing mode.");
         }
-      }
+        }
       // REMOVED: No longer create new rectangle when in Completed state
       // User must explicitly switch back to CreatingRectangle mode to create new rectangle
     }

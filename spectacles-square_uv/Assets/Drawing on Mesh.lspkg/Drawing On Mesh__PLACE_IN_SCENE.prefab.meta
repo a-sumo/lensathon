@@ -1576,6 +1576,7 @@
     aspectFromCustomizeTexture: true
     aspectFromRenderTarget: true
     debugText: true
+    debugLogs: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -1590,6 +1591,7 @@
       aspectFromCustomizeTexture: true
       aspectFromRenderTarget: false
       debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      debugLogs: false
   ScriptTypes:
     "":
       {}

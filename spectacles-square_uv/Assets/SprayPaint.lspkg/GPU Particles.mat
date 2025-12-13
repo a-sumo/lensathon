@@ -1,0 +1,258 @@
+- !<Material/1b69efdc-2fb9-4dfc-b40a-19ea58bdfcc9>
+  PackagePath: ""
+  PassesInfo:
+    - !<own> e3720e51-a0ad-48ec-9c97-1d1394710b52
+- !<PassInfo/e3720e51-a0ad-48ec-9c97-1d1394710b52>
+  CachedProperties:
+    - Port_Depth_N004:
+        typeIdx: 1
+        value: 1.000000
+    - Port_FinalColor1_N004:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_FinalColor2_N004:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_FinalColor3_N004:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_GSplatPointSize_N004:
+        typeIdx: 1
+        value: 0.000000
+    - Port_GSplatRotation_N004:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+    - Port_GSplatScale_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_Input1_N068:
+        typeIdx: 1
+        value: 2.000000
+    - Port_Input1_N069:
+        typeIdx: 1
+        value: 1.000000
+    - Port_Input1_N119:
+        typeIdx: 1
+        value: 0.000000
+    - Port_Input1_N154:
+        typeIdx: 1
+        value: 1.000000
+    - Port_Input1_N216:
+        typeIdx: 1
+        value: 0.000000
+    - Port_LODValue_N166:
+        typeIdx: 1
+        value: 0.000000
+    - Port_PrevWorldPosition_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_RayDirection_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 1.000000, z: 0.000000}
+    - Port_RayOrigin_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_Value3_N194:
+        typeIdx: 1
+        value: 0.000000
+    - Port_Value4_N194:
+        typeIdx: 1
+        value: 0.000000
+    - Port_WorldTangent_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - alphaEnd:
+        typeIdx: 1
+        value: 1.000000
+    - alphaStart:
+        typeIdx: 1
+        value: 1.000000
+    - colorRampMult:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - colorRampTexture:
+        typeIdx: 9
+        value:
+          id: 00000000-0000-0000-0000-000000000000
+          sampler:
+            filteringMode: Trilinear
+            wrapModeU: Repeat
+            wrapModeV: Repeat
+            wrapModeW: Repeat
+            borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+            mipmaps: false
+          type: Texture2D
+    - colorRampTextureSize:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - colorRampTextureTransform:
+        typeIdx: 7
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000}
+          1: {x: 0.000000, y: 1.000000, z: 0.000000}
+          2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - lifeTimeConstant:
+        typeIdx: 1
+        value: 1.000000
+    - rotationDrag:
+        typeIdx: 1
+        value: 0.000000
+  DepthWrite: false
+  DepthTest: true
+  DepthFunction: LessEqual
+  TwoSided: true
+  ColorMask: {x: true, y: true, z: true, w: true}
+  CullMode: Back
+  PolygonOffset: {x: 0.000000, y: 0.000000}
+  FrustumCulling: Extend
+  FrustumCullPad: 100.000000
+  InstanceCount: 5000
+  Defines:
+    - ALIGN_PARTICLES_TO_OPTION 0
+    - ALIGN_TO_CAMERA 0
+    - ALPHAMINMAX
+    - BASETEXTURE
+    - ENABLE_BASE_TEX
+    - ENABLE_FACE_TEX
+    - LIFETIMEMINMAX
+    - MESHTYPE 0
+    - NODE_13_DROPLIST_ITEM 0
+    - NODE_213_DROPLIST_ITEM 0
+    - NODE_23_DROPLIST_ITEM 0
+    - NODE_67_DROPLIST_ITEM 0
+    - NODE_76_DROPLIST_ITEM 0
+    - TRAILBEHAVIOR 0
+    - rotationSpace 0
+    - SIZEMINMAX
+    - ALPHADISSOLVE
+    - ALIGNPARTICLES
+    - PREMULTIPLIEDCOLOR
+  BlendMode: Screen
+  Properties:
+    IGNOREVEL:
+      typeIdx: 2
+      value: false
+    NORMALIZESCALETOTRANSFORM:
+      typeIdx: 2
+      value: false
+    Port_AO_N014:
+      typeIdx: 4
+      value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    Port_Emissive_N014:
+      typeIdx: 4
+      value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Port_SpecularAO_N014:
+      typeIdx: 4
+      value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    PreviewEnabled:
+      typeIdx: 0
+      value: 0
+    alphaDissolveMult:
+      typeIdx: 1
+      value: 0.150000
+    alphaMaxEnd:
+      typeIdx: 1
+      value: 1.000000
+    alphaMaxStart:
+      typeIdx: 1
+      value: 0.300000
+    alphaMinEnd:
+      typeIdx: 1
+      value: 0.400000
+    alphaMinStart:
+      typeIdx: 1
+      value: 0.200000
+    colorEnd:
+      typeIdx: 4
+      value: {x: 1.000000, y: 0.816663, z: 0.000000}
+    colorStart:
+      typeIdx: 4
+      value: {x: 0.501472, y: 0.409537, z: 0.000000}
+    customForceOrigin:
+      typeIdx: 4
+      value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    customForceStrength:
+      typeIdx: 1
+      value: 1.000000
+    externalSeed:
+      typeIdx: 1
+      value: 0.000000
+    gravity:
+      typeIdx: 1
+      value: 0.000000
+    lifeTimeMinMax:
+      typeIdx: 3
+      value: {x: 0.250000, y: 0.500000}
+    mainTexture:
+      typeIdx: 9
+      value:
+        id: b28d4190-ba14-4ce1-97bb-3397a396f21d
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: ClampToEdge
+          wrapModeV: ClampToEdge
+          wrapModeW: ClampToEdge
+          borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+          mipmaps: false
+        type: Texture2D
+    mainTextureTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    metallic:
+      typeIdx: 1
+      value: 0.000000
+    normalTexTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    rotationRandom:
+      typeIdx: 3
+      value: {x: -1.000000, y: 1.000000}
+    rotationRate:
+      typeIdx: 3
+      value: {x: 0.000000, y: 0.000000}
+    roughness:
+      typeIdx: 1
+      value: 0.000000
+    sizeEnd:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
+    sizeEndMax:
+      typeIdx: 3
+      value: {x: 3.000000, y: 3.000000}
+    sizeSpeed:
+      typeIdx: 1
+      value: 1.000000
+    sizeStart:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
+    sizeStartMax:
+      typeIdx: 3
+      value: {x: 2.000000, y: 2.000000}
+    sizeVelScale:
+      typeIdx: 1
+      value: 4.000000
+    spawnDuration:
+      typeIdx: 1
+      value: 0.000000
+    timeGlobal:
+      typeIdx: 1
+      value: 1.000000
+    velScaleMinMax:
+      typeIdx: 3
+      value: {x: 1.000000, y: 5.000000}
+    velocityDrag:
+      typeIdx: 4
+      value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    velocityMax:
+      typeIdx: 4
+      value: {x: 40.000000, y: 150.000000, z: 40.000000}
+    velocityMin:
+      typeIdx: 4
+      value: {x: -40.000000, y: 100.000000, z: -40.000000}
+  Pass: !<reference> d283bfd6-0a7c-45c8-94c5-e96261798113
