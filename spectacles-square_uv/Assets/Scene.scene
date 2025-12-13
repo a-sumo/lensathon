@@ -998,6 +998,7 @@
     - !<own> 4a28b024-a9ae-48da-8a05-59af1a857dc5
     - !<own> 609969b4-2699-4edc-a3a9-efa79d6ccc30
     - !<own> 2170abc6-7bd8-4596-b132-490c8b34a83f
+    - !<own> 5be2b062-9bec-4a4c-8874-e87f4ddc3a56
 - !<Image/0ec2e7f8-c755-4986-b063-8101a4b0aa3c>
   PrefabRemaps:
     []
@@ -1875,6 +1876,21 @@
     - !<own> 298f274e-575f-40f7-a4f3-e4eaeaaecd67
   Components:
     []
+- !<SceneObject/1c2fec0b-9a13-4dbc-9e0f-a27cee957bfb>
+  PrefabRemaps:
+    []
+  Name: Stencil Border
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.020000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.200000, y: 1.200000, z: 1.200000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> a519d506-0921-4a9e-8af3-cf36b0ab9087
 - !<Image/1eec51ce-cc8d-41da-a1fc-f32858a3c1a5>
   PrefabRemaps:
     []
@@ -5207,6 +5223,29 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
+- !<ScriptComponent/5be2b062-9bec-4a4c-8874-e87f4ddc3a56>
+  PrefabRemaps:
+    []
+  Name: SprayController
+  Enabled: true
+  ScriptAsset: !<reference> 1fe630f0-3c3b-47ff-9797-ee03ebbe7017
+  ScriptInputsDefault:
+    sprayColor: true
+    mockStencilRadius: true
+    strokeSpacing: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      targetPlane: !<reference.SceneObject> d2a0bb5b-6159-45ec-ab0e-2e4372731a8f
+      spraySwitch: !<MappingBased.AssignableType> 33cb5f3c-1183-4c49-a694-06d1f4f7e7b8
+      sprayRadius: 0.190000
+      sprayColor: !<Vec4> {x: 1.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      mockStencilRadius: 0.150000
+      strokeSpacing: 0.010000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/5bfeb82d-38c5-41bb-be28-19244a013f51>
   PrefabRemaps:
     []
@@ -8087,6 +8126,26 @@
     - !<own> 6592fd98-8ae7-43b2-9e0d-b63edeaac767
   Components:
     []
+- !<RenderMeshVisual/a519d506-0921-4a9e-8af3-cf36b0ab9087>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 338696f1-f858-4b59-bc01-9fd2559996ad
+  Mesh: !<reference> 019dc018-cc9c-41d3-81d6-ee2c333b3ed1
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<SceneObject/a51de043-700e-40da-a3f8-f5cb8c3a2e58>
   PrefabRemaps:
     []
@@ -8253,7 +8312,7 @@
 - !<SceneObject/ace1ec4e-9b65-4b22-8717-89e32596646c>
   PrefabRemaps:
     []
-  Name: Switch 1
+  Name: Switch Spray
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
@@ -9180,7 +9239,7 @@
     Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
     HasSegmentScaleCompensation: false
   Children:
-    []
+    - !<own> 1c2fec0b-9a13-4dbc-9e0f-a27cee957bfb
   Components:
     - !<own> 7195f654-a1a3-482e-8dda-a247983c8ceb
 - !<ScriptComponent/bdc1be67-d63e-47bd-a28f-7c92c118339f>

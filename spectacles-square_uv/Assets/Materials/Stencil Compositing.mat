@@ -55,7 +55,25 @@
     - Port_aspectRatio_N000:
         typeIdx: 3
         value: {x: 0.000000, y: 0.000000}
+    - Port_mockRadius_N000:
+        typeIdx: 1
+        value: 0.000000
     - Port_previewAlpha_N000:
+        typeIdx: 1
+        value: 0.000000
+    - Port_sprayActive_N000:
+        typeIdx: 1
+        value: 0.000000
+    - Port_sprayColor_N000:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_sprayRadius_N000:
+        typeIdx: 1
+        value: 0.000000
+    - Port_sprayUV_N000:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_spraying_N000:
         typeIdx: 1
         value: 0.000000
     - Port_stencilCenter_N000:
@@ -67,6 +85,33 @@
     - Port_tintColor_N000:
         typeIdx: 5
         value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - StencilScale:
+        typeIdx: 3
+        value: {x: 1.000000, y: 1.000000}
+    - Tweak_N11:
+        typeIdx: 1
+        value: 1.000000
+    - previewAlpha:
+        typeIdx: 1
+        value: 1.000000
+    - stencilCenter:
+        typeIdx: 3
+        value: {x: 0.500000, y: 0.500000}
+    - stencilMask:
+        typeIdx: 9
+        value:
+          id: f4acdebd-7de8-4876-b5b0-00853d282d10
+          sampler:
+            filteringMode: Trilinear
+            wrapModeU: ClampToEdge
+            wrapModeV: ClampToEdge
+            wrapModeW: Repeat
+            borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+            mipmaps: false
+          type: Texture2D
+    - tintColor:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.118212, z: 1.000000, w: 1.000000}
   DepthWrite: true
   DepthTest: true
   DepthFunction: LessEqual
@@ -84,31 +129,25 @@
     PreviewEnabled:
       typeIdx: 0
       value: 0
-    StencilScale:
-      typeIdx: 3
-      value: {x: 1.000000, y: 1.000000}
     aspectRatio:
       typeIdx: 3
       value: {x: 1.000000, y: 1.000000}
-    previewAlpha:
+    mockRadius:
+      typeIdx: 1
+      value: 10.000000
+    sprayActive:
       typeIdx: 1
       value: 1.000000
-    stencilCenter:
-      typeIdx: 3
-      value: {x: 0.500000, y: 0.500000}
-    stencilMask:
-      typeIdx: 9
-      value:
-        id: f4acdebd-7de8-4876-b5b0-00853d282d10
-        sampler:
-          filteringMode: Trilinear
-          wrapModeU: ClampToEdge
-          wrapModeV: ClampToEdge
-          wrapModeW: Repeat
-          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
-          mipmaps: false
-        type: Texture2D
-    tintColor:
+    sprayColor:
       typeIdx: 5
-      value: {x: 0.000000, y: 0.118212, z: 1.000000, w: 1.000000}
+      value: {x: 0.065583, y: 0.000000, z: 1.000000, w: 1.000000}
+    sprayRadius:
+      typeIdx: 1
+      value: 1.000000
+    sprayUV:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
+    spraying:
+      typeIdx: 1
+      value: 1.000000
   Pass: !<reference> cd53c47d-2309-4371-b359-b4bbfa16120d
