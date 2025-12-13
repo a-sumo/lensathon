@@ -1,0 +1,258 @@
+- !<Material/843d0619-4445-46cc-a05e-be077a94bf56>
+  PackagePath: ""
+  PassesInfo:
+    - !<own> 47b8fa9c-c7f2-4fa2-a552-bafce7c88a98
+- !<PassInfo/47b8fa9c-c7f2-4fa2-a552-bafce7c88a98>
+  CachedProperties:
+    - Port_Bool_N015:
+        typeIdx: 1
+        value: 0.000000
+    - Port_Color3_N015:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_Color4_N015:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_Depth_N004:
+        typeIdx: 1
+        value: 1.000000
+    - Port_FinalColor1_N004:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_FinalColor2_N004:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_FinalColor3_N004:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_FinalColor_N004:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_Float_N015:
+        typeIdx: 1
+        value: 0.000000
+    - Port_GSplatPointSize_N004:
+        typeIdx: 1
+        value: 0.000000
+    - Port_GSplatRotation_N004:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+    - Port_GSplatScale_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_Int_N015:
+        typeIdx: 1
+        value: 0.000000
+    - Port_Mat2_N015:
+        typeIdx: 6
+        value:
+          0: {x: 1.000000, y: 0.000000}
+          1: {x: 0.000000, y: 0.000000}
+    - Port_Mat3_N015:
+        typeIdx: 7
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000}
+          1: {x: 1.000000, y: 0.000000, z: 0.000000}
+          2: {x: 1.000000, y: 0.000000, z: 0.000000}
+    - Port_Mat4_N015:
+        typeIdx: 8
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          1: {x: 0.000000, y: 1.000000, z: 0.000000, w: 0.000000}
+          2: {x: 0.000000, y: 0.000000, z: 1.000000, w: 0.000000}
+          3: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+    - Port_PrevWorldPosition_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_RayDirection_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 1.000000, z: 0.000000}
+    - Port_RayOrigin_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_Value1_N000:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Value1_N015:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Value2_N000:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Value2_N015:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Vec2_N015:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_Vec3_N015:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_Vec4_N015:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_WorldNormal_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 1.000000, z: 0.000000}
+    - Port_WorldPosition_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_WorldTangent_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - Port_aspectRatio_N000:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_mockRadius_N000:
+        typeIdx: 1
+        value: 0.000000
+    - Port_previewAlpha_N000:
+        typeIdx: 1
+        value: 0.000000
+    - Port_sprayActive_N000:
+        typeIdx: 1
+        value: 0.000000
+    - Port_sprayColor_N000:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_sprayRadius_N000:
+        typeIdx: 1
+        value: 0.000000
+    - Port_sprayUV_N000:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_spraying_N000:
+        typeIdx: 1
+        value: 0.000000
+    - Port_stencilActive_N000:
+        typeIdx: 1
+        value: 0.000000
+    - Port_stencilCenter;_N000:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_stencilCenter_N000:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_stencilScale;_N000:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_stencilScale_N000:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_tintColor_N000:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Tweak_N11:
+        typeIdx: 1
+        value: 1.000000
+    - mainColor:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - mockRadius:
+        typeIdx: 1
+        value: 10.000000
+    - previewAlpha:
+        typeIdx: 1
+        value: 1.000000
+    - stencilMask:
+        typeIdx: 9
+        value:
+          id: f4acdebd-7de8-4876-b5b0-00853d282d10
+          sampler:
+            filteringMode: Trilinear
+            wrapModeU: ClampToEdge
+            wrapModeV: ClampToEdge
+            wrapModeW: Repeat
+            borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+            mipmaps: false
+          type: Texture2D
+    - stencilMaskTransform:
+        typeIdx: 7
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000}
+          1: {x: 0.000000, y: 1.000000, z: 0.000000}
+          2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - tintColor:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.118212, z: 1.000000, w: 1.000000}
+  DepthWrite: true
+  DepthTest: true
+  DepthFunction: LessEqual
+  TwoSided: false
+  ColorMask: {x: true, y: true, z: true, w: true}
+  CullMode: Back
+  PolygonOffset: {x: 0.000000, y: 0.000000}
+  FrustumCulling: Auto
+  FrustumCullPad: 0.000000
+  InstanceCount: 1
+  Defines:
+    []
+  BlendMode: Disabled
+  Properties:
+    PreviewEnabled:
+      typeIdx: 0
+      value: 0
+    StencilScale:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
+    aspectRatio:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
+    currentStencil:
+      typeIdx: 9
+      value:
+        id: f4acdebd-7de8-4876-b5b0-00853d282d10
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: ClampToEdge
+          wrapModeV: ClampToEdge
+          wrapModeW: Repeat
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: false
+        type: Texture2D
+    currentStencilTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    paintTex:
+      typeIdx: 9
+      value:
+        id: 05577de5-507e-4490-ba2c-68447341c582
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: Repeat
+          wrapModeV: Repeat
+          wrapModeW: Repeat
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: false
+        type: Texture2D
+    paintTexTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    sprayActive:
+      typeIdx: 1
+      value: 1.000000
+    sprayColor:
+      typeIdx: 5
+      value: {x: 0.065583, y: 0.000000, z: 1.000000, w: 1.000000}
+    sprayRadius:
+      typeIdx: 1
+      value: 1.000000
+    sprayUV:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
+    spraying:
+      typeIdx: 1
+      value: 1.000000
+    stencilActive:
+      typeIdx: 1
+      value: 1.000000
+    stencilCenter:
+      typeIdx: 3
+      value: {x: 0.500000, y: 0.500000}
+  Pass: !<reference> cd53c47d-2309-4371-b359-b4bbfa16120d

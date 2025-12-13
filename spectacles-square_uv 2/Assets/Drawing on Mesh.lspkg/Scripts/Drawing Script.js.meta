@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/6f400099-1e41-38b4-fe98-1d76e53f8106>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> c3ca86ce-b535-4cbe-bc03-38f006aa9d1c
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> c3ca86ce-b535-4cbe-bc03-38f006aa9d1c
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    AssetLibraryId: 2ut0WI2nFK1Xm9bvtL4pfU
+  AssetDataMap:
+    JavaScriptAsset: !<own> aa0a1d68-8e0d-42a4-abcb-955e1daffa55
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/aa0a1d68-8e0d-42a4-abcb-955e1daffa55>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 1
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: cd33250f-3ef2-4008-b3fc-a3663443b636
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    DrawingObjects: false
+    aspectFromCustomizeTexture: false
+    aspectFromRenderTarget: false
+    camera: false
+    cameraTex: false
+    customizeTexture: false
+    debugLogs: false
+    debugText: false
+    drawingSize: false
+    meshVis: false
+    renderTarget: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - camera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
+      cameraTex: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      renderTarget: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      meshVis: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      DrawingObjects: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      drawingSize: 0.030000
+      customizeTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      aspectFromCustomizeTexture: true
+      aspectFromRenderTarget: false
+      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      debugLogs: false
+  ScriptTypes:
+    -
+      {}

@@ -1,0 +1,70 @@
+- !<AssetImportMetadata/23323125-ebdf-401f-9a83-2ec2b8d72518>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 03e7e453-63dc-4db3-b72a-866d327b0f49
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 03e7e453-63dc-4db3-b72a-866d327b0f49
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 2e5d439c-b8f4-494c-981e-b78153b5a577
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/2e5d439c-b8f4-494c-981e-b78153b5a577>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: e1bdde32-e8bc-472c-87cc-9a01e05e820f
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    debugStencilTexture: false
+    previewAlpha: false
+    sprayController: false
+    spraySwitch: false
+    stencilPlanePrefab: false
+    targetPlane: false
+    useDebugStencil: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - stencilPlanePrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      targetPlane: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      previewAlpha: 0.500000
+      sprayController: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      spraySwitch: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      useDebugStencil: false
+      debugStencilTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"group_start", "label":"Stencil Prefab"}'
+    - '// @input Asset.ObjectPrefab stencilPlanePrefab {"hint":"Prefab for stencil plane - will be instantiated for each stencil"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Target Plane"}'
+    - '// @input SceneObject targetPlane {"hint":"The target plane with stencil compositing material"}'
+    - '// @input float previewAlpha = 0.5 {"hint":"Preview alpha during hover (0-1)"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Spray Controller"}'
+    - '// @input AssignableType sprayController {"hint":"Reference to SprayController for stamping stencils onto paint texture"}'
+    - '// @input AssignableType_1 spraySwitch {"hint":"The spray switch to activate on placement (turns off stencil)"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Debug"}'
+    - // @input bool useDebugStencil
+    - // @input Asset.Texture debugStencilTexture
+    - '// @ui {"widget":"group_end"}'

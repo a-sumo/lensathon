@@ -2734,7 +2734,7 @@
   PrefabRemaps:
     []
   Name: SwitchToggleGroup
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 4.000000, y: -12.641554, z: 2.000000}
@@ -6218,7 +6218,7 @@
   PrefabRemaps:
     []
   Name: Gemini Frame
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: -150.000000}
@@ -6899,7 +6899,7 @@
   PrefabRemaps:
     []
   Name: Radius Slider
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 8.768280, y: -11.145302, z: 0.000000}
@@ -9329,7 +9329,7 @@
   PrefabRemaps:
     []
   Name: Screen Text
-  Enabled: true
+  Enabled: false
   Layers: 1048576
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -9934,9 +9934,7 @@
   MeshShadowMode: None
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
-  Text: |-
-    Write the category of the object and 
-    generate a stamp
+  Text: Create a sticker
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -10826,7 +10824,7 @@
   PrefabRemaps:
     []
   Name: Guide
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 14.000000, z: 0.020000}
@@ -12453,9 +12451,9 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: -0.552816, y: 1.806127, z: 8.826354}
+    Position: {x: -0.552814, y: -6.714804, z: 12.350492}
     Rotation: {x: -10.933019, y: 11.966672, z: 18.513641}
-    Scale: {x: 0.500000, y: 0.500000, z: 0.500000}
+    Scale: {x: 0.750000, y: 0.750000, z: 0.750000}
     HasSegmentScaleCompensation: false
   Children:
     - !<own> b53b16a8-6e71-4cec-b7c9-f8e56a1979ae

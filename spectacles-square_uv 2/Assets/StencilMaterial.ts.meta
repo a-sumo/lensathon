@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/ea1932db-1c32-4130-ba81-d4dd2447680b>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 9fb93a7f-b40a-4cf5-b242-746ba3ec8694
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 9fb93a7f-b40a-4cf5-b242-746ba3ec8694
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 3603105a-562b-48df-91ec-5492a7aac902
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/3603105a-562b-48df-91ec-5492a7aac902>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: bb2cdf55-5e64-459b-8c32-997bf5a5b675
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    backgroundTex: false
+    mesh: false
+    stencilMask: false
+    tintColor: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - mesh: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      backgroundTex: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      stencilMask: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      tintColor: !<Vec4> {x: 1.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input SceneObject mesh
+    - // @input Asset.Texture backgroundTex
+    - // @input Asset.Texture stencilMask
+    - "// @input vec4 tintColor = {1,0,0,1}"
