@@ -202,9 +202,9 @@ export class StencilHoverController extends BaseScriptComponent {
       const targetInverse = this.targetPlaneTransform.getInvertedWorldTransform();
       const localPosInTarget = targetInverse.multiplyPoint(stencilWorldPos);
 
-      // Convert to UV (inverted)
-      const u = 0.5 - localPosInTarget.x;
-      const v = 0.5 - localPosInTarget.y;
+      // Convert to UV (matching SprayController)
+      const u = 0.5 + localPosInTarget.x;
+      const v = 0.5 + localPosInTarget.y;
 
       const clampedU = Math.max(0, Math.min(1, u));
       const clampedV = Math.max(0, Math.min(1, v));

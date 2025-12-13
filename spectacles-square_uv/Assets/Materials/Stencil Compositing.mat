@@ -4,6 +4,15 @@
     - !<own> 47b8fa9c-c7f2-4fa2-a552-bafce7c88a98
 - !<PassInfo/47b8fa9c-c7f2-4fa2-a552-bafce7c88a98>
   CachedProperties:
+    - Port_Bool_N015:
+        typeIdx: 1
+        value: 0.000000
+    - Port_Color3_N015:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_Color4_N015:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     - Port_Depth_N004:
         typeIdx: 1
         value: 1.000000
@@ -19,6 +28,9 @@
     - Port_FinalColor_N004:
         typeIdx: 5
         value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_Float_N015:
+        typeIdx: 1
+        value: 0.000000
     - Port_GSplatPointSize_N004:
         typeIdx: 1
         value: 0.000000
@@ -28,6 +40,27 @@
     - Port_GSplatScale_N004:
         typeIdx: 4
         value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_Int_N015:
+        typeIdx: 1
+        value: 0.000000
+    - Port_Mat2_N015:
+        typeIdx: 6
+        value:
+          0: {x: 1.000000, y: 0.000000}
+          1: {x: 0.000000, y: 0.000000}
+    - Port_Mat3_N015:
+        typeIdx: 7
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000}
+          1: {x: 1.000000, y: 0.000000, z: 0.000000}
+          2: {x: 1.000000, y: 0.000000, z: 0.000000}
+    - Port_Mat4_N015:
+        typeIdx: 8
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          1: {x: 0.000000, y: 1.000000, z: 0.000000, w: 0.000000}
+          2: {x: 0.000000, y: 0.000000, z: 1.000000, w: 0.000000}
+          3: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
     - Port_PrevWorldPosition_N004:
         typeIdx: 4
         value: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -40,7 +73,22 @@
     - Port_Value1_N000:
         typeIdx: 5
         value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Value1_N015:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
     - Port_Value2_N000:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Value2_N015:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Vec2_N015:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_Vec3_N015:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_Vec4_N015:
         typeIdx: 5
         value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
     - Port_WorldNormal_N004:
@@ -76,7 +124,13 @@
     - Port_spraying_N000:
         typeIdx: 1
         value: 0.000000
+    - Port_stencilCenter;_N000:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
     - Port_stencilCenter_N000:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_stencilScale;_N000:
         typeIdx: 3
         value: {x: 0.000000, y: 0.000000}
     - Port_stencilScale_N000:
@@ -85,30 +139,18 @@
     - Port_tintColor_N000:
         typeIdx: 5
         value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    - StencilScale:
-        typeIdx: 3
-        value: {x: 1.000000, y: 1.000000}
     - Tweak_N11:
         typeIdx: 1
         value: 1.000000
+    - mainColor:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - mockRadius:
+        typeIdx: 1
+        value: 10.000000
     - previewAlpha:
         typeIdx: 1
         value: 1.000000
-    - stencilCenter:
-        typeIdx: 3
-        value: {x: 0.500000, y: 0.500000}
-    - stencilMask:
-        typeIdx: 9
-        value:
-          id: f4acdebd-7de8-4876-b5b0-00853d282d10
-          sampler:
-            filteringMode: Trilinear
-            wrapModeU: ClampToEdge
-            wrapModeV: ClampToEdge
-            wrapModeW: Repeat
-            borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
-            mipmaps: false
-          type: Texture2D
     - tintColor:
         typeIdx: 5
         value: {x: 0.000000, y: 0.118212, z: 1.000000, w: 1.000000}
@@ -129,12 +171,12 @@
     PreviewEnabled:
       typeIdx: 0
       value: 0
+    StencilScale:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
     aspectRatio:
       typeIdx: 3
       value: {x: 1.000000, y: 1.000000}
-    mockRadius:
-      typeIdx: 1
-      value: 10.000000
     paintTex:
       typeIdx: 9
       value:
@@ -147,6 +189,12 @@
           borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
           mipmaps: false
         type: Texture2D
+    paintTexTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
     sprayActive:
       typeIdx: 1
       value: 1.000000
@@ -162,4 +210,25 @@
     spraying:
       typeIdx: 1
       value: 1.000000
+    stencilCenter:
+      typeIdx: 3
+      value: {x: 0.500000, y: 0.500000}
+    stencilMask:
+      typeIdx: 9
+      value:
+        id: f4acdebd-7de8-4876-b5b0-00853d282d10
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: ClampToEdge
+          wrapModeV: ClampToEdge
+          wrapModeW: Repeat
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: false
+        type: Texture2D
+    stencilMaskTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
   Pass: !<reference> cd53c47d-2309-4371-b359-b4bbfa16120d
