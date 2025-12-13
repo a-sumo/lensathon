@@ -102,8 +102,8 @@
         id: f4acdebd-7de8-4876-b5b0-00853d282d10
         sampler:
           filteringMode: Trilinear
-          wrapModeU: Repeat
-          wrapModeV: Repeat
+          wrapModeU: ClampToEdge
+          wrapModeV: ClampToEdge
           wrapModeW: Repeat
           borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
           mipmaps: false
