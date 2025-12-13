@@ -26,7 +26,6 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    mockStencilRadius: false
     paintTextureSize: false
     sprayColor: false
     sprayRadius: false
@@ -45,7 +44,6 @@
       spraySwitch: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
       sprayRadius: 0.050000
       sprayColor: !<Vec4> {x: 1.000000, y: 0.000000, z: 0.000000, w: 1.000000}
-      mockStencilRadius: 0.150000
       paintTextureSize: !<float> 256.000000
   ScriptTypes:
     -
@@ -55,5 +53,4 @@
     - // @input AssignableType spraySwitch
     - '// @input float sprayRadius = 0.05 {"widget":"slider", "min":0.01, "max":0.2, "step":0.01}'
     - "// @input vec4 sprayColor = {1,0,0,1}"
-    - // @input float mockStencilRadius = 0.15
     - // @input float paintTextureSize = 256

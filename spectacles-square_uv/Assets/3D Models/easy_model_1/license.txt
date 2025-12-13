@@ -1,0 +1,11 @@
+Model Information:
+* title:	Easy Model #1
+* source:	https://sketchfab.com/3d-models/easy-model-1-9e725e49c0074fc0a1a08cacc85ee898
+* author:	amy.noetzel (https://sketchfab.com/amy.noetzel)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Easy Model #1" (https://sketchfab.com/3d-models/easy-model-1-9e725e49c0074fc0a1a08cacc85ee898) by amy.noetzel (https://sketchfab.com/amy.noetzel) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

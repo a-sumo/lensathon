@@ -1,35 +1,17 @@
 import { Interactable } from "SpectaclesInteractionKit.lspkg/Components/Interaction/Interactable/Interactable";
 import { InteractorEvent } from "SpectaclesInteractionKit.lspkg/Core/Interactor/InteractorEvent";
 import { Switch } from "SpectaclesUIKit.lspkg/Scripts/Components/Switch/Switch";
+import { SprayController } from "./SprayController";
 
 /**
  * ============================================================================
- * STENCIL SYSTEM DOCUMENTATION
+ * STENCIL STAMP SYSTEM
  * ============================================================================
  *
  * OVERVIEW:
- * This system allows users to place multiple stencil masks and spray paint
- * through them. Each stencil is an independent instance that can be positioned
- * and will mask the spray paint.
- *
- * KEY CONCEPTS:
- *
- * 1. STENCIL INSTANCE
- *    - Each stencil is instantiated from a prefab
- *    - Has its own SceneObject, transform, material, and texture
- *    - Stores UV position (center) and UV scale relative to target plane
- *    - Can be placed (fixed position) or hovering (following cursor)
- *
- * 2. ACTIVE STENCIL
- *    - Only ONE stencil is "active" at a time
- *    - The active stencil is used for masking spray paint
- *    - When a new stencil is placed, it becomes the active one
- *
- * 3. PAINT LAYERING
- *    - Paint is stored in paintTex (managed by SprayController)
- *    - Each spray cycle adds paint ON TOP of existing paint
- *    - Existing paint is PERMANENT and never affected by stencil movement
- *    - Only NEW spray is masked by the active stencil
+ * This system allows users to preview and stamp stencil shapes onto a paint
+ * texture. When the user clicks, the stencil shape is stamped with the current
+ * spray color and the stencil plane is destroyed.
  *
  * FLOW:
  *
@@ -37,50 +19,34 @@ import { Switch } from "SpectaclesUIKit.lspkg/Scripts/Components/Switch/Switch";
  *         │
  *         ▼
  *   ┌─────────────┐
- *   │ Instantiate │──── New stencil plane from prefab
+ *   │ Instantiate │──── New stencil plane from prefab (preview)
  *   │ New Stencil │
  *   └─────────────┘
  *         │
  *         ▼
  *   ┌─────────────┐
  *   │   HOVER     │──── Stencil follows cursor (semi-transparent)
- *   │   STATE     │     Preview shows where stencil will be placed
+ *   │   STATE     │     Preview shows where stencil will be stamped
  *   └─────────────┘
  *         │
  *         ▼ (User clicks)
  *   ┌─────────────┐
- *   │   PLACED    │──── Stencil locked in position (full alpha)
- *   │   STATE     │     Becomes ACTIVE MASK for spray
- *   └─────────────┘
- *         │
- *         ▼ (Auto-switch to spray)
- *   ┌─────────────┐
- *   │   SPRAY     │──── Paint through active stencil mask
- *   │   MODE      │     Paint accumulates in paintTex
- *   └─────────────┘
- *         │
- *         ▼ (User activates stencil tool again)
- *   ┌─────────────┐
- *   │ Instantiate │──── NEW stencil (old one stays visible but inactive)
- *   │ New Stencil │     Repeat cycle...
+ *   │   STAMP     │──── Stencil shape stamped onto paint texture
+ *   │   & DELETE  │     Stencil plane destroyed, switch to spray mode
  *   └─────────────┘
  *
  * PUBLIC API:
  *
- *   activate()          - Start stencil placement (creates new instance)
+ *   activate()          - Start stencil placement (creates new preview)
  *   deactivate()        - Stop stencil interaction
- *   reset()             - Clear all stencils and paint
- *   hideAllStencils()   - Hide all stencil plane visuals
- *   showAllStencils()   - Show all stencil plane visuals
- *   setStencilTexture() - Set the mask texture for new stencils
- *   getActiveStencil()  - Get current active stencil info
+ *   reset()             - Reset stamp counter
+ *   setStencilTexture() - Set the mask texture for stencils
+ *   getCurrentStencil() - Get current hovering stencil info
+ *   getStampedCount()   - Get total number of stamps applied
  *
- * SHADER INPUTS:
- *
- *   stencilCenter (vec2)      - UV position of active stencil
- *   stencilScale (vec2)       - UV scale of active stencil
- *   currentStencil (texture)  - Mask texture of active stencil
- *   paintTex (texture)        - Accumulated paint (permanent)
+ * REQUIREMENTS:
+ *   - SprayController must be assigned for stamping to work
+ *   - SprayController.setStencilMaskData() must be called with pixel data
  *
  * ============================================================================
  */
@@ -124,7 +90,12 @@ export class StencilHoverController extends BaseScriptComponent {
   previewAlpha: number = 0.5;
   @ui.group_end
 
-  @ui.group_start("Toggle")
+  @ui.group_start("Spray Controller")
+  @input
+  @allowUndefined
+  @hint("Reference to SprayController for stamping stencils onto paint texture")
+  sprayController: SprayController;
+
   @input
   @allowUndefined
   @hint("The spray switch to activate on placement (turns off stencil)")
@@ -168,6 +139,10 @@ export class StencilHoverController extends BaseScriptComponent {
 
   // Callback for when placement is confirmed
   public onPlacementConfirmed: (() => void) | null = null;
+
+  // Active color for stamping (can be set independently of SprayController)
+  private _activeColor: vec4 = new vec4(1.0, 0.0, 0.0, 1.0);
+  private _useOwnColor: boolean = false; // If false, uses SprayController's color
 
   get state(): StencilState {
     return this._state;
@@ -287,7 +262,9 @@ export class StencilHoverController extends BaseScriptComponent {
       return null;
     }
 
-    const material = renderMesh.mainMaterial;
+    // Clone the material so each stencil instance has its own material for independent coloring
+    const material = renderMesh.mainMaterial.clone();
+    renderMesh.mainMaterial = material;
 
     // Find border child (first child of the stencil plane)
     let borderChild: SceneObject | null = null;
@@ -315,9 +292,12 @@ export class StencilHoverController extends BaseScriptComponent {
       borderChild: borderChild
     };
 
-    // Apply current stencil texture
+    // Apply current stencil texture - "map" is the property used by Stencil Border shader
     if (this.currentStencilTexture && material) {
-      material.mainPass.stencilTex = this.currentStencilTexture;
+      material.mainPass.map = this.currentStencilTexture;
+      print("[StencilHoverController] Applied stencil texture to new instance (map property)");
+    } else {
+      print("[StencilHoverController] No stencil texture to apply to new instance");
     }
 
     // Start hidden
@@ -357,8 +337,8 @@ export class StencilHoverController extends BaseScriptComponent {
       this.currentStencil.sceneObject.enabled = false;
     }
 
-    // If we have an active (placed) stencil, keep preview alpha
-    this.setTargetPreviewAlpha(this.activeStencil ? 1.0 : 0);
+    // Disable stencil preview
+    this.setTargetPreviewAlpha(0);
 
     print("[StencilHoverController] Exited hover state");
   }
@@ -427,54 +407,67 @@ export class StencilHoverController extends BaseScriptComponent {
     if (!this.currentStencil || !this.targetPlaneTransform) return;
 
     this._state = StencilState.Placed;
-
-    // Mark current stencil as placed and assign placement index
-    this.currentStencil.isPlaced = true;
-    this.currentStencil.placementIndex = this.placementCounter;
     this.placementCounter++;
 
-    // Apply z-offset based on placement order to avoid z-fighting
+    const placementIdx = this.placementCounter;
+    const center = this.currentStencil.center;
+    const scale = this.currentStencil.scale;
+    const color = this.getActiveColor();
+
+    // Mark stencil as placed
+    this.currentStencil.isPlaced = true;
+    this.currentStencil.placementIndex = placementIdx;
+
+    // Apply z-offset to avoid z-fighting with other stencils
     const targetRotation = this.targetPlaneTransform.getWorldRotation();
     const targetForward = targetRotation.multiplyVec3(vec3.forward());
-    const zOffset = this.STENCIL_Z_OFFSET * this.currentStencil.placementIndex;
+    const zOffset = this.STENCIL_Z_OFFSET * placementIdx;
     const currentPos = this.currentStencil.transform.getWorldPosition();
-    const offsetPos = new vec3(
+    this.currentStencil.transform.setWorldPosition(new vec3(
       currentPos.x + targetForward.x * zOffset,
       currentPos.y + targetForward.y * zOffset,
       currentPos.z + targetForward.z * zOffset
-    );
-    this.currentStencil.transform.setWorldPosition(offsetPos);
+    ));
 
-    // Show border child now that stencil is placed
+    // Ensure the stencil texture and color are applied to the material
+    // The Stencil Border shader uses "map" property for the texture
+    // Try mainColor for tinting (common in Lens Studio shaders)
+    if (this.currentStencil.material) {
+      if (this.currentStencil.texture) {
+        this.currentStencil.material.mainPass.map = this.currentStencil.texture;
+      }
+      // Try to apply color via mainColor (if shader supports it)
+      this.currentStencil.material.mainPass.mainColor = color;
+      this.currentStencil.material.mainPass.baseColor = color;
+      this.currentStencil.material.mainPass.tintColor = color;
+      print("[StencilHoverController] Applied stencil texture and color on placement: (" +
+            color.r.toFixed(2) + ", " + color.g.toFixed(2) + ", " + color.b.toFixed(2) + ")");
+    }
+
+    // Show border child if exists
     if (this.currentStencil.borderChild) {
       this.currentStencil.borderChild.enabled = true;
     }
 
-    // Set to solid mode (full alpha)
-    this.setStencilInstancePreview(this.currentStencil, false);
+    // Keep stencil plane visible as the stamp (don't destroy!)
+    this.currentStencil.sceneObject.enabled = true;
 
-    // This becomes the new active stencil for masking
-    this.activeStencil = this.currentStencil;
-
-    // Update shader with final position and texture for masking spray
-    if (this.targetMaterial) {
-      this.targetMaterial.mainPass.stencilCenter = this.activeStencil.center;
-      this.targetMaterial.mainPass.stencilScale = this.activeStencil.scale;
-      if (this.activeStencil.texture) {
-        this.targetMaterial.mainPass.currentStencil = this.activeStencil.texture;
-      }
-      // Enable stencil masking
-      this.targetMaterial.mainPass.stencilActive = 1.0;
-    }
-
-    // Set target to full alpha
-    this.setTargetPreviewAlpha(1.0);
+    print("[StencilHoverController] Placed stencil #" + placementIdx +
+          " at UV: (" + center.x.toFixed(3) + ", " + center.y.toFixed(3) + ")" +
+          " with color: (" + color.r.toFixed(2) + ", " + color.g.toFixed(2) + ", " + color.b.toFixed(2) + ")");
 
     // Clear current (will create new one on next activation)
     this.currentStencil = null;
 
+    // Disable stencil preview in target shader
+    if (this.targetMaterial) {
+      this.targetMaterial.mainPass.stencilActive = 0.0;
+    }
+    this.setTargetPreviewAlpha(0);
+
     // Deactivate interaction
     this._isActive = false;
+    this._state = StencilState.Idle;
 
     // Switch to spray mode
     this.deactivateStencilToggle();
@@ -483,10 +476,6 @@ export class StencilHoverController extends BaseScriptComponent {
     if (this.onPlacementConfirmed) {
       this.onPlacementConfirmed();
     }
-
-    print("[StencilHoverController] Stencil #" + this.activeStencil.placementIndex +
-          " placed at UV: (" + this.activeStencil.center.x.toFixed(3) + ", " +
-          this.activeStencil.center.y.toFixed(3) + ")");
   }
 
   private deactivateStencilToggle(): void {
@@ -599,67 +588,53 @@ export class StencilHoverController extends BaseScriptComponent {
   }
 
   /**
-   * Hide all stencil plane visuals.
-   * Useful for clean screenshots or changing views.
-   */
-  hideAllStencils(): void {
-    for (const instance of this.stencilInstances) {
-      instance.sceneObject.enabled = false;
-    }
-    print("[StencilHoverController] All stencils hidden");
-  }
-
-  /**
-   * Show all placed stencil plane visuals.
-   */
-  showAllStencils(): void {
-    for (const instance of this.stencilInstances) {
-      if (instance.isPlaced) {
-        instance.sceneObject.enabled = true;
-      }
-    }
-    print("[StencilHoverController] All placed stencils shown");
-  }
-
-  /**
    * Set the stencil texture for new stencil instances.
    */
   setStencilTexture(texture: Texture): void {
     this.currentStencilTexture = texture;
+    print("[StencilHoverController] setStencilTexture called with texture: " + (texture ? "valid" : "null"));
 
-    // Also update current stencil if hovering
+    // Also update current stencil if hovering - use "map" property
     if (this.currentStencil && this.currentStencil.material) {
       this.currentStencil.texture = texture;
-      this.currentStencil.material.mainPass.stencilTex = texture;
+      this.currentStencil.material.mainPass.map = texture;
+      print("[StencilHoverController] Updated current stencil instance material (map property)");
+    } else {
+      print("[StencilHoverController] No current stencil to update (will apply on next activation)");
     }
 
-    // Update target material's current stencil
+    // Update target material's current stencil for preview/compositing
     if (this.targetMaterial) {
+      // Try multiple property names for target compositing material
       this.targetMaterial.mainPass.currentStencil = texture;
+      this.targetMaterial.mainPass.stencilTex = texture;
+      this.targetMaterial.mainPass.stencilMask = texture;
+      print("[StencilHoverController] Updated target material with stencil texture");
+    } else {
+      print("[StencilHoverController] WARNING: No target material to update!");
     }
-
-    print("[StencilHoverController] Stencil texture updated");
   }
 
   /**
-   * Get info about the currently active (placed) stencil.
-   * Returns null if no stencil is active.
+   * Get info about the currently hovering stencil (before placement).
+   * Returns null if no stencil is hovering.
+   * Note: After placement, stencils are stamped and destroyed.
    */
-  getActiveStencil(): { center: vec2; scale: vec2; texture: Texture | null } | null {
-    if (!this.activeStencil) return null;
+  getCurrentStencil(): { center: vec2; scale: vec2; texture: Texture | null } | null {
+    if (!this.currentStencil) return null;
 
     return {
-      center: this.activeStencil.center,
-      scale: this.activeStencil.scale,
-      texture: this.activeStencil.texture
+      center: this.currentStencil.center,
+      scale: this.currentStencil.scale,
+      texture: this.currentStencil.texture
     };
   }
 
   /**
-   * Get the number of placed stencils.
+   * Get the total number of stencils that have been stamped.
    */
-  getStencilCount(): number {
-    return this.stencilInstances.filter(s => s.isPlaced).length;
+  getStampedCount(): number {
+    return this.placementCounter;
   }
 
   /**
@@ -672,5 +647,62 @@ export class StencilHoverController extends BaseScriptComponent {
     } else {
       this.deactivate();
     }
+  }
+
+  // ============================================================================
+  // ACTIVE COLOR API
+  // ============================================================================
+
+  /**
+   * Set the active color for stencil stamping.
+   * This color will be used when placing stencils.
+   * @param color RGBA color (0-1 range)
+   */
+  setActiveColor(color: vec4): void {
+    this._activeColor = color;
+    this._useOwnColor = true;
+    print("[StencilHoverController] Active color set to: (" +
+      color.r.toFixed(2) + ", " + color.g.toFixed(2) + ", " +
+      color.b.toFixed(2) + ", " + color.a.toFixed(2) + ")");
+  }
+
+  /**
+   * Set the active color using RGB values (0-1 range).
+   * @param r Red (0-1)
+   * @param g Green (0-1)
+   * @param b Blue (0-1)
+   * @param a Alpha (0-1), defaults to 1
+   */
+  setActiveColorRGB(r: number, g: number, b: number, a: number = 1.0): void {
+    this.setActiveColor(new vec4(r, g, b, a));
+  }
+
+  /**
+   * Get the current active color for stencil stamping.
+   * Returns own color if set, otherwise SprayController's color.
+   */
+  getActiveColor(): vec4 {
+    if (this._useOwnColor) {
+      return this._activeColor;
+    }
+    if (this.sprayController) {
+      return this.sprayController.getActiveColor();
+    }
+    return this._activeColor;
+  }
+
+  /**
+   * Clear the custom active color and use SprayController's color instead.
+   */
+  clearActiveColor(): void {
+    this._useOwnColor = false;
+    print("[StencilHoverController] Using SprayController's color");
+  }
+
+  /**
+   * Check if using custom active color or SprayController's color.
+   */
+  isUsingOwnColor(): boolean {
+    return this._useOwnColor;
   }
 }

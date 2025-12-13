@@ -32,6 +32,8 @@
     loadingTexture: false
     model: false
     objectTypeInput: false
+    sprayController: false
+    stencilController: false
     stencilMesh: false
   ScriptTypesHidden:
     {}
@@ -48,6 +50,8 @@
       loadingTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
       objectTypeInput: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
       defaultSubject: a cat
+      sprayController: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      stencilController: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
       stencilMesh: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
@@ -56,7 +60,7 @@
     - '// @ui {"widget":"separator"}'
     - '// @ui {"widget":"group_start", "label":"Gemini API Config"}'
     - '// @input string apiKey {"hint":"Your Gemini API key"}'
-    - '// @input string model = "gemini-2.5-flash-image" {"hint":"Gemini model for image generation"}'
+    - '// @input string model = "gemini-2.0-flash-exp" {"hint":"Gemini model for image generation"}'
     - '// @ui {"widget":"group_end"}'
     - '// @ui {"widget":"separator"}'
     - '// @ui {"widget":"group_start", "label":"Image Generation"}'
@@ -66,6 +70,8 @@
     - '// @input string defaultSubject = "a cat" {"hint":"Default subject if text input is empty"}'
     - '// @ui {"widget":"group_end"}'
     - '// @ui {"widget":"separator"}'
-    - '// @ui {"widget":"group_start", "label":"Stencil Material"}'
-    - '// @input SceneObject stencilMesh {"hint":"Mesh to apply the stencil mask to"}'
+    - '// @ui {"widget":"group_start", "label":"Stencil System"}'
+    - '// @input AssignableType_1 sprayController {"hint":"SprayController for setting mask pixel data"}'
+    - '// @input AssignableType_2 stencilController {"hint":"StencilHoverController for setting stencil texture"}'
+    - '// @input SceneObject stencilMesh {"hint":"Mesh to apply the stencil mask to (for preview)"}'
     - '// @ui {"widget":"group_end"}'
