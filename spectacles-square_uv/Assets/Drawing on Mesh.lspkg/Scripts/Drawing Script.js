@@ -1,7 +1,9 @@
-// Version: 5.0.0 (SIK input + Ortho Camera rendering)
+// Version: 5.3.0 (Vector projection UV - any orientation)
 // Hybrid approach:
 // - INPUT: SIK Interactable events (works on Spectacles)
 // - DRAWING: Ortho Camera + ScreenTransform.anchors + Render Target (proven mechanism)
+// - UV: Vector projection using plane's right/up vectors (works for diagonal planes!)
+// - STATE: Only processes input when global.isDrawingMode() returns true
 // REQUIRES: Interactable component on meshVis object!
 // -----JS CODE-----
 
@@ -95,54 +97,76 @@ function onStart(eventData) {
     planeInteractable.onHoverUpdate.add(onHoverUpdate);
     
     if (script.debugText) {
-        script.debugText.text = "v5.0.0 Ready\nPoint at plane...";
+        script.debugText.text = "v5.3.0 Ready\nAny orientation OK!";
     }
     
-    print("Drawing Script v5.0.0 initialized with Interactable + Ortho Camera");
+    print("Drawing Script v5.3.0 initialized. Using vector projection (any orientation).");
 }
 
 // Convert world hit position to UV coordinates [0,1]
+// Works for ANY plane orientation including diagonal!
 function worldToUV(worldPos) {
     var planeTransform = script.meshVis.getSceneObject().getTransform();
-    var localPos = planeTransform.getInvertedWorldTransform().multiplyPoint(worldPos);
+    var planePos = planeTransform.getWorldPosition();
+    var planeScale = planeTransform.getWorldScale();
     
-    // Unit Plane: local coords are [-0.5, +0.5], map to UV [0, 1]
-    var u = localPos.x + 0.5;
-    var v = 1.0 - (localPos.z + 0.5); // Invert Y axis
+    // Get plane's local axes in world space
+    var planeRight = planeTransform.right;  // X axis (width)
+    var planeUp = planeTransform.up;        // Y axis (height)
+    
+    // Vector from plane center to hit point
+    var toHit = worldPos.sub(planePos);
+    
+    // Project onto plane's local axes and normalize by scale
+    // This gives us coordinates in [-0.5, 0.5] range
+    var localX = toHit.dot(planeRight) / planeScale.x;
+    var localY = toHit.dot(planeUp) / planeScale.y;
+    
+    // Map from [-0.5, 0.5] to [0, 1]
+    var u = localX + 0.5;
+    var v = localY + 0.5;
     
     // Clamp to [0,1]
     return {
         u: Math.max(0.0, Math.min(1.0, u)),
-        v: Math.max(0.0, Math.min(1.0, v)),
-        localX: localPos.x,
-        localZ: localPos.z
+        v: Math.max(0.0, Math.min(1.0, v))
     };
 }
 
 // Draw brush strokes in ortho camera
 function drawBrushStrokes() {
-    if (prevPointCoord.distance(pointCoordThe) < 0.4) {
+    var distance = prevPointCoord.distance(pointCoordThe);
+    print("drawBrushStrokes: distance = " + distance.toFixed(3) + ", pointCoordThe = " + pointCoordThe.toString());
+    
+    if (distance < 0.4) {
         // Calculate half brush size for centering
         var halfBrushW = (brushSize * aspectRatio) * 0.5;
         var halfBrushH = brushSize * 0.5;
         
-        for (var t = 0; t < 30; t++) {
+        print("drawBrushStrokes: drawing " + drawingObjects.length + " objects, brushSize=" + brushSize);
+        
+        for (var t = 0; t < 30 && t < drawingObjects.length; t++) {
             var lerpValue = vec2.lerp(prevPointCoord, pointCoordThe, t / 29);
-            // Center the brush on the point
-            drawingObjects[t].getComponent("Component.ScreenTransform").anchors = Rect.create(
-                lerpValue.x - halfBrushW,  // left
-                lerpValue.x + halfBrushW,  // right
-                lerpValue.y - halfBrushH,  // bottom
-                lerpValue.y + halfBrushH   // top
-            );
+            var screenTransform = drawingObjects[t].getComponent("Component.ScreenTransform");
+            if (screenTransform) {
+                // Center the brush on the point
+                screenTransform.anchors = Rect.create(
+                    lerpValue.x - halfBrushW,  // left
+                    lerpValue.x + halfBrushW,  // right
+                    lerpValue.y - halfBrushH,  // bottom
+                    lerpValue.y + halfBrushH   // top
+                );
+            }
         }
 
         prevPointCoord = new vec2(pointCoordX * 2 - 1, pointCoordY * 2 - 1);
     } else {
+        print("drawBrushStrokes: distance too large, resetting prevPointCoord");
         prevPointCoord = new vec2(pointCoordX * 2 - 1, pointCoordY * 2 - 1);
     }
     
     if (!visible) {
+        print("drawBrushStrokes: enabling DrawingObjects");
         script.DrawingObjects.enabled = true;
         visible = true;
     }
@@ -153,14 +177,17 @@ function processHitPosition(interactor) {
     var hitPos = interactor.targetHitPosition;
     
     if (!hitPos) {
-        // Try targetHitInfo
+        // Try targetHitInfo - convert local to world and use worldToUV
         var hitInfo = interactor.targetHitInfo;
         if (hitInfo && hitInfo.localHitPosition) {
             var localPos = hitInfo.localHitPosition;
-            pointCoordX = localPos.x + 0.5;
-            pointCoordY = 1.0 - (localPos.z + 0.5);
-            pointCoordX = Math.max(0.0, Math.min(1.0, pointCoordX));
-            pointCoordY = Math.max(0.0, Math.min(1.0, pointCoordY));
+            // Convert local position to world position
+            var planeTransform = script.meshVis.getSceneObject().getTransform();
+            var worldHitPos = planeTransform.getWorldTransform().multiplyPoint(localPos);
+            
+            var uvResult = worldToUV(worldHitPos);
+            pointCoordX = uvResult.u;
+            pointCoordY = uvResult.v;
             pointCoordThe = new vec2(pointCoordX * 2 - 1, pointCoordY * 2 - 1);
             return true;
         }
@@ -175,13 +202,41 @@ function processHitPosition(interactor) {
     return true;
 }
 
+// Check if app is in Drawing mode
+function canDraw() {
+    // global.isDrawingMode is set by AppStateController
+    if (typeof global.isDrawingMode === "function") {
+        var result = global.isDrawingMode();
+        print("canDraw: global.isDrawingMode() = " + result);
+        return result;
+    }
+    // If AppStateController not found, allow drawing (fallback)
+    print("canDraw: no global.isDrawingMode, returning true");
+    return true;
+}
+
 // Called when user starts pinching on the plane
 function onTriggerStart(eventArgs) {
+    print("onTriggerStart called!");
+    
+    // Only draw if in Drawing mode
+    if (!canDraw()) {
+        print("onTriggerStart: canDraw() returned false, skipping");
+        if (script.debugText) {
+            script.debugText.text = "Mode: Creating Rectangle\n(not drawing)";
+        }
+        return;
+    }
+    
     isDrawing = true;
+    print("onTriggerStart: isDrawing = true");
     
     if (processHitPosition(eventArgs.interactor)) {
         // Reset previous point on new stroke
         prevPointCoord = new vec2(pointCoordX * 2 - 1, pointCoordY * 2 - 1);
+        print("onTriggerStart: processHitPosition success, UV: " + pointCoordX.toFixed(2) + ", " + pointCoordY.toFixed(2));
+    } else {
+        print("onTriggerStart: processHitPosition FAILED");
     }
     
     if (script.debugText) {
@@ -191,7 +246,7 @@ function onTriggerStart(eventArgs) {
 
 // Called every frame while pinching on the plane
 function onTriggerUpdate(eventArgs) {
-    if (!isDrawing) return;
+    if (!isDrawing || !canDraw()) return;
     
     if (processHitPosition(eventArgs.interactor)) {
         drawBrushStrokes();
@@ -218,12 +273,21 @@ function onTriggerEnd(eventArgs) {
 function onHoverUpdate(eventArgs) {
     if (isDrawing) return;
     
+    var drawingMode = canDraw();
+    
     if (processHitPosition(eventArgs.interactor)) {
         if (script.debugText) {
-            script.debugText.text = 
-                "v5.0.0 HOVER\n" +
-                "UV: (" + pointCoordX.toFixed(2) + ", " + pointCoordY.toFixed(2) + ")\n" +
-                "Pinch to draw!";
+            if (drawingMode) {
+                script.debugText.text = 
+                    "v5.3.0 DRAWING MODE\n" +
+                    "UV: (" + pointCoordX.toFixed(2) + ", " + pointCoordY.toFixed(2) + ")\n" +
+                    "Pinch to draw!";
+            } else {
+                script.debugText.text = 
+                    "v5.3.0 CREATE MODE\n" +
+                    "Creating rectangle...\n" +
+                    "(drawing disabled)";
+            }
         }
     }
 }

@@ -3,6 +3,8 @@ const WorldQueryModule = require("LensStudio:WorldQueryModule");
 const SIK = require("SpectaclesInteractionKit.lspkg/SIK").SIK;
 const InteractorTriggerType = require("SpectaclesInteractionKit.lspkg/Core/Interactor/Interactor").InteractorTriggerType;
 
+import { AppStateController, AppState } from "./AppStateController";
+
 const EPSILON = 0.01;
 
 enum RectangleState {
@@ -13,7 +15,7 @@ enum RectangleState {
 
 /**
  * Script for creating a rectangle on a wall with two clicks
- * Version: 2.9.0
+ * Version: 3.0.0 - Integrated with AppStateController
  * Uses WorldQueryModule to determine position on surface
  * Manages visual elements: gray background (ImageAnchor), 4 corner markers, and spawned icon planes
  * 
@@ -113,6 +115,13 @@ export class WallRectangleGizmo extends BaseScriptComponent {
   }
 
   onUpdate() {
+    // Check if we're in Drawing mode - if so, don't process rectangle creation
+    const appState = AppStateController.getInstance();
+    if (appState && appState.isDrawing()) {
+      // In drawing mode - don't create new rectangles
+      return;
+    }
+    
     this.primaryInteractor = SIK.InteractionManager.getTargetingInteractors().shift();
     
     if (!this.primaryInteractor || !this.primaryInteractor.isActive() || !this.primaryInteractor.isTargeting()) {
@@ -180,23 +189,16 @@ export class WallRectangleGizmo extends BaseScriptComponent {
         this.bottomLeftCorner.enabled = true;
         // Clear cache when rectangle is completed
         this.lastSecondCorner = null;
-      } else if (this.state === RectangleState.Completed && this.firstCorner) {
-        // Rectangle completed - reset and start new rectangle
-        this.resetRectangle();
-        // Start new rectangle with first corner
-        this.state = RectangleState.Stretching;
-        if (this.bottomLeftIconPrefab) {
-          this.bottomLeftIconPrefab.enabled = false; // Hide preview
+        
+        // SWITCH TO DRAWING MODE - rectangle is ready for drawing!
+        const appState = AppStateController.getInstance();
+        if (appState) {
+          appState.switchToDrawingMode();
+          print("Rectangle completed! Switched to Drawing mode.");
         }
-        // Update bottomLeftCorner position to new first corner position
-        this.bottomLeftCorner.enabled = true;
-        this.bottomLeftTransform.setWorldPosition(this.firstCorner);
-        // Clear cache when resetting
-        this.cachedWallNormal = null;
-        this.cachedUpDirection = null;
-        this.cachedRightDirection = null;
-        this.lastSecondCorner = null;
       }
+      // REMOVED: No longer create new rectangle when in Completed state
+      // User must explicitly switch back to CreatingRectangle mode to create new rectangle
     }
   }
 
@@ -258,23 +260,20 @@ export class WallRectangleGizmo extends BaseScriptComponent {
       this.updateRectangleVisualization();
       
     } else if (this.state === RectangleState.Completed) {
-      // Rectangle completed - if hit detected, prepare for new rectangle
-      // Save first point for new rectangle
-      this.firstCorner = hitPosition;
-      this.wallNormal = hitNormal;
-      
-      // Show preview of first icon at new position
-      this.updatePreviewIcon(hitPosition, hitNormal, true);
-      
-      // DO NOT move bottomLeftCorner position - keep it at its final position from completed rectangle
-      // Only show preview icon, but keep all corners in their final positions
+      // Rectangle completed - keep all corners visible, don't prepare for new rectangle
+      // (User needs to switch back to CreatingRectangle mode to create new rectangle)
       this.bottomLeftCorner.enabled = true;
-      // DO NOT call: this.bottomLeftTransform.setWorldPosition(hitPosition);
-      
-      // Ensure all corners from previous rectangle remain visible in their final positions
       this.topLeftCorner.enabled = true;
       this.topRightCorner.enabled = true;
       this.bottomRightCorner.enabled = true;
+      
+      // Hide preview icons in completed state
+      if (this.bottomLeftIconPrefab) {
+        this.bottomLeftIconPrefab.enabled = false;
+      }
+      if (this.topRightIconPrefab) {
+        this.topRightIconPrefab.enabled = false;
+      }
     }
   }
 

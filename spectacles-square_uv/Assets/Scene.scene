@@ -1056,7 +1056,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: -0.000000, z: 0.000000}
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 2.000000, y: 2.000000, z: 20.000000}
     HasSegmentScaleCompensation: false
@@ -2468,7 +2468,7 @@
   PrefabRemaps:
     []
   Name: Wallrectangle
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -2476,6 +2476,7 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
+    - !<own> e1f48df4-2cda-4379-bded-dab7623f0978
     - !<own> 8ca51a8d-d730-4341-8502-688e197fe20f
     - !<own> a3abd5ed-abf5-4324-bdde-0b24beb12a35
     - !<own> 81c01b80-3cf8-46f1-93b5-809c21f1ea4d
@@ -3407,6 +3408,8 @@
     []
   Components:
     - !<own> c6b1bbbb-04ed-4ced-a9a3-bb3b5c657e62
+    - !<own> 5400a4c7-e40b-40d9-b088-1dbfd570684d
+    - !<own> cd230e55-fdc0-4087-ae60-888a1d04fd11
 - !<ScreenTransform/39fd897d-d8c1-4b68-b87b-306879ebd23e>
   PrefabRemaps:
     []
@@ -3956,7 +3959,7 @@
       camera: !<reference.Camera> 00000000-0000-0065-0000-000000000065
       cameraTex: !<reference.Texture> 996c6f4e-b2ad-4117-9e3e-3db82e6e97f5
       renderTarget: !<reference.Texture> 2a103c20-e28d-4495-8d88-f00fa21e30b6
-      meshVis: !<reference.RenderMeshVisual> 3091cf7d-6c71-4422-ae2d-18adf7fe9a69
+      meshVis: !<reference.RenderMeshVisual> c6b1bbbb-04ed-4ced-a9a3-bb3b5c657e62
       DrawingObjects: !<reference.SceneObject> 1755f5c1-c0d9-45c9-818d-a9be1a02c3a4
       drawingSize: 0.040000
       customizeTexture: !<reference.Texture> a1121c86-8384-49a8-90b7-ee603e9c33aa
@@ -4580,6 +4583,43 @@
   RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<ScriptComponent/5400a4c7-e40b-40d9-b088-1dbfd570684d>
+  PrefabRemaps:
+    []
+  Name: Interactable
+  Enabled: true
+  ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
+  ScriptInputsDefault:
+    targetingMode: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    enableInstantDrag: true
+    isScrollable: true
+    allowMultipleInteractors: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      targetingMode: !<float> 3.000000
+      targetingVisual: !<float> 2.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: false
+      isScrollable: false
+      allowMultipleInteractors: true
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/541a1667-fb17-43bf-bd3b-7b713063d3f7>
   PrefabRemaps:
     []
@@ -7199,6 +7239,22 @@
     bottom: 0.000000
     right: 0.000000
     top: 0.000000
+- !<ScriptComponent/8224e044-66ff-4f78-8641-560925da77df>
+  PrefabRemaps:
+    []
+  Name: AppStateController
+  Enabled: true
+  ScriptAsset: !<reference> 14aa8d01-65fa-4679-bb02-f3a20693d802
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      debugText: !<reference.Text> 81bb0859-9a49-4d28-aa19-ef08fba0957c
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/82b78261-a0ad-4d8a-a20b-dc644c91dc2a>
   PrefabRemaps:
     []
@@ -10171,7 +10227,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 269c4b89-727f-4c97-a1e3-60ddea643014
+    - !<reference> 7a473b0c-4fe1-460a-aff8-bd4b26c5555c
   Mesh: !<reference> 019dc018-cc9c-41d3-81d6-ee2c333b3ed1
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
@@ -10567,6 +10623,30 @@
     []
   Components:
     - !<own> 6c4e61f4-4398-4a4b-a066-4c6ac2a8bcb4
+- !<BodyComponent/cd230e55-fdc0-4087-ae60-888a1d04fd11>
+  PrefabRemaps:
+    []
+  Name: Physics Body
+  Enabled: true
+  Shape: !<Mesh>
+    Mesh: !<reference> 019dc018-cc9c-41d3-81d6-ee2c333b3ed1
+    Convex: true
+    Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 139072848.000000
+  RotationTension: 178807947.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
+  Dynamic: false
+  BodySetting: Density
+  BodySettingValue: 1.000000
+  Damping: 0.000000
+  AngularDamping: 0.000000
 - !<ScriptComponent/cddf08bf-d748-454c-980a-657ae881715c>
   PrefabRemaps:
     []
@@ -11574,6 +11654,21 @@
     - !<own> 5a2ca1a2-f292-4079-aebb-f491bb9f5bf5
   Components:
     []
+- !<SceneObject/e1f48df4-2cda-4379-bded-dab7623f0978>
+  PrefabRemaps:
+    []
+  Name: AppStateController
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 8224e044-66ff-4f78-8641-560925da77df
 - !<SceneObject/e2a2e656-7a99-4760-a012-5d8224af1178>
   PrefabRemaps:
     []

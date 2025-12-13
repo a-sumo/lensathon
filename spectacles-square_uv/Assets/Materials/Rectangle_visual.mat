@@ -10,12 +10,6 @@
     - OpacityTextureDims:
         typeIdx: 5
         value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    - OpacityTextureTransform:
-        typeIdx: 7
-        value:
-          0: {x: 1.000000, y: 0.000000, z: 0.000000}
-          1: {x: 0.000000, y: 1.000000, z: 0.000000}
-          2: {x: 0.000000, y: 0.000000, z: 1.000000}
     - OpacityTextureUvMinMax:
         typeIdx: 5
         value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
@@ -112,6 +106,9 @@
     - Port_Input0_N014:
         typeIdx: 1
         value: 1.000000
+    - Port_Input0_N015:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     - Port_Input0_N147:
         typeIdx: 1
         value: 1.000000
@@ -134,6 +131,9 @@
         typeIdx: 1
         value: 0.100000
     - Port_Input1_N014:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_Input1_N015:
         typeIdx: 5
         value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     - Port_Input1_N173:
@@ -161,6 +161,9 @@
         typeIdx: 1
         value: 0.000000
     - Port_LODValue_N007:
+        typeIdx: 1
+        value: 0.000000
+    - Port_LODValue_N016:
         typeIdx: 1
         value: 0.000000
     - Port_LODValue_N150:
@@ -206,6 +209,9 @@
         typeIdx: 3
         value: {x: 0.000000, y: 0.000000}
     - Port_UVCoord_N007:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UVCoord_N016:
         typeIdx: 3
         value: {x: 0.000000, y: 0.000000}
     - Port_Value1_N005:
@@ -339,10 +345,34 @@
           borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
           mipmaps: false
         type: Texture2D
+    OpacityTextureTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
     PreviewEnabled:
       typeIdx: 0
       value: 0
+    Tweak_N16:
+      typeIdx: 9
+      value:
+        id: 2a103c20-e28d-4495-8d88-f00fa21e30b6
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: Repeat
+          wrapModeV: Repeat
+          wrapModeW: Repeat
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: false
+        type: Texture2D
+    Tweak_N16Transform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
     Tweak_N8:
       typeIdx: 1
-      value: 0.350000
+      value: 0.150000
   Pass: !<reference> 9974e23d-7186-40ab-8e72-783a58d6ee84

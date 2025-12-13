@@ -1,0 +1,44 @@
+- !<AssetImportMetadata/7fda62c2-e21d-4967-8bee-6dad76f3c378>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 14aa8d01-65fa-4679-bb02-f3a20693d802
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 14aa8d01-65fa-4679-bb02-f3a20693d802
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> b38a51cc-6c47-4125-9714-f6754c5fa050
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/b38a51cc-6c47-4125-9714-f6754c5fa050>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 87c4bc63-a185-4f46-b99e-6dd24569e7c9
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    debugText: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Component.Text debugText {"hint":"Optional: Text component to show current state for debugging"}'
