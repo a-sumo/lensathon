@@ -29,7 +29,7 @@
     debugStencilTexture: false
     previewAlpha: false
     spraySwitch: false
-    stencilPlane: false
+    stencilPlanePrefab: false
     targetPlane: false
     useDebugStencil: false
   ScriptTypesHidden:
@@ -41,7 +41,7 @@
   Attachments:
     []
   DefaultScriptInputs:
-    - stencilPlane: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+    - stencilPlanePrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
       targetPlane: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       previewAlpha: 0.500000
       spraySwitch: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
@@ -51,8 +51,8 @@
     -
       {}
   InputLines:
-    - '// @ui {"widget":"group_start", "label":"Stencil Plane"}'
-    - '// @input SceneObject stencilPlane {"hint":"The movable stencil plane with cutout material"}'
+    - '// @ui {"widget":"group_start", "label":"Stencil Prefab"}'
+    - '// @input Asset.ObjectPrefab stencilPlanePrefab {"hint":"Prefab for stencil plane - will be instantiated for each stencil"}'
     - '// @ui {"widget":"group_end"}'
     - '// @ui {"widget":"group_start", "label":"Target Plane"}'
     - '// @input SceneObject targetPlane {"hint":"The target plane with stencil compositing material"}'

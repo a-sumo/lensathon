@@ -1,0 +1,91 @@
+- !<AssetImportMetadata/7199f6a8-f689-42d9-b825-aeb71fa65238>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> c837ecba-8e5f-43c9-8161-771953a0c18e
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> c837ecba-8e5f-43c9-8161-771953a0c18e
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> 27817b0d-008c-4648-871b-a6796d4b3102
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ObjectPrefabAssetData/27817b0d-008c-4648-871b-a6796d4b3102>
+  Prototype: !<ObjectOwner/705e5947-bd15-4eca-ab59-efe4464c59a2>
+    PackagePath: ""
+    objects:
+      - !<own> f9b4ef99-9801-43f6-4418-073eee6af54a
+- !<RenderMeshVisual/3ff8273c-6b9b-4074-6277-e227ee9cae0a>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 338696f1-f858-4b59-bc01-9fd2559996ad
+  Mesh: !<reference> 019dc018-cc9c-41d3-81d6-ee2c333b3ed1
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/71f151e9-cc79-4cbe-6e4d-99478559960e>
+  PrefabRemaps:
+    []
+  Name: Stencil Border
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.020000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.200000, y: 1.200000, z: 1.200000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 3ff8273c-6b9b-4074-6277-e227ee9cae0a
+- !<RenderMeshVisual/e5f5c4e1-5bbe-4285-7ded-bece0cae54be>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> d5043cba-93fe-465f-a5d9-dcb507112986
+  Mesh: !<reference> 019dc018-cc9c-41d3-81d6-ee2c333b3ed1
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/f9b4ef99-9801-43f6-4418-073eee6af54a>
+  PrefabRemaps:
+    []
+  Name: Stencil Plane
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 15.000000, z: -100.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 71f151e9-cc79-4cbe-6e4d-99478559960e
+  Components:
+    - !<own> e5f5c4e1-5bbe-4285-7ded-bece0cae54be

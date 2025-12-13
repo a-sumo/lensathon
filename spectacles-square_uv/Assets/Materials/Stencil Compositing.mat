@@ -151,6 +151,24 @@
     - previewAlpha:
         typeIdx: 1
         value: 1.000000
+    - stencilMask:
+        typeIdx: 9
+        value:
+          id: f4acdebd-7de8-4876-b5b0-00853d282d10
+          sampler:
+            filteringMode: Trilinear
+            wrapModeU: ClampToEdge
+            wrapModeV: ClampToEdge
+            wrapModeW: Repeat
+            borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+            mipmaps: false
+          type: Texture2D
+    - stencilMaskTransform:
+        typeIdx: 7
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000}
+          1: {x: 0.000000, y: 1.000000, z: 0.000000}
+          2: {x: 0.000000, y: 0.000000, z: 1.000000}
     - tintColor:
         typeIdx: 5
         value: {x: 0.000000, y: 0.118212, z: 1.000000, w: 1.000000}
@@ -168,6 +186,9 @@
     []
   BlendMode: Disabled
   Properties:
+    Port_stencilActive_N000:
+      typeIdx: 1
+      value: 0.000000
     PreviewEnabled:
       typeIdx: 0
       value: 0
@@ -177,10 +198,28 @@
     aspectRatio:
       typeIdx: 3
       value: {x: 1.000000, y: 1.000000}
+    currentStencil:
+      typeIdx: 9
+      value:
+        id: f4acdebd-7de8-4876-b5b0-00853d282d10
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: ClampToEdge
+          wrapModeV: ClampToEdge
+          wrapModeW: Repeat
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: false
+        type: Texture2D
+    currentStencilTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
     paintTex:
       typeIdx: 9
       value:
-        id: 00000000-0000-0000-0000-000000000000
+        id: 05577de5-507e-4490-ba2c-68447341c582
         sampler:
           filteringMode: Trilinear
           wrapModeU: Repeat
@@ -213,22 +252,4 @@
     stencilCenter:
       typeIdx: 3
       value: {x: 0.500000, y: 0.500000}
-    stencilMask:
-      typeIdx: 9
-      value:
-        id: f4acdebd-7de8-4876-b5b0-00853d282d10
-        sampler:
-          filteringMode: Trilinear
-          wrapModeU: ClampToEdge
-          wrapModeV: ClampToEdge
-          wrapModeW: Repeat
-          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
-          mipmaps: false
-        type: Texture2D
-    stencilMaskTransform:
-      typeIdx: 7
-      value:
-        0: {x: 1.000000, y: 0.000000, z: 0.000000}
-        1: {x: 0.000000, y: 1.000000, z: 0.000000}
-        2: {x: 0.000000, y: 0.000000, z: 1.000000}
   Pass: !<reference> cd53c47d-2309-4371-b359-b4bbfa16120d
