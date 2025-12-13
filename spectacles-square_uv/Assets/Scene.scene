@@ -5232,7 +5232,7 @@
   ScriptInputsDefault:
     sprayColor: true
     mockStencilRadius: true
-    strokeSpacing: true
+    paintTextureSize: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -5242,7 +5242,7 @@
       sprayRadius: 0.190000
       sprayColor: !<Vec4> {x: 1.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       mockStencilRadius: 0.150000
-      strokeSpacing: 0.010000
+      paintTextureSize: !<float> 256.000000
   ScriptTypes:
     "":
       {}

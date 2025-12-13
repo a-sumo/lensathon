@@ -135,6 +135,18 @@
     mockRadius:
       typeIdx: 1
       value: 10.000000
+    paintTex:
+      typeIdx: 9
+      value:
+        id: 00000000-0000-0000-0000-000000000000
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: Repeat
+          wrapModeV: Repeat
+          wrapModeW: Repeat
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: false
+        type: Texture2D
     sprayActive:
       typeIdx: 1
       value: 1.000000
